@@ -1,0 +1,69 @@
+﻿@{
+    Layout = null;
+    List<Tuple<string, string>> displayColumns = ViewBag.DisplayColumns;
+    List<Dictionary<string, object>> itemList = ViewBag.ItemList;
+    Dictionary<string, bool> configItems = ViewBag.ConfigItems;
+    string queryPickerId = ViewBag.Id;
+}
+
+
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="scrollingtable" @*style=" height: 250px; width: 500px; overflow: auto;"*@>
+        <table id="query_table" class="display cell-border">
+            <thead>
+                <tr>
+                    @if (!configItems["ReadOnly"])
+                    {
+                        <th></th>
+                    }
+                    @foreach (Tuple<string, string> column in @displayColumns)
+                    {
+                        <th>@column.Item2</th>
+                    }
+                    @if (!configItems["HideDetailsView"])
+                    {
+                        <th></th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in itemList)
+                {
+                    if ((Convert.ToBoolean(item["IsEmpty"])) == false)
+                    {
+                        <tr id="@item["BMEId"]" data-name=@item["DisplayName"]>
+                            @if (!configItems["ReadOnly"])
+                            {
+                                if (configItems["IsMultiSelectAllowed"])
+                                { <td><input type="checkbox" name="DisplayPurpose_@queryPickerId" data-idsource="@queryPickerId" value="@item["BMEId"]"></td>
+                            }
+                            else
+                                {
+                                    <td><input type="radio" name="DisplayPurpose_@queryPickerId" data-idsource="@queryPickerId" value="@item["BMEId"]"></td>
+                                }
+                            }
+                            @foreach (var column in displayColumns)
+                            {
+                                if (item[column.Item1] != null)
+                                {
+                                    <td>@item[column.Item1].ToString()</td>
+                                }
+                                else
+                                {
+                                    <td></td>
+                                }
+                            }
+                            @if (!configItems["HideDetailsView"])
+                            {
+                                <td class="details_link">@Resources.SelfServicePortalResources.Details</td>
+                            }
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActionLog" xml:space="preserve">
+    <value>Αρχείο καταγραφής ενεργειών</value>
+  </data>
+  <data name="ActivateRequest" xml:space="preserve">
+    <value>Ενεργοποίηση αίτησης</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Ενεργό</value>
+  </data>
+  <data name="Activities" xml:space="preserve">
+    <value>Δραστηριότητες</value>
+  </data>
+  <data name="ActivityImplementor" xml:space="preserve">
+    <value>Υπεύθυνος εφαρμογής δραστηριότητας</value>
+  </data>
+  <data name="AddComments" xml:space="preserve">
+    <value>Προσθέστε σχόλια εδώ ..</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Όλα</value>
+  </data>
+  <data name="Announcements" xml:space="preserve">
+    <value>Ενεργές ανακοινώσεις</value>
+  </data>
+  <data name="ApprovalStatus" xml:space="preserve">
+    <value>Κατάσταση έγκρισης</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Έγκριση</value>
+  </data>
+  <data name="AssociatedWI" xml:space="preserve">
+    <value>Συσχετισμένο στοιχείο εργασίας</value>
+  </data>
+  <data name="AttachFile" xml:space="preserve">
+    <value>Επισύναψη αρχείου</value>
+  </data>
+  <data name="AttachFiles" xml:space="preserve">
+    <value>Επισύναψη αρχείων</value>
+  </data>
+  <data name="AvailableRequests" xml:space="preserve">
+    <value>Διαθέσιμες αιτήσεις</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Άκυρο</value>
+  </data>
+  <data name="CancelRequest" xml:space="preserve">
+    <value>Ακύρωση αίτησης</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Κλειστό</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Επικοινωνία</value>
+  </data>
+  <data name="CostInformation" xml:space="preserve">
+    <value>Πληροφορίες κόστους</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>Ημερομηνία δημιουργίας</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Περιγραφή</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Λεπτομέρειες</value>
+  </data>
+  <data name="ExpiryDate" xml:space="preserve">
+    <value>Ημερομηνία λήξης</value>
+  </data>
+  <data name="ExternalContent" xml:space="preserve">
+    <value>Εξωτερικό περιεχόμενο</value>
+  </data>
+  <data name="FavHelpArticles" xml:space="preserve">
+    <value>Τα αγαπημένα σας άρθρα βοήθειας</value>
+  </data>
+  <data name="Favorites" xml:space="preserve">
+    <value>Αγαπημένα</value>
+  </data>
+  <data name="FavouriteThis" xml:space="preserve">
+    <value>Προσθήκη στα αγαπημένα</value>
+  </data>
+  <data name="FindByKeywords" xml:space="preserve">
+    <value>Εύρεση βάσει λέξεων-κλειδιών</value>
+  </data>
+  <data name="GenericRequest" xml:space="preserve">
+    <value>Δεν μπορείτε να βρείτε μια λύση στον κατάλογο;</value>
+  </data>
+  <data name="HelpArticles" xml:space="preserve">
+    <value>Άρθρα βοήθειας</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Αρχική</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>Αναγνωριστικό</value>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>Σε εξέλιξη</value>
+  </data>
+  <data name="Instructions" xml:space="preserve">
+    <value>Οδηγίες</value>
+  </data>
+  <data name="InternalContent" xml:space="preserve">
+    <value>Εσωτερικό περιεχόμενο</value>
+  </data>
+  <data name="LastModified" xml:space="preserve">
+    <value>Τελευταία τροποποίηση</value>
+  </data>
+  <data name="LastUpdated" xml:space="preserve">
+    <value>Τελευταία ενημέρωση</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Περιμένετε...</value>
+  </data>
+  <data name="ManualActivity" xml:space="preserve">
+    <value>Μη αυτόματη δραστηριότητα</value>
+  </data>
+  <data name="MarkCompleted" xml:space="preserve">
+    <value>Επισήμανση ολοκλήρωσης</value>
+  </data>
+  <data name="MarkFailed" xml:space="preserve">
+    <value>Επισήμανση αποτυχίας</value>
+  </data>
+  <data name="MostPopular" xml:space="preserve">
+    <value>Πιο δημοφιλή</value>
+  </data>
+  <data name="MyActvities" xml:space="preserve">
+    <value>Οι δραστηριότητές μου</value>
+  </data>
+  <data name="MyRequests" xml:space="preserve">
+    <value>Οι αιτήσεις μου</value>
+  </data>
+  <data name="NavQuestion" xml:space="preserve">
+    <value>Δεν μπορείτε να λύσετε το πρόβλημά σας εδώ;</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Πύλη αυτοεξυπηρέτησης του Service Manager 2019</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Προτεραιότητα</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>Ιδιότητα</value>
+  </data>
+  <data name="QueryPickerMeta" xml:space="preserve">
+    <value>Αυτό το πεδίο εξαρτάται από </value>
+  </data>
+  <data name="RateThis" xml:space="preserve">
+    <value>Αξιολόγηση αυτού του άρθρου</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Ανανέωση</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Απόρριψη</value>
+  </data>
+  <data name="RelatedHelpArticles" xml:space="preserve">
+    <value>Σχετικά άρθρα βοήθειας</value>
+  </data>
+  <data name="RequestOfferings" xml:space="preserve">
+    <value>Προσφορές αιτήσεων</value>
+  </data>
+  <data name="Resolved" xml:space="preserve">
+    <value>Επιλύθηκε</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>Έλεγχος</value>
+  </data>
+  <data name="ReviewActivity" xml:space="preserve">
+    <value>Δραστηριότητα ελέγχου</value>
+  </data>
+  <data name="ReviewAs" xml:space="preserve">
+    <value>Έλεγχος ως</value>
+  </data>
+  <data name="Reviewers" xml:space="preserve">
+    <value>Ελεγκτές</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Αναζήτηση</value>
+  </data>
+  <data name="SearchPlaceHolder" xml:space="preserve">
+    <value>Αναζήτηση στα άρθρα βοήθειας και στις υπηρεσίες</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Αποτελέσματα αναζήτησης για</value>
+  </data>
+  <data name="SeeAll" xml:space="preserve">
+    <value>Εμφάνιση όλων</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Κοινή χρήση</value>
+  </data>
+  <data name="SLAInformation" xml:space="preserve">
+    <value>Πληροφορίες SLA</value>
+  </data>
+  <data name="SubmitForm" xml:space="preserve">
+    <value>Υποβολή</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Τίτλος</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Ενημέρωση</value>
+  </data>
+  <data name="UserInput" xml:space="preserve">
+    <value>Εισαγωγή από το χρήστη</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Τιμή</value>
+  </data>
+  <data name="VotedBy" xml:space="preserve">
+    <value>Ψηφίστηκε από</value>
+  </data>
+  <data name="ActivityArea" xml:space="preserve">
+    <value>Περιοχή δραστηριότητας</value>
+  </data>
+  <data name="ScheduledEndDate" xml:space="preserve">
+    <value>Προγραμματισμένη ημερομηνία λήξης</value>
+  </data>
+  <data name="ScheduledStartDate" xml:space="preserve">
+    <value>Προγραμματισμένη ημερομηνία έναρξης</value>
+  </data>
+  <data name="SortBy" xml:space="preserve">
+    <value>Ταξινόμηση κατά</value>
+  </data>
+  <data name="Stage" xml:space="preserve">
+    <value>Στάδιο</value>
+  </data>
+  <data name="ItemDetails" xml:space="preserve">
+    <value>Λεπτομέρειες στοιχείου</value>
+  </data>
+  <data name="ChooseFile" xml:space="preserve">
+    <value>Επιλογή αρχείου</value>
+  </data>
+  <data name="CreateRequest" xml:space="preserve">
+    <value>Δημιουργία αίτησης</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Κάτοχος</value>
+  </data>
+  <data name="NoSearchRecords" xml:space="preserve">
+    <value>Δεν βρέθηκαν εγγραφές, περιορίστε την αναζήτησή σας</value>
+  </data>
+  <data name="Enteries" xml:space="preserve">
+    <value>Καταχωρήσεις</value>
+  </data>
+  <data name="Filtered" xml:space="preserve">
+    <value>Με φίλτρο</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>Πρώτο</value>
+  </data>
+  <data name="Last" xml:space="preserve">
+    <value>Τελευταίο</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Επόμενο</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Προηγούμενο</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Εμφάνιση</value>
+  </data>
+  <data name="Showing" xml:space="preserve">
+    <value>Εμφάνιση</value>
+  </data>
+  <data name="ActivityUpdateFail" xml:space="preserve">
+    <value>Η ενημέρωση της δραστηριότητάς σας απέτυχε</value>
+  </data>
+  <data name="ActivityUpdateSuccess" xml:space="preserve">
+    <value>Η δραστηριότητά σας ενημερώθηκε με επιτυχία</value>
+  </data>
+  <data name="CantFindSolution" xml:space="preserve">
+    <value>Δεν μπορείτε να βρείτε τη λύση σας εδώ;</value>
+  </data>
+  <data name="KARatingUpdateFailed" xml:space="preserve">
+    <value>Η ενημέρωση της αξιολόγησής σας απέτυχε</value>
+  </data>
+  <data name="KARatingUpdateSuccess" xml:space="preserve">
+    <value>Η αξιολόγησή σας υποβλήθηκε με επιτυχία</value>
+  </data>
+  <data name="Launguage" xml:space="preserve">
+    <value>Γλώσσα</value>
+  </data>
+  <data name="PoweredBy" xml:space="preserve">
+    <value>Παρέχεται από</value>
+  </data>
+  <data name="RequestUpdateFail" xml:space="preserve">
+    <value>Η ενημέρωση της αίτησής σας απέτυχε</value>
+  </data>
+  <data name="RequestUpdateSuccess" xml:space="preserve">
+    <value>Η αίτησή σας ενημερώθηκε με επιτυχία</value>
+  </data>
+  <data name="ServiceCatalog" xml:space="preserve">
+    <value>Κατάλογος υπηρεσιών</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Σχόλιο</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Όνομα</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Κατάσταση</value>
+  </data>
+  <data name="FavoritesDescription" xml:space="preserve">
+    <value>Εμφανίζει λίστες αιτημάτων τις οποίες έχετε επισημάνει ως αγαπημένες στη γρήγορη πρόσβαση</value>
+  </data>
+  <data name="Article" xml:space="preserve">
+    <value>Άρθρο βοήθειας</value>
+  </data>
+  <data name="ActivityStatusEnum_Active" xml:space="preserve">
+    <value>Σε εξέλιξη</value>
+  </data>
+  <data name="ActivityStatusEnum_Cancelled" xml:space="preserve">
+    <value>Ακυρώθηκε</value>
+  </data>
+  <data name="ActivityStatusEnum_Completed" xml:space="preserve">
+    <value>Ολοκληρώθηκε</value>
+  </data>
+  <data name="ActivityStatusEnum_Failed" xml:space="preserve">
+    <value>Απέτυχε</value>
+  </data>
+  <data name="ActivityStatusEnum_OnHold" xml:space="preserve">
+    <value>Σε αναμονή</value>
+  </data>
+  <data name="ActivityStatusEnum_Ready" xml:space="preserve">
+    <value>Σε εκκρεμότητα</value>
+  </data>
+  <data name="ActivityStatusEnum_Rerun" xml:space="preserve">
+    <value>Επανεκτέλεση</value>
+  </data>
+  <data name="ActivityStatusEnum_Skipped" xml:space="preserve">
+    <value>Παραλείφθηκε</value>
+  </data>
+  <data name="Ago" xml:space="preserve">
+    <value>πριν</value>
+  </data>
+  <data name="SeeLess" xml:space="preserve">
+    <value>Εμφάνιση λιγότερων</value>
+  </data>
+  <data name="SeeMore" xml:space="preserve">
+    <value>Εμφάνιση περισσότερων</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>ημέρες</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>ώρες</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>λεπτά</value>
+  </data>
+  <data name="AddedBy" xml:space="preserve">
+    <value>Προσθήκη από</value>
+  </data>
+  <data name="NothingToShowHere" xml:space="preserve">
+    <value>Δεν υπάρχει κάτι για εμφάνιση εδώ...</value>
+  </data>
+  <data name="NoActivitiesFound" xml:space="preserve">
+    <value>Δεν βρέθηκαν δραστηριότητες</value>
+  </data>
+  <data name="NoHelpArticlesFound" xml:space="preserve">
+    <value>Δεν βρέθηκαν άρθρα βοήθειας</value>
+  </data>
+  <data name="NoOfferingsFound" xml:space="preserve">
+    <value>Δεν βρέθηκαν προσφορές</value>
+  </data>
+  <data name="NoRequestsFound" xml:space="preserve">
+    <value>Δεν βρέθηκαν αιτήματα</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Σημειώσεις</value>
+  </data>
+  <data name="AddCommentToActivate" xml:space="preserve">
+    <value>Προσθέστε ένα σχόλιο για να εξηγήσετε την αιτία ενεργοποίησης της αίτησης...</value>
+  </data>
+  <data name="AddCommentToCancel" xml:space="preserve">
+    <value>Προσθέστε ένα σχόλιο για να εξηγήσετε την αιτία ακύρωσης της αίτησης...</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Σχόλια</value>
+  </data>
+  <data name="EmptyQueryTable" xml:space="preserve">
+    <value>Κάντε κλικ στην επιλογή "Ανανέωση" για φόρτωση δεδομένων</value>
+  </data>
+  <data name="AttachedBy" xml:space="preserve">
+    <value>Επισύναψη από</value>
+  </data>
+  <data name="AttachedDate" xml:space="preserve">
+    <value>Ημερομηνία επισύναψης</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>Όνομα αρχείου</value>
+  </data>
+  <data name="AttachedFiles" xml:space="preserve">
+    <value>Συνημμένα αρχεία</value>
+  </data>
+  <data name="HasVeto" xml:space="preserve">
+    <value>Δικαίωμα αρνησικυρίας</value>
+  </data>
+  <data name="MustVote" xml:space="preserve">
+    <value>Υποχρεωτική ψήφος</value>
+  </data>
+  <data name="FileAttachedBy" xml:space="preserve">
+    <value>Επισύναψη αρχείου από</value>
+  </data>
+  <data name="NewRequestCreated" xml:space="preserve">
+    <value>Η νέα αίτηση δημιουργήθηκε με επιτυχία</value>
+  </data>
+  <data name="NewRequestCreationFailedWithParam" xml:space="preserve">
+    <value>Η δημιουργία της αίτησης απέτυχε. {0}</value>
+  </data>
+  <data name="ValidationErrorDateBetween" xml:space="preserve">
+    <value>Η ημερομηνία εισόδου πρέπει να είναι μεταξύ {0} και {1}</value>
+  </data>
+  <data name="ValidationErrorDateGreaterThan" xml:space="preserve">
+    <value>Η ημερομηνία εισόδου πρέπει να είναι μεγαλύτερη από {0}</value>
+  </data>
+  <data name="ValidationErrorDateLesserThan" xml:space="preserve">
+    <value>Η ημερομηνία εισόδου πρέπει να είναι μικρότερη από {0}</value>
+  </data>
+  <data name="ValidationErrorDecimalBetween" xml:space="preserve">
+    <value>Ο δεκαδικός εισόδου πρέπει να είναι μεταξύ {0} και {1}</value>
+  </data>
+  <data name="ValidationErrorFieldRequired" xml:space="preserve">
+    <value>Αυτό το πεδίο είναι απαιτούμενο</value>
+  </data>
+  <data name="ValidationErrorFileSizeExceedsLimit" xml:space="preserve">
+    <value>Το μέγεθος αρχείου υπερβαίνει το ρυθμισμένο όριο των {0} KB</value>
+  </data>
+  <data name="ValidationErrorIntegerBetween" xml:space="preserve">
+    <value>Ο ακέραιος εισόδου πρέπει να είναι μεταξύ {0} και {1}</value>
+  </data>
+  <data name="ValidationErrorInvalidInput" xml:space="preserve">
+    <value>Μη έγκυρα δεδομένα εισόδου</value>
+  </data>
+  <data name="ValidationErrorListNoMultiple" xml:space="preserve">
+    <value>Δεν επιτρέπεται η πολλαπλή επιλογή</value>
+  </data>
+  <data name="ValidationErrorShouldBeDecimal" xml:space="preserve">
+    <value>Τα δεδομένα εισόδου πρέπει να είναι δεκαδικός αριθμός</value>
+  </data>
+  <data name="ValidationErrorShouldBeInteger" xml:space="preserve">
+    <value>Τα δεδομένα εισόδου πρέπει να είναι ακέραιος</value>
+  </data>
+  <data name="ValidationErrorStringBetween" xml:space="preserve">
+    <value>Η συμβολοσειρά εισόδου πρέπει να είναι μεταξύ {0} και {1} χαρακτήρων</value>
+  </data>
+  <data name="ValidationErrorStringInvalidEmail" xml:space="preserve">
+    <value>Τα δεδομένα εισόδου δεν είναι έγκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου</value>
+  </data>
+  <data name="ValidationErrorStringInvalidIntnlNumber" xml:space="preserve">
+    <value>Τα δεδομένα εισόδου δεν είναι έγκυρος διεθνής αριθμός τηλεφώνου</value>
+  </data>
+  <data name="ValidationErrorStringInvalidNumber" xml:space="preserve">
+    <value>Τα δεδομένα εισόδου δεν είναι έγκυρος αριθμός τηλεφώνου</value>
+  </data>
+  <data name="ValidationErrorStringInvalidPattern" xml:space="preserve">
+    <value>Τα δεδομένα εισόδου δεν συμφωνούν με το μοτίβο</value>
+  </data>
+  <data name="ValidationErrorStringInvalidURL" xml:space="preserve">
+    <value>Τα δεδομένα εισόδου δεν είναι έγκυρη διεύθυνση URL</value>
+  </data>
+  <data name="NewRequestCreationFailed" xml:space="preserve">
+    <value>Η δημιουργία αίτησης απέτυχε.</value>
+  </data>
+  <data name="FizeUploadSizeLimit" xml:space="preserve">
+    <value>Βεβαιωθείτε ότι το αρχείο σας είναι μικρότερο από {0} KB</value>
+  </data>
+  <data name="ShowingEntries" xml:space="preserve">
+    <value>Εμφάνιση από {0} έως {1} από {2} καταχωρήσεις</value>
+  </data>
+  <data name="FilteredFrom" xml:space="preserve">
+    <value>Φιλτράρισμα από {0} καταχωρήσεις</value>
+  </data>
+  <data name="ValidationErrorServerSideFileSizeExceedsLimit" xml:space="preserve">
+    <value>Το μέγεθος αρχείου υπερβαίνει το μέγιστο μέγεθος αρχείου {0} : {1} KB</value>
+  </data>
+</root>

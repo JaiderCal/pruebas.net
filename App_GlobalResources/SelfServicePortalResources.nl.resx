@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActionLog" xml:space="preserve">
+    <value>Actielogboek</value>
+  </data>
+  <data name="ActivateRequest" xml:space="preserve">
+    <value>Aanvraag activeren</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Actief</value>
+  </data>
+  <data name="Activities" xml:space="preserve">
+    <value>Activiteiten</value>
+  </data>
+  <data name="ActivityImplementor" xml:space="preserve">
+    <value>Implementeerfunctie voor activiteiten</value>
+  </data>
+  <data name="AddComments" xml:space="preserve">
+    <value>Hier opmerkingen toevoegen ..</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Alles</value>
+  </data>
+  <data name="Announcements" xml:space="preserve">
+    <value>Actieve aankondigingen</value>
+  </data>
+  <data name="ApprovalStatus" xml:space="preserve">
+    <value>Goedkeuringsstatus</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Goedkeuren</value>
+  </data>
+  <data name="AssociatedWI" xml:space="preserve">
+    <value>Gekoppeld werkitem</value>
+  </data>
+  <data name="AttachFile" xml:space="preserve">
+    <value>Bestand bijvoegen</value>
+  </data>
+  <data name="AttachFiles" xml:space="preserve">
+    <value>Bestanden bijvoegen</value>
+  </data>
+  <data name="AvailableRequests" xml:space="preserve">
+    <value>Beschikbare aanvragen</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuleren</value>
+  </data>
+  <data name="CancelRequest" xml:space="preserve">
+    <value>Aanvraag annuleren</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Afgesloten</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Contact opnemen</value>
+  </data>
+  <data name="CostInformation" xml:space="preserve">
+    <value>Kostengegevens</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>Gemaakt op</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Beschrijving</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="ExpiryDate" xml:space="preserve">
+    <value>Vervaldatum</value>
+  </data>
+  <data name="ExternalContent" xml:space="preserve">
+    <value>Externe inhoud</value>
+  </data>
+  <data name="FavHelpArticles" xml:space="preserve">
+    <value>Uw favoriete Help-artikelen</value>
+  </data>
+  <data name="Favorites" xml:space="preserve">
+    <value>Favorieten</value>
+  </data>
+  <data name="FavouriteThis" xml:space="preserve">
+    <value>Dit favoriet maken</value>
+  </data>
+  <data name="FindByKeywords" xml:space="preserve">
+    <value>Zoeken op trefwoorden</value>
+  </data>
+  <data name="GenericRequest" xml:space="preserve">
+    <value>Kunt u geen oplossing vinden in de catalogus?</value>
+  </data>
+  <data name="HelpArticles" xml:space="preserve">
+    <value>Help-artikelen</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>Wordt uitgevoerd</value>
+  </data>
+  <data name="Instructions" xml:space="preserve">
+    <value>Instructies</value>
+  </data>
+  <data name="InternalContent" xml:space="preserve">
+    <value>Interne inhoud</value>
+  </data>
+  <data name="LastModified" xml:space="preserve">
+    <value>Laatst gewijzigd</value>
+  </data>
+  <data name="LastUpdated" xml:space="preserve">
+    <value>Laatst bijgewerkt</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Even geduld...</value>
+  </data>
+  <data name="ManualActivity" xml:space="preserve">
+    <value>Handmatige activiteit</value>
+  </data>
+  <data name="MarkCompleted" xml:space="preserve">
+    <value>Markeren als voltooid</value>
+  </data>
+  <data name="MarkFailed" xml:space="preserve">
+    <value>Markeren als mislukt</value>
+  </data>
+  <data name="MostPopular" xml:space="preserve">
+    <value>Populairst</value>
+  </data>
+  <data name="MyActvities" xml:space="preserve">
+    <value>Mijn activiteiten</value>
+  </data>
+  <data name="MyRequests" xml:space="preserve">
+    <value>Mijn aanvragen</value>
+  </data>
+  <data name="NavQuestion" xml:space="preserve">
+    <value>Kunt u uw probleem hier niet oplossen?</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Selfservice portal voor Service Manager 2019</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Prioriteit</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>Eigenschap</value>
+  </data>
+  <data name="QueryPickerMeta" xml:space="preserve">
+    <value>Dit veld is afhankelijk van </value>
+  </data>
+  <data name="RateThis" xml:space="preserve">
+    <value>Dit artikel beoordelen</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Vernieuwen</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Weigeren</value>
+  </data>
+  <data name="RelatedHelpArticles" xml:space="preserve">
+    <value>Verwante Help-artikelen</value>
+  </data>
+  <data name="RequestOfferings" xml:space="preserve">
+    <value>Aanbiedingen aanvragen</value>
+  </data>
+  <data name="Resolved" xml:space="preserve">
+    <value>Opgelost</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>Controleren</value>
+  </data>
+  <data name="ReviewActivity" xml:space="preserve">
+    <value>Controleactiviteit</value>
+  </data>
+  <data name="ReviewAs" xml:space="preserve">
+    <value>Beoordelen als</value>
+  </data>
+  <data name="Reviewers" xml:space="preserve">
+    <value>Revisor</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Zoeken</value>
+  </data>
+  <data name="SearchPlaceHolder" xml:space="preserve">
+    <value>Zoeken in Help-artikelen en services</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Zoekresultaten voor</value>
+  </data>
+  <data name="SeeAll" xml:space="preserve">
+    <value>Alles weergeven</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Delen</value>
+  </data>
+  <data name="SLAInformation" xml:space="preserve">
+    <value>SLA-gegevens</value>
+  </data>
+  <data name="SubmitForm" xml:space="preserve">
+    <value>Verzenden</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Bijwerken</value>
+  </data>
+  <data name="UserInput" xml:space="preserve">
+    <value>Gebruikersinvoer</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Waarde</value>
+  </data>
+  <data name="VotedBy" xml:space="preserve">
+    <value>Gestemd door</value>
+  </data>
+  <data name="ActivityArea" xml:space="preserve">
+    <value>Activiteitgebied</value>
+  </data>
+  <data name="ScheduledEndDate" xml:space="preserve">
+    <value>Geplande einddatum</value>
+  </data>
+  <data name="ScheduledStartDate" xml:space="preserve">
+    <value>Geplande startdatum</value>
+  </data>
+  <data name="SortBy" xml:space="preserve">
+    <value>Sorteren op</value>
+  </data>
+  <data name="Stage" xml:space="preserve">
+    <value>Fase</value>
+  </data>
+  <data name="ItemDetails" xml:space="preserve">
+    <value>Itemgegevens</value>
+  </data>
+  <data name="ChooseFile" xml:space="preserve">
+    <value>Bestand kiezen</value>
+  </data>
+  <data name="CreateRequest" xml:space="preserve">
+    <value>Aanvraag maken</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Eigenaar</value>
+  </data>
+  <data name="NoSearchRecords" xml:space="preserve">
+    <value>Geen records gevonden. Verfijn uw zoekopdracht</value>
+  </data>
+  <data name="Enteries" xml:space="preserve">
+    <value>Vermeldingen</value>
+  </data>
+  <data name="Filtered" xml:space="preserve">
+    <value>Gefilterd</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>Eerst</value>
+  </data>
+  <data name="Last" xml:space="preserve">
+    <value>Laatste</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Volgende</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Vorige</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Weergeven</value>
+  </data>
+  <data name="Showing" xml:space="preserve">
+    <value>Nu weergegeven</value>
+  </data>
+  <data name="ActivityUpdateFail" xml:space="preserve">
+    <value>De activiteit is niet bijgewerkt</value>
+  </data>
+  <data name="ActivityUpdateSuccess" xml:space="preserve">
+    <value>De activiteit is bijgewerkt</value>
+  </data>
+  <data name="CantFindSolution" xml:space="preserve">
+    <value>Kunt u hier geen oplossing vinden?</value>
+  </data>
+  <data name="KARatingUpdateFailed" xml:space="preserve">
+    <value>De waardering is niet bijgewerkt</value>
+  </data>
+  <data name="KARatingUpdateSuccess" xml:space="preserve">
+    <value>De waardering is verzonden</value>
+  </data>
+  <data name="Launguage" xml:space="preserve">
+    <value>Taal</value>
+  </data>
+  <data name="PoweredBy" xml:space="preserve">
+    <value>Powered by</value>
+  </data>
+  <data name="RequestUpdateFail" xml:space="preserve">
+    <value>De aanvraag is niet bijgewerkt</value>
+  </data>
+  <data name="RequestUpdateSuccess" xml:space="preserve">
+    <value>De aanvraag is bijgewerkt</value>
+  </data>
+  <data name="ServiceCatalog" xml:space="preserve">
+    <value>Servicecatalogus</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Opmerking</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Naam</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="FavoritesDescription" xml:space="preserve">
+    <value>Een lijst met aanvragen wordt weergegeven die u hebt gemarkeerd als favorieten voor snelle toegang</value>
+  </data>
+  <data name="Article" xml:space="preserve">
+    <value>Help-artikel</value>
+  </data>
+  <data name="ActivityStatusEnum_Active" xml:space="preserve">
+    <value>Wordt uitgevoerd</value>
+  </data>
+  <data name="ActivityStatusEnum_Cancelled" xml:space="preserve">
+    <value>Geannuleerd</value>
+  </data>
+  <data name="ActivityStatusEnum_Completed" xml:space="preserve">
+    <value>Voltooid</value>
+  </data>
+  <data name="ActivityStatusEnum_Failed" xml:space="preserve">
+    <value>Mislukt</value>
+  </data>
+  <data name="ActivityStatusEnum_OnHold" xml:space="preserve">
+    <value>In wachtrij</value>
+  </data>
+  <data name="ActivityStatusEnum_Ready" xml:space="preserve">
+    <value>In behandeling</value>
+  </data>
+  <data name="ActivityStatusEnum_Rerun" xml:space="preserve">
+    <value>Opnieuw uitvoeren</value>
+  </data>
+  <data name="ActivityStatusEnum_Skipped" xml:space="preserve">
+    <value>Overgeslagen</value>
+  </data>
+  <data name="Ago" xml:space="preserve">
+    <value>geleden</value>
+  </data>
+  <data name="SeeLess" xml:space="preserve">
+    <value>Minder weergeven</value>
+  </data>
+  <data name="SeeMore" xml:space="preserve">
+    <value>Meer weergeven</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>dagen</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>uur</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>minuten</value>
+  </data>
+  <data name="AddedBy" xml:space="preserve">
+    <value>Toegevoegd door</value>
+  </data>
+  <data name="NothingToShowHere" xml:space="preserve">
+    <value>Er kan niets worden weergegeven ...</value>
+  </data>
+  <data name="NoActivitiesFound" xml:space="preserve">
+    <value>Geen activiteiten gevonden</value>
+  </data>
+  <data name="NoHelpArticlesFound" xml:space="preserve">
+    <value>Geen Help-artikelen gevonden</value>
+  </data>
+  <data name="NoOfferingsFound" xml:space="preserve">
+    <value>Geen aanbiedingen gevonden</value>
+  </data>
+  <data name="NoRequestsFound" xml:space="preserve">
+    <value>Geen aanvragen gevonden</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notities</value>
+  </data>
+  <data name="AddCommentToActivate" xml:space="preserve">
+    <value>Een opmerking toevoegen om uit te leggen waarom de aanvraag wordt geactiveerd...</value>
+  </data>
+  <data name="AddCommentToCancel" xml:space="preserve">
+    <value>Een opmerking toevoegen om uit te leggen waarom de aanvraag wordt geannuleerd..</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Opmerkingen</value>
+  </data>
+  <data name="EmptyQueryTable" xml:space="preserve">
+    <value>Klik op Vernieuwen om gegevens te laden</value>
+  </data>
+  <data name="AttachedBy" xml:space="preserve">
+    <value>Bijgevoegd door</value>
+  </data>
+  <data name="AttachedDate" xml:space="preserve">
+    <value>Datum bijgevoegd</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>Bestandsnaam</value>
+  </data>
+  <data name="AttachedFiles" xml:space="preserve">
+    <value>Bijgevoegde bestanden</value>
+  </data>
+  <data name="HasVeto" xml:space="preserve">
+    <value>Heeft veto</value>
+  </data>
+  <data name="MustVote" xml:space="preserve">
+    <value>Moet stemmen</value>
+  </data>
+  <data name="FileAttachedBy" xml:space="preserve">
+    <value>Bestand bijgevoegd door</value>
+  </data>
+  <data name="NewRequestCreated" xml:space="preserve">
+    <value>Er is een nieuwe aanvraag gemaakt</value>
+  </data>
+  <data name="NewRequestCreationFailedWithParam" xml:space="preserve">
+    <value>Kan de aanvraag niet maken. {0}</value>
+  </data>
+  <data name="ValidationErrorDateBetween" xml:space="preserve">
+    <value>De invoergegevens moeten tussen {0} en {1} liggen</value>
+  </data>
+  <data name="ValidationErrorDateGreaterThan" xml:space="preserve">
+    <value>De invoergegevens moeten groter zijn dan {0}</value>
+  </data>
+  <data name="ValidationErrorDateLesserThan" xml:space="preserve">
+    <value>De invoergegevens moeten kleiner zijn dan {0}</value>
+  </data>
+  <data name="ValidationErrorDecimalBetween" xml:space="preserve">
+    <value>De ingevoerde decimale waarde moet tussen {0} en {1} liggen</value>
+  </data>
+  <data name="ValidationErrorFieldRequired" xml:space="preserve">
+    <value>Dit veld is vereist</value>
+  </data>
+  <data name="ValidationErrorFileSizeExceedsLimit" xml:space="preserve">
+    <value>De bestandsgrootte overschrijdt de geconfigureerd limiet van {0} kB</value>
+  </data>
+  <data name="ValidationErrorIntegerBetween" xml:space="preserve">
+    <value>Het ingevoerde gehele getal moet tussen {0} en {1} liggen</value>
+  </data>
+  <data name="ValidationErrorInvalidInput" xml:space="preserve">
+    <value>Ongeldige invoer</value>
+  </data>
+  <data name="ValidationErrorListNoMultiple" xml:space="preserve">
+    <value>Meerdere selecteren is niet toegestaan</value>
+  </data>
+  <data name="ValidationErrorShouldBeDecimal" xml:space="preserve">
+    <value>De invoer moet een decimaal getal zijn</value>
+  </data>
+  <data name="ValidationErrorShouldBeInteger" xml:space="preserve">
+    <value>De invoer moet een geheel getal zijn</value>
+  </data>
+  <data name="ValidationErrorStringBetween" xml:space="preserve">
+    <value>De invoertekenreeks moet tussen {0} en {1} tekens liggen</value>
+  </data>
+  <data name="ValidationErrorStringInvalidEmail" xml:space="preserve">
+    <value>De invoer is geen geldig e-mailadres</value>
+  </data>
+  <data name="ValidationErrorStringInvalidIntnlNumber" xml:space="preserve">
+    <value>De invoer is geen geldig internationaal telefoonnummer</value>
+  </data>
+  <data name="ValidationErrorStringInvalidNumber" xml:space="preserve">
+    <value>De invoer is geen geldig telefoonnummer</value>
+  </data>
+  <data name="ValidationErrorStringInvalidPattern" xml:space="preserve">
+    <value>De invoer komt niet overeen met het patroon</value>
+  </data>
+  <data name="ValidationErrorStringInvalidURL" xml:space="preserve">
+    <value>De invoer is geen geldige URL</value>
+  </data>
+  <data name="NewRequestCreationFailed" xml:space="preserve">
+    <value>Aanvraag maken is mislukt.</value>
+  </data>
+  <data name="FizeUploadSizeLimit" xml:space="preserve">
+    <value>Zorg dat uw bestand minder dan {0} kB is</value>
+  </data>
+  <data name="ShowingEntries" xml:space="preserve">
+    <value>{0} t/m {1} van {2} items weergeven</value>
+  </data>
+  <data name="FilteredFrom" xml:space="preserve">
+    <value>Gefilterd uit {0} vermeldingen</value>
+  </data>
+  <data name="ValidationErrorServerSideFileSizeExceedsLimit" xml:space="preserve">
+    <value>De bestandsgrootte overschrijdt de limiet voor de maximale grootte van bijlagen van {0} : {1} kB</value>
+  </data>
+</root>

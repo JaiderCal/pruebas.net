@@ -1,0 +1,121 @@
+﻿@{
+    Layout = null;
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('.side_nav_mail_href').attr('href', 'mailto:?to=@System.Web.Configuration.WebConfigurationManager.AppSettings["ITEmail"]');
+
+    });
+
+    var shareAction = function () {
+        $('.side_nav_mail_href').on('click', function (event) {
+            window.location = 'mailto:?to=@System.Web.Configuration.WebConfigurationManager.AppSettings["ITEmail"]';
+        });
+    }
+</script>
+
+<div class="side_nav_bar col side_menu">
+    <a class="side_nav_bar_icon" href="/Home">
+        <div class="row side_nav_home" tabindex="50" data-toggle="tooltip" title="@Resources.SelfServicePortalResources.ServiceCatalog">
+            <span class="icon-Dictionary icon icon-pos icon-medium"></span>
+        </div>
+    </a>
+    <a class="side_nav_bar_icon" href="/MyRequests">
+        <div class="row side_nav_request" tabindex="51" data-toggle="tooltip" title="@Resources.SelfServicePortalResources.MyRequests">
+            <span class="icon-ContactInfo icon icon-pos icon-medium"></span>
+        </div>
+    </a>
+   <!-- <a class="side_nav_bar_icon" href="/MyActivities"> 
+         <div class="row side_nav_activities" tabindex="52" accesskey="W" data-toggle="tooltip" title="@Resources.SelfServicePortalResources.MyActvities"> 
+             <span class="icon-MultiSelectMirrored icon-medium icon-pos icon"></span> 
+             @if (ViewBag.Notications > 0) 
+             { 
+                 <div class="notification"><span class="activities_count">@ViewBag.Notications</span></div> 
+             } 
+         </div> 
+     </a>  -->
+    <a class="side_nav_bar_icon" href="/KnowledgeBase">
+        <div class="row side_nav_help" tabindex="53" accesskey="?" data-toggle="tooltip" title="@Resources.SelfServicePortalResources.HelpArticles">
+            <span class="icon-WhatsThis icon-medium icon-pos icon"></span>
+        </div>
+    </a>
+    <div id="customSidebar">
+    @if (System.IO.File.Exists(Request.MapPath("~/Views/Shared/CustomSidebar.cshtml")))
+    {
+        @Html.Partial("~/Views/Shared/CustomSidebar.cshtml")
+    }
+    </div>
+    <div class="side_nav_bottom">
+        <a class="side_nav_bar_icon">
+            <div class="row side_nav_phone">
+                <span tabindex="54" class="icon-Phone icon-pos icon icon-medium"></span>
+            </div>
+        </a>
+        <a class="side_nav_bar_icon side_nav_mail_href">
+            <div class="row side_nav_mail">
+                <span tabindex="55" class="icon-Mail icon-pos icon icon-medium"></span>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="side_nav_bar_expand col side_menu">
+    <a class="side_nav_bar_icon" href="/Home">
+        <div class="row side_nav_home">
+            <span class="icon-Dictionary icon-medium icon icon-pos"></span>
+            <span class="icon-text icon-text-pos">@Resources.SelfServicePortalResources.ServiceCatalog</span>
+        </div>
+    </a>
+    <a class="side_nav_bar_icon" href="/MyRequests">
+        <div class="row side_nav_request">
+            <span class="icon-ContactInfo icon-medium icon icon-pos"></span>
+            <span class="icon-text icon-text-pos">@Resources.SelfServicePortalResources.MyRequests</span>
+        </div>
+    </a>
+    <!-- <a class="side_nav_bar_icon" href="/MyActivities">
+        <div class="row side_nav_activities">
+            <span class="icon-MultiSelectMirrored icon-medium icon icon-pos"></span>
+            @if (ViewBag.Notications > 0)
+            {
+                <div class="notification"><span class="activities_count">@ViewBag.Notications</span></div>
+            }
+            <span class="icon-text icon-text-pos">@Resources.SelfServicePortalResources.MyActvities</span>
+        </div>
+    </a> -->
+    <a class="side_nav_bar_icon" href="/KnowledgeBase">
+        <div class="row side_nav_help">
+            <span class="icon-WhatsThis icon-medium icon icon-pos"></span>
+            <span class="icon-text icon-text-pos">@Resources.SelfServicePortalResources.HelpArticles </span>
+        </div>
+    </a>
+    <div id="customSidebar">
+        @if (System.IO.File.Exists(Request.MapPath("~/Views/Shared/CustomSidebar.cshtml")))
+        {
+            @Html.Partial("~/Views/Shared/CustomSidebar.cshtml")
+        }
+    </div>
+        <div class="row side_nav_username mobile_view">
+            <span class="icon-Contact icon-medium icon icon-pos"></span>
+            <span class="icon-text icon-text-pos">@Session["UserName"].ToString()</span>
+        </div>
+        <div class="side_nav_bottom">
+            <div class="side_nav_report">
+                <div>@Resources.SelfServicePortalResources.PoweredBy :</div>
+                <img src="~/Content/images/msft_logo.png" alt="Microsoft" style="max-width: 12em;" />
+                <br /><br />
+                <div>@Resources.SelfServicePortalResources.CantFindSolution</div>
+                <div>@Resources.SelfServicePortalResources.ContactUs</div>
+            </div>
+            <div class="row side_nav_phone">
+                <span class="icon-Phone icon-pos icon icon-medium"></span>
+                <span class="icon-text icon-text-pos">@System.Web.Configuration.WebConfigurationManager.AppSettings["ITPhone"]</span>
+            </div>
+            <a class="side_nav_bar_icon side_nav_mail_href">
+                <div class="row side_nav_mail">
+                    <span class="icon-Mail icon-pos icon icon-medium"></span>
+                    <span class="icon-text icon-text-pos">@System.Web.Configuration.WebConfigurationManager.AppSettings["ITEmail"]</span>
+                </div>
+            </a>
+</div>
+</div>

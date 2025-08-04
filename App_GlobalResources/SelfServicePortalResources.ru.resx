@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActionLog" xml:space="preserve">
+    <value>Журнал действий</value>
+  </data>
+  <data name="ActivateRequest" xml:space="preserve">
+    <value>Активировать запрос</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Активно</value>
+  </data>
+  <data name="Activities" xml:space="preserve">
+    <value>Действия</value>
+  </data>
+  <data name="ActivityImplementor" xml:space="preserve">
+    <value>Реализация действий</value>
+  </data>
+  <data name="AddComments" xml:space="preserve">
+    <value>Добавьте комментарии здесь.</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Все</value>
+  </data>
+  <data name="Announcements" xml:space="preserve">
+    <value>Активные объявления</value>
+  </data>
+  <data name="ApprovalStatus" xml:space="preserve">
+    <value>Состояние утверждения</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Утвердить</value>
+  </data>
+  <data name="AssociatedWI" xml:space="preserve">
+    <value>Связанный рабочий элемент</value>
+  </data>
+  <data name="AttachFile" xml:space="preserve">
+    <value>Вложить файл</value>
+  </data>
+  <data name="AttachFiles" xml:space="preserve">
+    <value>Вложить файлы</value>
+  </data>
+  <data name="AvailableRequests" xml:space="preserve">
+    <value>Доступные запросы</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="CancelRequest" xml:space="preserve">
+    <value>Отменить запрос</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Закрыто</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Свяжитесь с нами</value>
+  </data>
+  <data name="CostInformation" xml:space="preserve">
+    <value>Сведения о затратах</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>Дата создания</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Сведения</value>
+  </data>
+  <data name="ExpiryDate" xml:space="preserve">
+    <value>Дата окончания срока действия</value>
+  </data>
+  <data name="ExternalContent" xml:space="preserve">
+    <value>Внешнее содержимое</value>
+  </data>
+  <data name="FavHelpArticles" xml:space="preserve">
+    <value>Статьи справки в избранном</value>
+  </data>
+  <data name="Favorites" xml:space="preserve">
+    <value>Избранное</value>
+  </data>
+  <data name="FavouriteThis" xml:space="preserve">
+    <value>Добавить в избранное</value>
+  </data>
+  <data name="FindByKeywords" xml:space="preserve">
+    <value>Найти по ключевым словам</value>
+  </data>
+  <data name="GenericRequest" xml:space="preserve">
+    <value>Не можете найти решение в каталоге?</value>
+  </data>
+  <data name="HelpArticles" xml:space="preserve">
+    <value>Статьи справки</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Домашняя страница</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>Идентификатор</value>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>Выполняется</value>
+  </data>
+  <data name="Instructions" xml:space="preserve">
+    <value>Инструкции</value>
+  </data>
+  <data name="InternalContent" xml:space="preserve">
+    <value>Внутреннее содержимое</value>
+  </data>
+  <data name="LastModified" xml:space="preserve">
+    <value>Последнее изменение</value>
+  </data>
+  <data name="LastUpdated" xml:space="preserve">
+    <value>Последнее обновление</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Подождите...</value>
+  </data>
+  <data name="ManualActivity" xml:space="preserve">
+    <value>Ручное действие</value>
+  </data>
+  <data name="MarkCompleted" xml:space="preserve">
+    <value>Отметить как завершенное</value>
+  </data>
+  <data name="MarkFailed" xml:space="preserve">
+    <value>Отметить как сбой</value>
+  </data>
+  <data name="MostPopular" xml:space="preserve">
+    <value>Самые популярные</value>
+  </data>
+  <data name="MyActvities" xml:space="preserve">
+    <value>Мои действия</value>
+  </data>
+  <data name="MyRequests" xml:space="preserve">
+    <value>Мои запросы</value>
+  </data>
+  <data name="NavQuestion" xml:space="preserve">
+    <value>Не можете решить здесь свою проблему?</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Портал самообслуживания Service Manager 2019</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Приоритет</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>Свойство</value>
+  </data>
+  <data name="QueryPickerMeta" xml:space="preserve">
+    <value>Это поле зависит от </value>
+  </data>
+  <data name="RateThis" xml:space="preserve">
+    <value>Оцените эту статью.</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Обновить</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Отклонить</value>
+  </data>
+  <data name="RelatedHelpArticles" xml:space="preserve">
+    <value>Связанные статьи справки</value>
+  </data>
+  <data name="RequestOfferings" xml:space="preserve">
+    <value>Запрос предложений</value>
+  </data>
+  <data name="Resolved" xml:space="preserve">
+    <value>Разрешенные</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>Проверка</value>
+  </data>
+  <data name="ReviewActivity" xml:space="preserve">
+    <value>Действие проверки</value>
+  </data>
+  <data name="ReviewAs" xml:space="preserve">
+    <value>Просмотреть как</value>
+  </data>
+  <data name="Reviewers" xml:space="preserve">
+    <value>Рецензенты</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
+  <data name="SearchPlaceHolder" xml:space="preserve">
+    <value>Поиск в службах и статьях справки</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Результаты поиска для</value>
+  </data>
+  <data name="SeeAll" xml:space="preserve">
+    <value>Смотреть все</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Общий доступ</value>
+  </data>
+  <data name="SLAInformation" xml:space="preserve">
+    <value>Сведения о соглашении об уровне обслуживания</value>
+  </data>
+  <data name="SubmitForm" xml:space="preserve">
+    <value>Отправить</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Обновить</value>
+  </data>
+  <data name="UserInput" xml:space="preserve">
+    <value>Ввод пользователя</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Значение</value>
+  </data>
+  <data name="VotedBy" xml:space="preserve">
+    <value>Проголосовано</value>
+  </data>
+  <data name="ActivityArea" xml:space="preserve">
+    <value>Область действия</value>
+  </data>
+  <data name="ScheduledEndDate" xml:space="preserve">
+    <value>Запланированная дата окончания</value>
+  </data>
+  <data name="ScheduledStartDate" xml:space="preserve">
+    <value>Запланированная дата начала</value>
+  </data>
+  <data name="SortBy" xml:space="preserve">
+    <value>Сортировать по</value>
+  </data>
+  <data name="Stage" xml:space="preserve">
+    <value>Стадия</value>
+  </data>
+  <data name="ItemDetails" xml:space="preserve">
+    <value>Сведения об элементе</value>
+  </data>
+  <data name="ChooseFile" xml:space="preserve">
+    <value>Выберите файл</value>
+  </data>
+  <data name="CreateRequest" xml:space="preserve">
+    <value>Создать запрос</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Владелец</value>
+  </data>
+  <data name="NoSearchRecords" xml:space="preserve">
+    <value>Записи не найдены. Уточните условия поиска.</value>
+  </data>
+  <data name="Enteries" xml:space="preserve">
+    <value>Записи</value>
+  </data>
+  <data name="Filtered" xml:space="preserve">
+    <value>Отфильтровано</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>Первый</value>
+  </data>
+  <data name="Last" xml:space="preserve">
+    <value>Последний</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Следующий</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Предыдущий</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Показать</value>
+  </data>
+  <data name="Showing" xml:space="preserve">
+    <value>Отображается</value>
+  </data>
+  <data name="ActivityUpdateFail" xml:space="preserve">
+    <value>Сбой обновления действия</value>
+  </data>
+  <data name="ActivityUpdateSuccess" xml:space="preserve">
+    <value>Действие успешно обновлено</value>
+  </data>
+  <data name="CantFindSolution" xml:space="preserve">
+    <value>Не можете найти здесь свое решение?</value>
+  </data>
+  <data name="KARatingUpdateFailed" xml:space="preserve">
+    <value>Сбой обновления рейтинга</value>
+  </data>
+  <data name="KARatingUpdateSuccess" xml:space="preserve">
+    <value>Рейтинг успешно отправлен</value>
+  </data>
+  <data name="Launguage" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="PoweredBy" xml:space="preserve">
+    <value>На платформе</value>
+  </data>
+  <data name="RequestUpdateFail" xml:space="preserve">
+    <value>Сбой обновления запроса</value>
+  </data>
+  <data name="RequestUpdateSuccess" xml:space="preserve">
+    <value>Запрос успешно обновлен</value>
+  </data>
+  <data name="ServiceCatalog" xml:space="preserve">
+    <value>Каталог служб</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Комментарий</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Состояние</value>
+  </data>
+  <data name="FavoritesDescription" xml:space="preserve">
+    <value>Показывает список запросов, которые вы пометили как избранные для быстрого доступа</value>
+  </data>
+  <data name="Article" xml:space="preserve">
+    <value>Статья справки</value>
+  </data>
+  <data name="ActivityStatusEnum_Active" xml:space="preserve">
+    <value>Выполняется</value>
+  </data>
+  <data name="ActivityStatusEnum_Cancelled" xml:space="preserve">
+    <value>Отменено</value>
+  </data>
+  <data name="ActivityStatusEnum_Completed" xml:space="preserve">
+    <value>Завершено</value>
+  </data>
+  <data name="ActivityStatusEnum_Failed" xml:space="preserve">
+    <value>Сбой</value>
+  </data>
+  <data name="ActivityStatusEnum_OnHold" xml:space="preserve">
+    <value>На удержании</value>
+  </data>
+  <data name="ActivityStatusEnum_Ready" xml:space="preserve">
+    <value>Ожидание</value>
+  </data>
+  <data name="ActivityStatusEnum_Rerun" xml:space="preserve">
+    <value>Перезапустить</value>
+  </data>
+  <data name="ActivityStatusEnum_Skipped" xml:space="preserve">
+    <value>Пропущено</value>
+  </data>
+  <data name="Ago" xml:space="preserve">
+    <value>назад</value>
+  </data>
+  <data name="SeeLess" xml:space="preserve">
+    <value>Меньше</value>
+  </data>
+  <data name="SeeMore" xml:space="preserve">
+    <value>Больше</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>дн.</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>ч.</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>мин.</value>
+  </data>
+  <data name="AddedBy" xml:space="preserve">
+    <value>Кем добавлено:</value>
+  </data>
+  <data name="NothingToShowHere" xml:space="preserve">
+    <value>Ничего не найдено...</value>
+  </data>
+  <data name="NoActivitiesFound" xml:space="preserve">
+    <value>Действия не найдены</value>
+  </data>
+  <data name="NoHelpArticlesFound" xml:space="preserve">
+    <value>Справочные статьи не найдены</value>
+  </data>
+  <data name="NoOfferingsFound" xml:space="preserve">
+    <value>Предложения не найдены</value>
+  </data>
+  <data name="NoRequestsFound" xml:space="preserve">
+    <value>Запросы не найдены</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Заметки</value>
+  </data>
+  <data name="AddCommentToActivate" xml:space="preserve">
+    <value>Добавьте комментарий, поясняющий, почему активируется запрос.</value>
+  </data>
+  <data name="AddCommentToCancel" xml:space="preserve">
+    <value>Добавьте комментарий, поясняющий, почему отменяется запрос.</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Комментарии</value>
+  </data>
+  <data name="EmptyQueryTable" xml:space="preserve">
+    <value>Щелкните "Обновить", чтобы загрузить данные</value>
+  </data>
+  <data name="AttachedBy" xml:space="preserve">
+    <value>Кем вложено</value>
+  </data>
+  <data name="AttachedDate" xml:space="preserve">
+    <value>Дата вложения</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>Имя файла</value>
+  </data>
+  <data name="AttachedFiles" xml:space="preserve">
+    <value>Вложенные файлы</value>
+  </data>
+  <data name="HasVeto" xml:space="preserve">
+    <value>Имеет вето</value>
+  </data>
+  <data name="MustVote" xml:space="preserve">
+    <value>Должен голосовать</value>
+  </data>
+  <data name="FileAttachedBy" xml:space="preserve">
+    <value>Кем вложены файлы</value>
+  </data>
+  <data name="NewRequestCreated" xml:space="preserve">
+    <value>Новый запрос успешно создан</value>
+  </data>
+  <data name="NewRequestCreationFailedWithParam" xml:space="preserve">
+    <value>Сбой при создании запроса. {0}</value>
+  </data>
+  <data name="ValidationErrorDateBetween" xml:space="preserve">
+    <value>Входное значение даты должно находиться в диапазоне от {0} до {1}</value>
+  </data>
+  <data name="ValidationErrorDateGreaterThan" xml:space="preserve">
+    <value>Входное значение даты должно быть больше {0}</value>
+  </data>
+  <data name="ValidationErrorDateLesserThan" xml:space="preserve">
+    <value>Входное значение даты должно быть меньше {0}</value>
+  </data>
+  <data name="ValidationErrorDecimalBetween" xml:space="preserve">
+    <value>Входное десятичное значение должно находиться в диапазоне от {0} до {1}</value>
+  </data>
+  <data name="ValidationErrorFieldRequired" xml:space="preserve">
+    <value>Это обязательное поле</value>
+  </data>
+  <data name="ValidationErrorFileSizeExceedsLimit" xml:space="preserve">
+    <value>Размер файла превышает заданный предел в {0} КБ</value>
+  </data>
+  <data name="ValidationErrorIntegerBetween" xml:space="preserve">
+    <value>Входное целое значение должно находиться в диапазоне от {0} до {1}</value>
+  </data>
+  <data name="ValidationErrorInvalidInput" xml:space="preserve">
+    <value>Входное значение недопустимо</value>
+  </data>
+  <data name="ValidationErrorListNoMultiple" xml:space="preserve">
+    <value>Множественный выбор запрещен</value>
+  </data>
+  <data name="ValidationErrorShouldBeDecimal" xml:space="preserve">
+    <value>Входное значение должно быть десятичным числом</value>
+  </data>
+  <data name="ValidationErrorShouldBeInteger" xml:space="preserve">
+    <value>Входное значение должно быть целым числом</value>
+  </data>
+  <data name="ValidationErrorStringBetween" xml:space="preserve">
+    <value>Число символов во входной строке должно находиться в диапазоне от {0} до {1}</value>
+  </data>
+  <data name="ValidationErrorStringInvalidEmail" xml:space="preserve">
+    <value>Входное значение не является допустимым адресом электронной почты</value>
+  </data>
+  <data name="ValidationErrorStringInvalidIntnlNumber" xml:space="preserve">
+    <value>Входное значение не является допустимым международным номером телефона</value>
+  </data>
+  <data name="ValidationErrorStringInvalidNumber" xml:space="preserve">
+    <value>Входное значение не является допустимым номером телефона</value>
+  </data>
+  <data name="ValidationErrorStringInvalidPattern" xml:space="preserve">
+    <value>Входное значение не соответствует шаблону</value>
+  </data>
+  <data name="ValidationErrorStringInvalidURL" xml:space="preserve">
+    <value>Входное значение не является допустимым URL-адресом</value>
+  </data>
+  <data name="NewRequestCreationFailed" xml:space="preserve">
+    <value>Не удалось создать запрос.</value>
+  </data>
+  <data name="FizeUploadSizeLimit" xml:space="preserve">
+    <value>Убедитесь, что файл меньше {0} КБ</value>
+  </data>
+  <data name="ShowingEntries" xml:space="preserve">
+    <value>Показаны записи с {0} по {1} из {2}.</value>
+  </data>
+  <data name="FilteredFrom" xml:space="preserve">
+    <value>Отфильтровано из следующего числа записей: {0}</value>
+  </data>
+  <data name="ValidationErrorServerSideFileSizeExceedsLimit" xml:space="preserve">
+    <value>Размер файла превышает максимальный размер вложения {0}: {1} КБ</value>
+  </data>
+</root>

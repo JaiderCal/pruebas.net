@@ -1,0 +1,75 @@
+﻿@{
+    Layout = null;
+    Dictionary<string, Tuple<string, string, object>> propertiesList = ViewBag.ItemDetailsList;
+}
+
+
+
+<!DOCTYPE html>
+
+@*<head>
+        <title>@Resources.SelfServicePortalResources.ItemDetails</title>
+
+        <script src="js/jquery.min.js"></script>
+        <!-- DataTables CSS -->
+        <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
+        <!-- DataTables -->
+        <script type="text/javascript" charset="utf8" src="js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript">
+
+            // TODO: Try to move this code to header.
+
+            // While changing page's language, we need to resend all the POST data again
+            //  to resume our operation. This is done by adding all that data as hidden inputs.
+            $(document).ready(function () {
+
+                var width = $(window).width();
+                if (width < 786) {
+                    $('#item_details_table').DataTable({
+                        searching: false,
+                        ordering: false,
+                        "scrollY": "25em",
+                        "scrollCollapse": true,
+                    });
+                } else {
+                    $('#item_details_table').DataTable({
+                        searching: false,
+                        ordering: false,
+                        "scrollY": "40em",
+                        "scrollCollapse": true,
+                    });
+                }
+
+
+
+            });
+        </script>
+
+    </head>*@
+<table id="item_details_table" class="cell-border">
+    <thead>
+        <tr>
+            <th>@Resources.SelfServicePortalResources.Property</th>
+
+            <th>@Resources.SelfServicePortalResources.Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var property in propertiesList)
+        {
+            <tr>
+                <td>@property.Value.Item1</td>
+                @if (property.Value.Item3.ToString() != "(null)")
+                {
+                    <td>@property.Value.Item3</td>
+                }
+                else
+                {
+                    <td>-</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+

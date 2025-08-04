@@ -1,0 +1,283 @@
+﻿@using Microsoft.EnterpriseManagement.NewSMPortal.SDKTransformer.SMPortalHelper;
+
+@{
+    Dictionary<string, object> item = ViewBag.ArticleDetails;
+    string relationshipId = ViewBag.relationshipId;
+
+    // Result Dependent Computation
+    var item_rating = ((List<object>)item["Rating"])[0] as Dictionary<string, object>;
+    string rating = item["AverageRating"].ToString();
+    string internalData = item["InternalDataHTML"].ToString();
+    string userRating = "input#rating" + item["UserRating"].ToString();
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 900);
+            });
+
+            if ('@relationshipId' != '') {
+                $('.fav_this').find('.icon').removeClass('icon-HeartLegacy').addClass('icon-HeartFillLegacy').addClass('icon-fill');
+                $('div.favorites').children('img').first().attr({ 'src': 'images/favFilled.png' });
+                $('div.favorites').children('img').first().attr({ 'title': 'Click to remove from your Favorites List' });
+                $('div.favorites').children('img').first().attr({ 'id': 'RemoveFav' });
+            }
+
+            //$('div.banner').load('header.cshtml');
+            $('@userRating').attr({ "checked": "checked" });
+
+            $('.starRating').keydown(function (event) {
+                var keycode = event.keyCode || event.which;
+                var selectedStars = 0;
+                switch (keycode) {
+                    case 37: // left
+                        selectedStars--;
+                        break;
+
+                    case 39: // right
+                        selectedStars++;
+                        break;
+                    case 13: //enter key
+                        $('form.commentStar').children('input#userRating').attr({ 'value': selectedStars });
+                        $('form.commentStar').submit();
+                        break;
+                    default: return;
+                }
+                event.preventDefault();
+            });
+            $('form.commentStar').on('submit', function (event) {
+                event.preventDefault();
+                pageLoaderAction('show');
+                $.ajax({
+                    url: $(this).attr("action"),
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    beforeSend: function () {
+                    },
+                    success: function (data) {
+                        pageLoaderAction('hide');
+                        $('div.transbox > div > p').html(data);
+
+                        showTossNotification("@Html.Raw(Resources.SelfServicePortalResources.KARatingUpdateSuccess)", function () {
+                            var link = "/KnowledgeBase/article/" + '@item["ArticleId"]';
+                            $(location).attr('href', link);
+
+                        });
+                    },
+                    error: function (data) {
+                        pageLoaderAction('hide');
+                        $('@userRating').attr({ "checked": "checked" });
+                        showTossNotification("@Html.Raw(Resources.SelfServicePortalResources.KARatingUpdateFailed)", function () { });
+                    }
+                });
+            });
+
+            favIconAction();
+            shareAction();
+            backHelpNav();
+            sideMenuAction();
+            mobileActions();
+        });
+
+        var mobileActions = function () {
+            var width = $(window).width();
+            if (width < 786) {
+                $('body').find('.help_details div').css({ 'width': '100%' });
+            } else {
+                $('body').find('.help_details div').css({ 'width': '' });
+            }
+        }
+
+        var backHelpNav = function () {
+            $('.back_help_nav').on('click', function (event) {
+                $(location).attr('href', 'KnowledgeBase');
+            });
+        }
+
+        var shareAction = function () {
+
+            try{
+                $('.share_this').on('click', function (event) {
+                    window.location = 'mailto:?subject=@item["Title"]&body=@item["Title"]: ' + window.location;
+                });
+                $('.share_this').keydown(function (event) {
+                    var keycode = event.keyCode || event.which;
+                    if (keycode == '13') {
+                        window.location = 'mailto:?subject=@item["Title"]&body=@item["Title"]: ' + window.location;
+                    }
+                });
+            }
+                catch (e) {}
+            }
+       
+            var favIconAction = function (event) {
+                $('.fav_this').on('click', function (event) {
+                    favIconActionHelper($(this), event);
+                });
+                $('.fav_this').keydown(function (event) {
+                    var keycode = event.keyCode || event.which;
+                    if (keycode == '13') {
+                        favIconActionHelper($(this), event);
+                    }
+                });
+            }
+
+            var favIconActionHelper = function (that, event) {
+                pageLoaderAction('show');
+                var favDiv = that;
+
+                //If it is not already favourited
+                if (favDiv.find('.icon').hasClass('icon-HeartLegacy')) {
+                    $.ajax({
+                        url: "/SelfServicePortalBase/EditFavorites",
+                        type: "POST",
+                        data: { "guid": '@item["BMEId"]', "type": '@SMPortalHelper.FavoritesTarget.KnowledgeArticles', "action": "add" },
+                        success: function (data) {
+                            //Fill the fav icon
+                            $('.fav_this').find('.icon').removeClass('icon-HeartLegacy').addClass('icon-HeartFillLegacy').addClass('icon-fill');
+                            pageLoaderAction('hide');
+                        },
+                        error: function (data) {
+
+                        }
+                    });
+                }
+                else {
+                    $.ajax({
+                        url: "/SelfServicePortalBase/EditFavorites",
+                        type: "POST",
+                        data: { "relationshipId": '@relationshipId', "type": '@SMPortalHelper.FavoritesTarget.KnowledgeArticles', "action": "delete" },
+                        success: function (data) {
+                            //Fill the fav icon
+                            $('.fav_this').find('.icon').addClass('icon-HeartLegacy').removeClass('icon-HeartFillLegacy').removeClass('icon-fill');
+                            pageLoaderAction('hide');
+                        },
+                        error: function (data) {
+
+                        }
+                    });
+                }
+            }
+            sideMenuAction = function () {
+                $('.side_menu').find('.side_nav_help').css('background-color', '#255F85');
+            }
+
+            function helpRate(id) {
+                $('form.commentStar').children('input#userRating').attr({ 'value': id.value });
+                $('form.commentStar').submit();
+            }
+
+            function toggleStatus() {
+                if ('@userRating' == 'input#rating0') {
+                    $('span.starRating :input').removeAttr('disabled');
+                } else {
+                    $('span.starRating :input').attr('disabled', true);
+                }
+            }
+    </script>
+    <!--start-smoth-scrolling-->
+</head>
+<body class="main_body gutters">
+    <div class="help_div_container col span_23 outer top_bar_margin side_bar_margin page">
+        <div class="help_heading span_22 section">
+            <div class="row">
+                <div class="col span_24 heading">
+                    <span tabindex="100">@item["Title"]</span>
+                    <span class="fav_this">
+                        <span class="icon-HeartLegacy icon" tabindex="101" data-toggle="tooltip" title="@Resources.SelfServicePortalResources.FavouriteThis"></span>
+                    </span>
+                    <span class="share_this">
+                        <span class="icon-Share icon" tabindex="102" data-toggle="tooltip" title="@Resources.SelfServicePortalResources.Share"></span>
+                    </span>
+                </div>
+            </div>
+            <div style="font-size:1.25em;">
+                <div>
+                    @{
+                        int rating_result = 0;
+                        if (Int32.TryParse(rating, out rating_result))
+                        {
+                            for (int i = 0; i < rating_result; i++)
+                            {
+                                <span class="icon-SolidStarLegacy icon-orange-fill"></span>
+                            }
+                        }
+                        for (int i = rating_result; i < 5; i++)
+                        {
+                            <span class="icon-OutlineStarLegacy"></span>
+                        }
+                    }
+
+                    @*<p id="showRating">@rating</p>*@
+                </div>
+            </div>
+        </div>
+
+        <div class="help_details section">
+            <div class="help_details_item clr">
+                <div class="col span_10"><span style="color:#808080;">@Resources.SelfServicePortalResources.ID:</span>@item["ArticleId"]</div>
+                <div class="col span_10"><span style="color:#808080;">@Resources.SelfServicePortalResources.CreatedDate:</span><span class="utc-date">@DateTime.Parse(item["CreatedDate"].ToString()).ToString("yyyy,M,d,H,m,s")</span></div>
+            </div>
+            <div class="help_details_item clr">
+                <div class="col span_10"><span style="color:#808080;">@Resources.SelfServicePortalResources.Owner:</span>@item["CreatedBy"]</div>
+            </div>
+        </div>
+        <div class="help_desc section">
+            <div class="row sub_heading">@Resources.SelfServicePortalResources.Description</div>
+            <p>
+                @item["Abstract"]
+            </p>
+        </div>
+        <div class="help_internal_content section">
+            <div class="row sub_heading">@Resources.SelfServicePortalResources.InternalContent</div>
+            <div>
+                @Html.Raw(internalData)
+            </div>
+        </div>
+        <div class="help_external_content section">
+            @if (item["ExternalURL"] != null)
+            {
+                <div class="row sub_heading">@Resources.SelfServicePortalResources.ExternalContent</div>
+                <div>
+                    <a class="href_text" href="@item["ExternalURL"]" target="_blank" style="font-size:1.25em;">@item["ExternalURL"]</a>
+                </div>
+            }
+        </div>
+        <hr>
+        <div class="rating_section">
+            <div class="row sub_heading">@Resources.SelfServicePortalResources.RateThis</div>
+            <span class="starRating" tabindex="110">
+                <input id="rating5" type="radio" name="rating" value="5" onclick="helpRate(this)">
+                <label for="rating5">5</label>
+                <input id="rating4" type="radio" name="rating" value="4" onclick="helpRate(this)">
+                <label for="rating4">4</label>
+                <input id="rating3" type="radio" name="rating" value="3" onclick="helpRate(this)">
+                <label for="rating3">3</label>
+                <input id="rating2" type="radio" name="rating" value="2" onclick="helpRate(this)">
+                <label for="rating2">2</label>
+                <input id="rating1" type="radio" name="rating" value="1" onclick="helpRate(this)">
+                <label for="rating1">1</label>
+            </span>
+
+            <form class="commentStar" method="post" action="~/KnowledgeBase/UpdateRatings">
+                @*<label for="userComment" id="userCommentLabel" hidden>@ResourceName.GetString("MiscComments", CultureObject)</label>*@
+                <input id="userComment" name="userComment" type="hidden" placeholder="@Resources.SelfServicePortalResources.AddComments">
+                <input type="hidden" id="userRating" name="userRating" value="">
+                <input type="hidden" id="BMEId" name="guid" value='@item_rating["BMEId"]'>
+                <input type="hidden" id="TotalRatingCount" name="ratingCount" value='@item_rating["TotalRatingCount"]'>
+                <input type="hidden" id="TotalRatingStars" name="ratingStars" value='@item_rating["TotalRatingStars"]'>
+                <input type="hidden" id="RatingComments" name="comments" value='@item_rating["RatingComments"]'>
+                <input type="submit" id="submitButton" value="Submit Rating" style="display:none;">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActionLog" xml:space="preserve">
+    <value>Eylem Günlüğü</value>
+  </data>
+  <data name="ActivateRequest" xml:space="preserve">
+    <value>Etkinleştirme İsteği</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Etkin</value>
+  </data>
+  <data name="Activities" xml:space="preserve">
+    <value>Etkinlikler</value>
+  </data>
+  <data name="ActivityImplementor" xml:space="preserve">
+    <value>Etkinlik Uygulayıcısı</value>
+  </data>
+  <data name="AddComments" xml:space="preserve">
+    <value>Yorumları buraya ekleyin...</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Tümü</value>
+  </data>
+  <data name="Announcements" xml:space="preserve">
+    <value>Etkin Duyurular</value>
+  </data>
+  <data name="ApprovalStatus" xml:space="preserve">
+    <value>Onay Durumu</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Onayla</value>
+  </data>
+  <data name="AssociatedWI" xml:space="preserve">
+    <value>İlişkili iş öğesi</value>
+  </data>
+  <data name="AttachFile" xml:space="preserve">
+    <value>Dosya Ekle</value>
+  </data>
+  <data name="AttachFiles" xml:space="preserve">
+    <value>Dosyaları Ekle</value>
+  </data>
+  <data name="AvailableRequests" xml:space="preserve">
+    <value>Kullanılabilir İstekler</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="CancelRequest" xml:space="preserve">
+    <value>İptal İsteği</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Kapalı</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Bize Ulaşın</value>
+  </data>
+  <data name="CostInformation" xml:space="preserve">
+    <value>Maliyet Bilgileri</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>Oluşturulma Tarihi</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Ayrıntılar</value>
+  </data>
+  <data name="ExpiryDate" xml:space="preserve">
+    <value>Bitiş Tarihi</value>
+  </data>
+  <data name="ExternalContent" xml:space="preserve">
+    <value>Dış İçerik</value>
+  </data>
+  <data name="FavHelpArticles" xml:space="preserve">
+    <value>Sık Kullanılan yardım makaleleriniz</value>
+  </data>
+  <data name="Favorites" xml:space="preserve">
+    <value>Sık Kullanılanlar</value>
+  </data>
+  <data name="FavouriteThis" xml:space="preserve">
+    <value>Bunu Sık Kullanılanlara ekle</value>
+  </data>
+  <data name="FindByKeywords" xml:space="preserve">
+    <value>Anahtar sözcüklere göre bul</value>
+  </data>
+  <data name="GenericRequest" xml:space="preserve">
+    <value>Katalogda çözüm bulamıyor musunuz?</value>
+  </data>
+  <data name="HelpArticles" xml:space="preserve">
+    <value>Yardım Makaleleri</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Giriş</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>Kimlik</value>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>Sürüyor</value>
+  </data>
+  <data name="Instructions" xml:space="preserve">
+    <value>Yönergeler</value>
+  </data>
+  <data name="InternalContent" xml:space="preserve">
+    <value>İç İçerik</value>
+  </data>
+  <data name="LastModified" xml:space="preserve">
+    <value>Son Değiştirme</value>
+  </data>
+  <data name="LastUpdated" xml:space="preserve">
+    <value>Son Güncelleştirme</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Bekleyin...</value>
+  </data>
+  <data name="ManualActivity" xml:space="preserve">
+    <value>El ile Etkinlik</value>
+  </data>
+  <data name="MarkCompleted" xml:space="preserve">
+    <value>Tamamlandı Olarak İşaretle</value>
+  </data>
+  <data name="MarkFailed" xml:space="preserve">
+    <value>Başarısız Olarak İşaretle</value>
+  </data>
+  <data name="MostPopular" xml:space="preserve">
+    <value>En Popüler</value>
+  </data>
+  <data name="MyActvities" xml:space="preserve">
+    <value>Etkinliklerim</value>
+  </data>
+  <data name="MyRequests" xml:space="preserve">
+    <value>İsteklerim</value>
+  </data>
+  <data name="NavQuestion" xml:space="preserve">
+    <value>Sorununuzu burada gideremiyor musunuz?</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Service Manager 2019 Self Servis Portalı</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Öncelik</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>Özellik</value>
+  </data>
+  <data name="QueryPickerMeta" xml:space="preserve">
+    <value>Bu alan şuna bağlıdır: </value>
+  </data>
+  <data name="RateThis" xml:space="preserve">
+    <value>Bu makaleyi değerlendirin</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Yenile</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Reddet</value>
+  </data>
+  <data name="RelatedHelpArticles" xml:space="preserve">
+    <value>İlgili Yardım Makaleleri</value>
+  </data>
+  <data name="RequestOfferings" xml:space="preserve">
+    <value>İstek Teklifleri</value>
+  </data>
+  <data name="Resolved" xml:space="preserve">
+    <value>Çözümlendi</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>Gözden Geçir</value>
+  </data>
+  <data name="ReviewActivity" xml:space="preserve">
+    <value>Etkinliği Gözden Geçir</value>
+  </data>
+  <data name="ReviewAs" xml:space="preserve">
+    <value>Gözden geçir</value>
+  </data>
+  <data name="Reviewers" xml:space="preserve">
+    <value>Gözden Geçirenler</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Ara</value>
+  </data>
+  <data name="SearchPlaceHolder" xml:space="preserve">
+    <value>Yardım Makalelerinde ve Hizmetlerde Ara</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Şunun İçin Arama Sonuçları:</value>
+  </data>
+  <data name="SeeAll" xml:space="preserve">
+    <value>Tümünü Gör</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Paylaş</value>
+  </data>
+  <data name="SLAInformation" xml:space="preserve">
+    <value>SLA Bilgileri</value>
+  </data>
+  <data name="SubmitForm" xml:space="preserve">
+    <value>Gönder</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Başlık</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Güncelleştir</value>
+  </data>
+  <data name="UserInput" xml:space="preserve">
+    <value>Kullanıcı Girişi</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Değer</value>
+  </data>
+  <data name="VotedBy" xml:space="preserve">
+    <value>Oylayan</value>
+  </data>
+  <data name="ActivityArea" xml:space="preserve">
+    <value>Etkinlik Alanı</value>
+  </data>
+  <data name="ScheduledEndDate" xml:space="preserve">
+    <value>Zamanlanan Bitiş Tarihi</value>
+  </data>
+  <data name="ScheduledStartDate" xml:space="preserve">
+    <value>Zamanlanan Başlangıç Tarihi</value>
+  </data>
+  <data name="SortBy" xml:space="preserve">
+    <value>Sıralama Ölçütü</value>
+  </data>
+  <data name="Stage" xml:space="preserve">
+    <value>Aşama</value>
+  </data>
+  <data name="ItemDetails" xml:space="preserve">
+    <value>Öğe Ayrıntıları</value>
+  </data>
+  <data name="ChooseFile" xml:space="preserve">
+    <value>Dosya Seç</value>
+  </data>
+  <data name="CreateRequest" xml:space="preserve">
+    <value>İstek Oluştur</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Sahibi</value>
+  </data>
+  <data name="NoSearchRecords" xml:space="preserve">
+    <value>Kayıt bulunamadı, lütfen aramanızı daraltın</value>
+  </data>
+  <data name="Enteries" xml:space="preserve">
+    <value>Girdiler</value>
+  </data>
+  <data name="Filtered" xml:space="preserve">
+    <value>Filtre Uygulanmış</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>Birinci</value>
+  </data>
+  <data name="Last" xml:space="preserve">
+    <value>Son</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>İleri</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Önceki</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Göster</value>
+  </data>
+  <data name="Showing" xml:space="preserve">
+    <value>Gösterilen</value>
+  </data>
+  <data name="ActivityUpdateFail" xml:space="preserve">
+    <value>Etkinliğiniz güncelleştirilemedi</value>
+  </data>
+  <data name="ActivityUpdateSuccess" xml:space="preserve">
+    <value>Etkinliğiniz başarıyla güncelleştirildi</value>
+  </data>
+  <data name="CantFindSolution" xml:space="preserve">
+    <value>Çözümünüzü burada bulamıyor musunuz?</value>
+  </data>
+  <data name="KARatingUpdateFailed" xml:space="preserve">
+    <value>Değerlendirmeniz güncelleştirilemedi</value>
+  </data>
+  <data name="KARatingUpdateSuccess" xml:space="preserve">
+    <value>Değerlendirmeniz başarıyla gönderildi</value>
+  </data>
+  <data name="Launguage" xml:space="preserve">
+    <value>Dil</value>
+  </data>
+  <data name="PoweredBy" xml:space="preserve">
+    <value>Sağlayan:</value>
+  </data>
+  <data name="RequestUpdateFail" xml:space="preserve">
+    <value>İsteğiniz güncelleştirilemedi</value>
+  </data>
+  <data name="RequestUpdateSuccess" xml:space="preserve">
+    <value>İsteğiniz başarıyla güncelleştirildi</value>
+  </data>
+  <data name="ServiceCatalog" xml:space="preserve">
+    <value>Servis Kataloğu</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ad</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Durum</value>
+  </data>
+  <data name="FavoritesDescription" xml:space="preserve">
+    <value>Hızlı erişim için sık kullanılanlara eklediğiniz İsteklerin listesini gösterir</value>
+  </data>
+  <data name="Article" xml:space="preserve">
+    <value>Yardım Makalesi</value>
+  </data>
+  <data name="ActivityStatusEnum_Active" xml:space="preserve">
+    <value>Sürüyor</value>
+  </data>
+  <data name="ActivityStatusEnum_Cancelled" xml:space="preserve">
+    <value>İptal edildi</value>
+  </data>
+  <data name="ActivityStatusEnum_Completed" xml:space="preserve">
+    <value>Tamamlandı</value>
+  </data>
+  <data name="ActivityStatusEnum_Failed" xml:space="preserve">
+    <value>Başarısız</value>
+  </data>
+  <data name="ActivityStatusEnum_OnHold" xml:space="preserve">
+    <value>Beklemede</value>
+  </data>
+  <data name="ActivityStatusEnum_Ready" xml:space="preserve">
+    <value>Bekliyor</value>
+  </data>
+  <data name="ActivityStatusEnum_Rerun" xml:space="preserve">
+    <value>Yeniden çalıştır</value>
+  </data>
+  <data name="ActivityStatusEnum_Skipped" xml:space="preserve">
+    <value>Geçildi</value>
+  </data>
+  <data name="Ago" xml:space="preserve">
+    <value>önce</value>
+  </data>
+  <data name="SeeLess" xml:space="preserve">
+    <value>Daha az göster</value>
+  </data>
+  <data name="SeeMore" xml:space="preserve">
+    <value>Daha fazla göster</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>gün</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>saat</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>dakika</value>
+  </data>
+  <data name="AddedBy" xml:space="preserve">
+    <value>Ekleyen</value>
+  </data>
+  <data name="NothingToShowHere" xml:space="preserve">
+    <value>Burada Gösterilecek Öğe Yok ...</value>
+  </data>
+  <data name="NoActivitiesFound" xml:space="preserve">
+    <value>Etkinlik bulunamadı</value>
+  </data>
+  <data name="NoHelpArticlesFound" xml:space="preserve">
+    <value>Yardım Makalesi bulunamadı</value>
+  </data>
+  <data name="NoOfferingsFound" xml:space="preserve">
+    <value>Teklif bulunamadı</value>
+  </data>
+  <data name="NoRequestsFound" xml:space="preserve">
+    <value>İstek bulunamadı</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notlar</value>
+  </data>
+  <data name="AddCommentToActivate" xml:space="preserve">
+    <value>Olayın neden etkinleştirildiğini belirten bir açıklama ekleyin.</value>
+  </data>
+  <data name="AddCommentToCancel" xml:space="preserve">
+    <value>Olayın neden iptal edildiğini belirten bir açıklama ekleyin.</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Açıklamalar</value>
+  </data>
+  <data name="EmptyQueryTable" xml:space="preserve">
+    <value>Veri yüklemek için "Yenile"ye tıklayın</value>
+  </data>
+  <data name="AttachedBy" xml:space="preserve">
+    <value>Ekleyen</value>
+  </data>
+  <data name="AttachedDate" xml:space="preserve">
+    <value>Eklenme Tarihi</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>Dosya Adı</value>
+  </data>
+  <data name="AttachedFiles" xml:space="preserve">
+    <value>Ekli Dosyalar</value>
+  </data>
+  <data name="HasVeto" xml:space="preserve">
+    <value>Veto Hakkına Sahip</value>
+  </data>
+  <data name="MustVote" xml:space="preserve">
+    <value>Oylanmalı</value>
+  </data>
+  <data name="FileAttachedBy" xml:space="preserve">
+    <value>Dosyayı Ekleyen:</value>
+  </data>
+  <data name="NewRequestCreated" xml:space="preserve">
+    <value>Yeni İstek Başarıyla Oluşturuldu</value>
+  </data>
+  <data name="NewRequestCreationFailedWithParam" xml:space="preserve">
+    <value>İstek oluşturulamadı. {0}</value>
+  </data>
+  <data name="ValidationErrorDateBetween" xml:space="preserve">
+    <value>Giriş tarihi {0} ve {1} arasında olmalıdır</value>
+  </data>
+  <data name="ValidationErrorDateGreaterThan" xml:space="preserve">
+    <value>Giriş tarihi {0} değerinden büyük olmalıdır</value>
+  </data>
+  <data name="ValidationErrorDateLesserThan" xml:space="preserve">
+    <value>Giriş tarihi {0} değerinden küçük olmalıdır</value>
+  </data>
+  <data name="ValidationErrorDecimalBetween" xml:space="preserve">
+    <value>Giriş ondalığı {0} ve {1} arasında olmalıdır</value>
+  </data>
+  <data name="ValidationErrorFieldRequired" xml:space="preserve">
+    <value>Bu alan gereklidir</value>
+  </data>
+  <data name="ValidationErrorFileSizeExceedsLimit" xml:space="preserve">
+    <value>Dosya boyutu {0} KB olarak yapılandırılan sınırı aşıyor</value>
+  </data>
+  <data name="ValidationErrorIntegerBetween" xml:space="preserve">
+    <value>Giriş tamsayısı {0} ve {1} arasında olmalıdır</value>
+  </data>
+  <data name="ValidationErrorInvalidInput" xml:space="preserve">
+    <value>Geçersiz giriş</value>
+  </data>
+  <data name="ValidationErrorListNoMultiple" xml:space="preserve">
+    <value>Çoklu seçime izin verilmiyor</value>
+  </data>
+  <data name="ValidationErrorShouldBeDecimal" xml:space="preserve">
+    <value>Giriş ondalık bir sayı olmalıdır</value>
+  </data>
+  <data name="ValidationErrorShouldBeInteger" xml:space="preserve">
+    <value>Giriş bir tamsayı olmalıdır</value>
+  </data>
+  <data name="ValidationErrorStringBetween" xml:space="preserve">
+    <value>Giriş dizesi {0} ile {1} karakter arasında olmalıdır</value>
+  </data>
+  <data name="ValidationErrorStringInvalidEmail" xml:space="preserve">
+    <value>Giriş geçerli bir e-posta adresi değil</value>
+  </data>
+  <data name="ValidationErrorStringInvalidIntnlNumber" xml:space="preserve">
+    <value>Giriş geçerli bir uluslararası telefon numarası değil</value>
+  </data>
+  <data name="ValidationErrorStringInvalidNumber" xml:space="preserve">
+    <value>Giriş geçerli bir telefon numarası değil</value>
+  </data>
+  <data name="ValidationErrorStringInvalidPattern" xml:space="preserve">
+    <value>Giriş desenle eşleşmiyor</value>
+  </data>
+  <data name="ValidationErrorStringInvalidURL" xml:space="preserve">
+    <value>Giriş geçerli bir URL değil</value>
+  </data>
+  <data name="NewRequestCreationFailed" xml:space="preserve">
+    <value>İstek oluşturma başarısız.</value>
+  </data>
+  <data name="FizeUploadSizeLimit" xml:space="preserve">
+    <value>Dosyanızın {0} KB altında olduğundan emin olun</value>
+  </data>
+  <data name="ShowingEntries" xml:space="preserve">
+    <value>{2} girişten {0} ile {1} arasındakiler gösteriliyor</value>
+  </data>
+  <data name="FilteredFrom" xml:space="preserve">
+    <value>{0} girişten filtrelendi</value>
+  </data>
+  <data name="ValidationErrorServerSideFileSizeExceedsLimit" xml:space="preserve">
+    <value>Dosya boyutu En Yüksek Ek Boyutunu ({0}) aşıyor : {1} KB</value>
+  </data>
+</root>

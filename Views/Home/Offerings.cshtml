@@ -1,0 +1,90 @@
+﻿@{
+    List<Dictionary<string, object>> favoriteOfferings = ViewBag.FavoriteOfferings;
+    List<Dictionary<string, object>> serviceOfferings = ViewBag.ServiceOfferings;
+
+    int tabindexCounter = 110;
+}
+<html>
+<head>
+    <script type="text/javascript">
+
+        function OnSearchOrFilter() {
+            searchText = $('#searchRequest').val();
+            $.each($('.list_data_item'), function (i, div) {
+                $(this).show();
+                var title = $(this).find('.list_data_item_desc').first().text();
+                var id = $(this).find('.list_data_item_overview').first().text();
+                if ((title.search(new RegExp(searchText, "i")) == -1) && (id.search(new RegExp(searchText, "i")) == -1)) {
+                    $(this).hide();
+                }
+            });
+            if ($(window).width() > 1023) {
+                $('.home_div_container .list_data_item:visible').first().trigger('click');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="home_div_container col side_bar_margin  top_bar_margin span_24" style="display:block;">
+        <div class="my_activity_list clr vertical_list" aria-label="@Resources.SelfServicePortalResources.ServiceCatalog" tabindex="100">
+            <div class="list_header">
+                <div class="list_main_heading list_heading clr">
+                    <div class="col span_20">@Resources.SelfServicePortalResources.ServiceCatalog</div>
+                    <span class="icon-Filter filter_search" style="position: absolute; right: 1.25em; color: #fff; font-size: 0.75em; top: 1.25em; cursor: pointer;" tabindex ="101"></span>
+                    <div class="col">
+                        <input type="search" placeholder="@Resources.SelfServicePortalResources.FindByKeywords" name="searchRequest" id="searchRequest" style="display:none;" oninput="OnSearchOrFilter()" tabindex="102">
+                    </div>
+                </div>
+            </div>
+            <div class="list_data_items">
+                @if ((favoriteOfferings.Count == 0) && (serviceOfferings.Count == 0))
+                {
+                    <div class="list_data_item_desc">
+                        @Resources.SelfServicePortalResources.NoOfferingsFound
+                    </div>
+                }
+                @if (favoriteOfferings.Count > 0)
+                {
+                    <div class="list_data_item" tabindex="@tabindexCounter.ToString()">
+                        <div class="list_data_item_desc">
+                            @Resources.SelfServicePortalResources.Favorites
+                        </div>
+                        <div class="list_data_item_overview" style="padding: 1px;">
+                            @Resources.SelfServicePortalResources.FavoritesDescription
+                        </div>
+                    </div>
+                    tabindexCounter++;
+                }
+                @foreach (var item in serviceOfferings)
+                {
+                    var requestOfferings = item["TargetOffering"] as List<object>;
+
+                    <div class="list_data_item" tabindex="@tabindexCounter.ToString()" data-id="@item["BMEId"]" data-toggle="tooltip" title="@item["BriefDescription"]">
+                        <div class="list_data_item_desc">
+                            @item["Title"]
+                        </div>
+                            <div class="list_data_item_overview">
+                            @Html.Raw(item["BriefDescription"])
+                         </div>
+                    </div>
+                    tabindexCounter++;
+                }
+            </div>
+            <div class="list_footer clr vertical_list">
+                @if (ViewBag.genericRequestBMEID != string.Empty)
+                {
+                    <div class="row new_generic_request" style="margin-left: 4.25%;">
+                        <form action="/Home/Makeform" method="post">
+                            <span style="line-height: 1.67em;">@Resources.SelfServicePortalResources.GenericRequest</span>
+                            <input type="hidden" name="BMEId" id="BMEId" hidden value="@ViewBag.genericRequestBMEID">
+                            <input type="hidden" name="DisplayName" id="DisplayName" hidden value="@ViewBag.genericRequestTitle">
+                            <button tabindex="100" class="btn" style="font-size: 1em;">@Resources.SelfServicePortalResources.CreateRequest</button>
+                        </form>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="my_req_item home_list_item_page col span_17"></div>
+    </div>
+</body>
+</html>

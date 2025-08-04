@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActionLog" xml:space="preserve">
+    <value>Protokol akcí</value>
+  </data>
+  <data name="ActivateRequest" xml:space="preserve">
+    <value>Aktivovat žádost</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Aktivní</value>
+  </data>
+  <data name="Activities" xml:space="preserve">
+    <value>Aktivity</value>
+  </data>
+  <data name="ActivityImplementor" xml:space="preserve">
+    <value>Implementor aktivit</value>
+  </data>
+  <data name="AddComments" xml:space="preserve">
+    <value>Sem přidejte komentáře.</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Vše</value>
+  </data>
+  <data name="Announcements" xml:space="preserve">
+    <value>Aktivní oznámení</value>
+  </data>
+  <data name="ApprovalStatus" xml:space="preserve">
+    <value>Stav schválení</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Schválit</value>
+  </data>
+  <data name="AssociatedWI" xml:space="preserve">
+    <value>Přidružená pracovní položka</value>
+  </data>
+  <data name="AttachFile" xml:space="preserve">
+    <value>Připojit soubor</value>
+  </data>
+  <data name="AttachFiles" xml:space="preserve">
+    <value>Připojit soubory</value>
+  </data>
+  <data name="AvailableRequests" xml:space="preserve">
+    <value>Dostupné žádosti</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Zrušit</value>
+  </data>
+  <data name="CancelRequest" xml:space="preserve">
+    <value>Zrušit žádost</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Uzavřené</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Kontakt</value>
+  </data>
+  <data name="CostInformation" xml:space="preserve">
+    <value>Informace o nákladech</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>Datum vytvoření</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Popis</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Podrobnosti</value>
+  </data>
+  <data name="ExpiryDate" xml:space="preserve">
+    <value>Datum konce platnosti</value>
+  </data>
+  <data name="ExternalContent" xml:space="preserve">
+    <value>Externí obsah</value>
+  </data>
+  <data name="FavHelpArticles" xml:space="preserve">
+    <value>Vaše oblíbené články nápovědy</value>
+  </data>
+  <data name="Favorites" xml:space="preserve">
+    <value>Oblíbené</value>
+  </data>
+  <data name="FavouriteThis" xml:space="preserve">
+    <value>Označit jako oblíbené</value>
+  </data>
+  <data name="FindByKeywords" xml:space="preserve">
+    <value>Najít podle klíčových slov</value>
+  </data>
+  <data name="GenericRequest" xml:space="preserve">
+    <value>Nemůžete najít řešení v Katalogu?</value>
+  </data>
+  <data name="HelpArticles" xml:space="preserve">
+    <value>Články nápovědy</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Domů</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>Probíhá</value>
+  </data>
+  <data name="Instructions" xml:space="preserve">
+    <value>Pokyny</value>
+  </data>
+  <data name="InternalContent" xml:space="preserve">
+    <value>Interní obsah</value>
+  </data>
+  <data name="LastModified" xml:space="preserve">
+    <value>Naposledy změněno</value>
+  </data>
+  <data name="LastUpdated" xml:space="preserve">
+    <value>Naposledy aktualizováno</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Chvilku strpení...</value>
+  </data>
+  <data name="ManualActivity" xml:space="preserve">
+    <value>Ruční aktivita</value>
+  </data>
+  <data name="MarkCompleted" xml:space="preserve">
+    <value>Označit jako dokončené</value>
+  </data>
+  <data name="MarkFailed" xml:space="preserve">
+    <value>Označit jako chybné</value>
+  </data>
+  <data name="MostPopular" xml:space="preserve">
+    <value>Nejoblíbenější</value>
+  </data>
+  <data name="MyActvities" xml:space="preserve">
+    <value>Moje aktivity</value>
+  </data>
+  <data name="MyRequests" xml:space="preserve">
+    <value>Moje žádosti</value>
+  </data>
+  <data name="NavQuestion" xml:space="preserve">
+    <value>Nemůžete vyřešit problém tady?</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Samoobslužný portál Service Manager 2019</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Priorita</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>Vlastnost</value>
+  </data>
+  <data name="QueryPickerMeta" xml:space="preserve">
+    <value>Toto pole závisí na </value>
+  </data>
+  <data name="RateThis" xml:space="preserve">
+    <value>Ohodnoťte tento článek.</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Obnovit</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Odmítnout</value>
+  </data>
+  <data name="RelatedHelpArticles" xml:space="preserve">
+    <value>Související články nápovědy</value>
+  </data>
+  <data name="RequestOfferings" xml:space="preserve">
+    <value>Nabídky žádostí</value>
+  </data>
+  <data name="Resolved" xml:space="preserve">
+    <value>Vyřešeno</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>Kontrola</value>
+  </data>
+  <data name="ReviewActivity" xml:space="preserve">
+    <value>Kontrolní aktivita</value>
+  </data>
+  <data name="ReviewAs" xml:space="preserve">
+    <value>Napsat recenzi jako</value>
+  </data>
+  <data name="Reviewers" xml:space="preserve">
+    <value>Revidující</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Hledat</value>
+  </data>
+  <data name="SearchPlaceHolder" xml:space="preserve">
+    <value>Hledat v článcích nápovědy a službách</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Výsledky hledání pro</value>
+  </data>
+  <data name="SeeAll" xml:space="preserve">
+    <value>Zobrazit vše</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Sdílet</value>
+  </data>
+  <data name="SLAInformation" xml:space="preserve">
+    <value>Informace o smlouvě SLA</value>
+  </data>
+  <data name="SubmitForm" xml:space="preserve">
+    <value>Odeslat</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Název</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Aktualizovat</value>
+  </data>
+  <data name="UserInput" xml:space="preserve">
+    <value>Uživatelský vstup</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Hodnota</value>
+  </data>
+  <data name="VotedBy" xml:space="preserve">
+    <value>Hlasovali</value>
+  </data>
+  <data name="ActivityArea" xml:space="preserve">
+    <value>Oblast aktivity</value>
+  </data>
+  <data name="ScheduledEndDate" xml:space="preserve">
+    <value>Plánované koncové datum</value>
+  </data>
+  <data name="ScheduledStartDate" xml:space="preserve">
+    <value>Plánované počáteční datum</value>
+  </data>
+  <data name="SortBy" xml:space="preserve">
+    <value>Řadit podle</value>
+  </data>
+  <data name="Stage" xml:space="preserve">
+    <value>Fáze</value>
+  </data>
+  <data name="ItemDetails" xml:space="preserve">
+    <value>Detaily položky</value>
+  </data>
+  <data name="ChooseFile" xml:space="preserve">
+    <value>Vybrat soubor</value>
+  </data>
+  <data name="CreateRequest" xml:space="preserve">
+    <value>Vytvořit žádost</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Vlastník</value>
+  </data>
+  <data name="NoSearchRecords" xml:space="preserve">
+    <value>Nenašly se žádné záznamy, upřesněte prosím hledání.</value>
+  </data>
+  <data name="Enteries" xml:space="preserve">
+    <value>Položky</value>
+  </data>
+  <data name="Filtered" xml:space="preserve">
+    <value>Filtrované</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>První</value>
+  </data>
+  <data name="Last" xml:space="preserve">
+    <value>Poslední</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Další</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Předchozí</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Zobrazit</value>
+  </data>
+  <data name="Showing" xml:space="preserve">
+    <value>Zobrazeno</value>
+  </data>
+  <data name="ActivityUpdateFail" xml:space="preserve">
+    <value>Nepovedlo se aktualizovat vaši aktivitu.</value>
+  </data>
+  <data name="ActivityUpdateSuccess" xml:space="preserve">
+    <value>Vaši aktivitu se podařilo úspěšně aktualizovat.</value>
+  </data>
+  <data name="CantFindSolution" xml:space="preserve">
+    <value>Nedaří se vám tady najít řešení?</value>
+  </data>
+  <data name="KARatingUpdateFailed" xml:space="preserve">
+    <value>Nepovedlo se aktualizovat vaše hodnocení.</value>
+  </data>
+  <data name="KARatingUpdateSuccess" xml:space="preserve">
+    <value>Vaše hodnocení se úspěšně poslalo.</value>
+  </data>
+  <data name="Launguage" xml:space="preserve">
+    <value>Jazyk</value>
+  </data>
+  <data name="PoweredBy" xml:space="preserve">
+    <value>Používá technologii</value>
+  </data>
+  <data name="RequestUpdateFail" xml:space="preserve">
+    <value>Nepovedlo se aktualizovat vaši žádost.</value>
+  </data>
+  <data name="RequestUpdateSuccess" xml:space="preserve">
+    <value>Vaši žádost se podařilo úspěšně aktualizovat.</value>
+  </data>
+  <data name="ServiceCatalog" xml:space="preserve">
+    <value>Katalog služeb</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Komentář</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Název</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stav</value>
+  </data>
+  <data name="FavoritesDescription" xml:space="preserve">
+    <value>Zobrazuje seznam žádostí, které jste označili jako oblíbené položky, abyste k nim měli rychlý přístup.</value>
+  </data>
+  <data name="Article" xml:space="preserve">
+    <value>Článek nápovědy</value>
+  </data>
+  <data name="ActivityStatusEnum_Active" xml:space="preserve">
+    <value>Probíhá</value>
+  </data>
+  <data name="ActivityStatusEnum_Cancelled" xml:space="preserve">
+    <value>Zrušeno</value>
+  </data>
+  <data name="ActivityStatusEnum_Completed" xml:space="preserve">
+    <value>Dokončeno</value>
+  </data>
+  <data name="ActivityStatusEnum_Failed" xml:space="preserve">
+    <value>Nezdařilo se</value>
+  </data>
+  <data name="ActivityStatusEnum_OnHold" xml:space="preserve">
+    <value>Blokování</value>
+  </data>
+  <data name="ActivityStatusEnum_Ready" xml:space="preserve">
+    <value>Čeká na dokončení</value>
+  </data>
+  <data name="ActivityStatusEnum_Rerun" xml:space="preserve">
+    <value>Opětovné spuštění</value>
+  </data>
+  <data name="ActivityStatusEnum_Skipped" xml:space="preserve">
+    <value>Vynecháno</value>
+  </data>
+  <data name="Ago" xml:space="preserve">
+    <value>zpátky</value>
+  </data>
+  <data name="SeeLess" xml:space="preserve">
+    <value>Méně</value>
+  </data>
+  <data name="SeeMore" xml:space="preserve">
+    <value>Více</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>dnů</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>hod</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="AddedBy" xml:space="preserve">
+    <value>Přidal(a)</value>
+  </data>
+  <data name="NothingToShowHere" xml:space="preserve">
+    <value>Nic tu není...</value>
+  </data>
+  <data name="NoActivitiesFound" xml:space="preserve">
+    <value>Nenašly se žádné aktivity</value>
+  </data>
+  <data name="NoHelpArticlesFound" xml:space="preserve">
+    <value>Nenašly se žádné články nápovědy</value>
+  </data>
+  <data name="NoOfferingsFound" xml:space="preserve">
+    <value>Nenašly se žádné nabídky</value>
+  </data>
+  <data name="NoRequestsFound" xml:space="preserve">
+    <value>Nenašly se žádné žádosti</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Poznámky</value>
+  </data>
+  <data name="AddCommentToActivate" xml:space="preserve">
+    <value>Přidejte komentář s vysvětlením, proč se žádost aktivuje.</value>
+  </data>
+  <data name="AddCommentToCancel" xml:space="preserve">
+    <value>Přidejte komentář s vysvětlením, proč se žádost ruší.</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Komentáře</value>
+  </data>
+  <data name="EmptyQueryTable" xml:space="preserve">
+    <value>Pokud chcete načíst data, klikněte na Obnovit.</value>
+  </data>
+  <data name="AttachedBy" xml:space="preserve">
+    <value>Připojil</value>
+  </data>
+  <data name="AttachedDate" xml:space="preserve">
+    <value>Datum připojení</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>Název souboru</value>
+  </data>
+  <data name="AttachedFiles" xml:space="preserve">
+    <value>Připojené soubory</value>
+  </data>
+  <data name="HasVeto" xml:space="preserve">
+    <value>Může vetovat</value>
+  </data>
+  <data name="MustVote" xml:space="preserve">
+    <value>Musí hlasovat</value>
+  </data>
+  <data name="FileAttachedBy" xml:space="preserve">
+    <value>Soubor připojil</value>
+  </data>
+  <data name="NewRequestCreated" xml:space="preserve">
+    <value>Podařilo se úspěšně vytvořit novou žádost.</value>
+  </data>
+  <data name="NewRequestCreationFailedWithParam" xml:space="preserve">
+    <value>Žádost se nepodařilo vytvořit. {0}</value>
+  </data>
+  <data name="ValidationErrorDateBetween" xml:space="preserve">
+    <value>Zadané datum by mělo být mezi {0} a {1}</value>
+  </data>
+  <data name="ValidationErrorDateGreaterThan" xml:space="preserve">
+    <value>Zadané datum by mělo být větší než {0}</value>
+  </data>
+  <data name="ValidationErrorDateLesserThan" xml:space="preserve">
+    <value>Zadané datum by mělo být menší než {0}</value>
+  </data>
+  <data name="ValidationErrorDecimalBetween" xml:space="preserve">
+    <value>Zadané desetinné číslo by mělo být mezi {0} a {1}.</value>
+  </data>
+  <data name="ValidationErrorFieldRequired" xml:space="preserve">
+    <value>Toto pole je povinné.</value>
+  </data>
+  <data name="ValidationErrorFileSizeExceedsLimit" xml:space="preserve">
+    <value>Velikost souboru přesahuje nakonfigurovaný limit {0} kB.</value>
+  </data>
+  <data name="ValidationErrorIntegerBetween" xml:space="preserve">
+    <value>Zadané celé číslo by mělo být mezi {0} a {1}.</value>
+  </data>
+  <data name="ValidationErrorInvalidInput" xml:space="preserve">
+    <value>Neplatné zadání</value>
+  </data>
+  <data name="ValidationErrorListNoMultiple" xml:space="preserve">
+    <value>Vícenásobný výběr není povolený</value>
+  </data>
+  <data name="ValidationErrorShouldBeDecimal" xml:space="preserve">
+    <value>Mělo by být zadané desetinné číslo</value>
+  </data>
+  <data name="ValidationErrorShouldBeInteger" xml:space="preserve">
+    <value>Mělo by být zadané celé číslo.</value>
+  </data>
+  <data name="ValidationErrorStringBetween" xml:space="preserve">
+    <value>Zadaný řetězec by měl mít {0} až {1} znaků</value>
+  </data>
+  <data name="ValidationErrorStringInvalidEmail" xml:space="preserve">
+    <value>Není zadaná platná e-mailová adresa</value>
+  </data>
+  <data name="ValidationErrorStringInvalidIntnlNumber" xml:space="preserve">
+    <value>Není zadané platné mezinárodní telefonní číslo</value>
+  </data>
+  <data name="ValidationErrorStringInvalidNumber" xml:space="preserve">
+    <value>Není zadané platné telefonní číslo</value>
+  </data>
+  <data name="ValidationErrorStringInvalidPattern" xml:space="preserve">
+    <value>Zadání se neshoduje se vzorem</value>
+  </data>
+  <data name="ValidationErrorStringInvalidURL" xml:space="preserve">
+    <value>Není zadaná platná adresa URL</value>
+  </data>
+  <data name="NewRequestCreationFailed" xml:space="preserve">
+    <value>Vytvoření žádosti selhalo.</value>
+  </data>
+  <data name="FizeUploadSizeLimit" xml:space="preserve">
+    <value>Zajistěte, aby byl soubor menší než {0} kB.</value>
+  </data>
+  <data name="ShowingEntries" xml:space="preserve">
+    <value>Zobrazuje se {0} až {1} z celkem {2} položek</value>
+  </data>
+  <data name="FilteredFrom" xml:space="preserve">
+    <value>Filtrováno z {0} položek</value>
+  </data>
+  <data name="ValidationErrorServerSideFileSizeExceedsLimit" xml:space="preserve">
+    <value>Velikost souboru přesahuje maximální velikost přílohy {0}: {1} kB</value>
+  </data>
+</root>

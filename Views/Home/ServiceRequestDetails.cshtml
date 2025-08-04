@@ -1,0 +1,136 @@
+﻿@{
+    Layout = null;
+
+    Dictionary<string, object> soDetails = ViewBag.ServiceOfferingsDetails;
+    List<object> KAs = ViewBag.KnowledgeArticles;
+    List<Dictionary<string, object>> requestOfferings = ViewBag.RequestOfferingsDetails;
+
+    string placeholderbase64string = "data:image/png;base64,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";
+    int tabindexCounter = 500;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $('.tile').keydown(function (event) {
+            var keycode = event.keyCode || event.which;
+            if (keycode == '13') {
+                $(this).find('form#formLink').submit();
+            }
+        });
+    });
+</script>
+<body class="main_body gutters">
+    <div class="fav_div_container home_page" style="padding-left:1em;">
+        @if (soDetails.ContainsKey("DisplayName"))
+        {
+            <div class="fav_heading span_19 section">
+                <div class="row">
+                    <div class="col heading">
+                        <span>@soDetails["DisplayName"]</span>
+                    </div>
+                </div>
+            </div>
+        }
+        @if (soDetails.ContainsKey("Overview"))
+        {
+            @:<div class="fav_desc section">
+                @:<div class="row sub_heading">@Resources.SelfServicePortalResources.Description</div>
+                @:<p>@soDetails["Overview"]</p>
+                @:</div>
+        }
+        @if (KAs.Count != 0)
+        {
+            @:<div class="fav_help_articles section">
+                @:<div class="row sub_heading">@Resources.SelfServicePortalResources.RelatedHelpArticles</div>
+                foreach (var KA in KAs)
+                {
+                    Dictionary<string, object> item = KA as Dictionary<string, object>;
+                    <a class="href_text" tabindex="@tabindexCounter.ToString()" href='KnowledgeBase/Article/@item["ArticleId"]'>@item["Title"]</a>
+                    tabindexCounter++;
+                }
+                @:</div>
+        }
+
+
+        @if (@soDetails.ContainsKey("CostInformation") && (@soDetails["CostInformation"] != null))
+        {
+            @:<div class="cost_info section">
+                <div class="row sub_heading">@Resources.SelfServicePortalResources.CostInformation</div>
+                <p>@soDetails["CostInformation"]</p>
+            if (@soDetails["SLAInformationLink"] != null)
+            {
+                @:<a class="href_text" tabindex="@tabindexCounter.ToString()" href='@soDetails["SLAInformationLink"]' style="font-size:1em;"> @soDetails["SLAInformationLink"]</a>
+                    tabindexCounter++;
+            }
+            @:</div>
+        }
+
+        @if (@soDetails.ContainsKey("SLAInformation") && (@soDetails["SLAInformation"] != null))
+        {
+            @:<div class="cost_info section">
+                <div class="row sub_heading">@Resources.SelfServicePortalResources.SLAInformation</div>
+                <p>@soDetails["SLAInformation"]</p>
+
+            if (@soDetails["CostInformationLink"] != null)
+            {
+                @:<a class="href_text" tabindex="@tabindexCounter.ToString()" href='@soDetails["CostInformationLink"]' style="font-size:1em;"> @soDetails["CostInformationLink"]</a>
+                     tabindexCounter++;
+            }
+            @:</div>
+        }
+
+        @if (requestOfferings.Count != 0)
+        {
+            <div class="fav_help_articles section">
+                @if (soDetails.ContainsKey("DisplayName"))
+                {
+                    <hr>
+                    <div class="row sub_heading">@Resources.SelfServicePortalResources.AvailableRequests</div>
+                }
+                <div class="tile_container">
+                    @for (int i = 0; i < requestOfferings.Count; i++)
+                    {
+                        Dictionary<string, object> requestOffering = requestOfferings[i] as Dictionary<string, object>;
+
+                        <div class="tile" tabindex="@tabindexCounter.ToString()" data-toggle="tooltip" title="@requestOffering["BriefDescription"]">
+                            <form action="/Home/Makeform" id="formLink" class="formLink" method="post">
+                                <div class="row title">
+                                    <div class="text">@requestOffering["Title"]</div>
+                                    <div class="col image">
+                                    @if (requestOffering["ImageBase64"].ToString().Length == 0)
+                                    {
+                                        <img src="@placeholderbase64string" alt="@requestOffering["Title"]" style="width:3.5em; height:3.5em;" />
+                                    }
+                                    else
+                                    {
+                                        <img src="@requestOffering["ImageBase64"].ToString()" alt="@requestOffering["Title"]" style="width:3.5em; height:3.5em;" />
+                                    }
+                                    </div>
+                                </div>
+                                <div class="row description">
+                                    <div class="text">@requestOffering["BriefDescription"]</div>
+                                </div>
+                                @if (requestOffering["fav"] == "true")
+                                {
+                                    <span class="icon-HeartFillLegacy icon-fill icon"></span>
+                                }
+                                else
+                                {
+                                    <span class="icon-HeartLegacy icon-fill icon"></span>
+                                }
+                                <input type="hidden" name="BMEId" id="BMEId" hidden value="@requestOffering["BMEId"]" />
+                            </form>
+                        </div>
+                        tabindexCounter++;
+                    }
+
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>

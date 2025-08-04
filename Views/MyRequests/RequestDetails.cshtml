@@ -1,0 +1,392 @@
+﻿@{
+    bool external = false;
+    if (ViewBag.URLSource == "External")
+    {
+        external = true;
+    }
+    else
+    {
+        Layout = null;
+    }
+    Dictionary<string, object> requestEntry = ViewBag.RequestDetails;
+    List<Dictionary<string, object>> logList = ViewBag.LogsList;
+    List<Dictionary<string, object>> attachedFilesList = ViewBag.AttachedFiles;
+    List<Dictionary<string, object>> relatedActivities = ViewBag.RelatedActivites;
+    int maxRequestLengthinBytes = ViewBag.MaxRequestLength * 1024;
+    string changeStatusButtonText = ViewBag.ActionText;
+    string guid = ViewBag.Guid;
+    string status = ViewBag.Status;
+    string updateResult = ViewBag.UpdateResult;
+    string reqType = ViewBag.RequestType;
+    string changeStatusCommentPlaceholder = string.Empty;
+
+    bool logListExtend = logList.Count > 3 ? true : false;
+    List<Dictionary<string, object>> logListPreview;
+    if (logListExtend)
+    {
+        logListPreview = logList.GetRange(0, 3);
+    }
+    else
+    {
+        logListPreview = logList;
+    }
+    
+    if (changeStatusButtonText != null)
+    {
+        if (changeStatusButtonText.Equals("ActivateRequest"))
+        {
+            changeStatusButtonText = Resources.SelfServicePortalResources.ActivateRequest;
+            changeStatusCommentPlaceholder = Resources.SelfServicePortalResources.AddCommentToActivate;
+        }
+        else if (changeStatusButtonText.Equals("CancelRequest")) //Active
+        {
+            changeStatusButtonText = Resources.SelfServicePortalResources.CancelRequest;
+            changeStatusCommentPlaceholder = Resources.SelfServicePortalResources.AddCommentToCancel;
+        }
+    }
+
+    int tabindexCounter = 510;
+}
+<script type="text/javascript">
+
+    jQuery(document).ready(function ($) {
+
+        $('.footerDiv').on('click', '.requestStat', function (event) {
+            $('#popup').show("slow", function () {
+                $(window).scrollTop($('#popupclose').offset().top);
+            });
+            $('#requestAction').focus();
+            $('.footerDiv .requestStat').hide();
+        });
+
+        $('.footerDiv').on('click', '#popupclose', function (event) {
+            $('.footerDiv .requestStat').show();
+            $('#popup').hide();
+        });
+
+        $('.seemore').on('click', function (event) {
+            $('.inner_actionlog').show();
+            $('.landing_actionlog').hide();
+        });
+
+        $('.seeless').on('click', function (event) {
+            $('.inner_actionlog').hide();
+            $('.landing_actionlog').show();
+        });
+
+        if ($(window).width() < 786) {
+
+            $('.actionlog').addClass('span_6');
+            $('.seemore').addClass('span_6');
+            $('.seeless').addClass('span_6');
+
+        } else {
+            $('.actionlog').addClass('span_3');
+            $('.seemore').addClass('span_3');
+            $('.seeless').addClass('span_3');
+        }
+        if ('@external' == 'True') {
+            $('.external').addClass('list_item_page');
+            $('.external').css({ 'padding-top': '4em' }).css({ 'padding-left': '6em' });
+        }
+
+        convertToLocalTime();
+
+        try {
+            $('.share_this').on('click', function (event) {
+                window.location = 'mailto:?subject=@requestEntry["Title"]\(@requestEntry["Id"]\)&body=@requestEntry["Title"] : '
+                    + window.location + '/RequestDetails?id=@requestEntry["Id"],@reqType';
+            });
+            $('.share_this').keydown(function (event) {
+                var keycode = event.keyCode || event.which;
+                if (keycode == '13') {
+                    window.location = 'mailto:?subject=@requestEntry["Title"]\(@requestEntry["Id"]\)&body=@requestEntry["Title"] : '
+                   + window.location + '/RequestDetails?id=@requestEntry["Id"],@reqType';
+                }
+            });
+        }
+        catch (e) {
+
+        }
+
+        $('.action_log_list').on('click', '.action_log_row', function (event) {
+            $(this).find('.chevron').toggleClass("icon-ChevronRight3Legacy icon-ChevronDown3Legacy");
+            $(this).find('.description').toggle();
+        });
+        $('.action_log_list .action_log_row').keydown(function (event) {
+            var keycode = event.keyCode || event.which;
+            if (keycode == '13') {
+                $(this).find('.chevron').toggleClass("icon-ChevronRight3Legacy icon-ChevronDown3Legacy");
+                $(this).find('.description').toggle();
+            }
+        });
+    });
+
+    function submitFileAndComment() {
+        pageLoaderAction('show');
+        var clicked_filter;
+        if ($('.filter .clicked').attr("id") == null) {
+            clicked_filter = "Active";
+        }
+        else {
+            clicked_filter = $('.filter .clicked').attr("id");
+        }
+
+        var files = $('#fileElementId')[0].files;
+        var totalSize = 0;
+        for (var i = 0; i < files.length; i++) {
+            if (typeof files[i] !== 'undefined') {
+                totalSize = totalSize + files[i].size;
+            }
+        }
+
+        if (totalSize > '@maxRequestLengthinBytes') {
+            $('div#error_maxRequestLength').html("Maximum request length exceeded. Make sure the page size is less than " + '@ViewBag.MaxRequestLength' + " KB.");
+            $('div#error_maxRequestLength').addClass('error-text');
+            pageLoaderAction('hide');
+            return;
+        }
+        else {
+            $('div#error_maxRequestLength').empty();
+            $('div#error_maxRequestLength').removeClass('error-text');
+            pageLoaderAction('hide');
+        }
+        var comments = encodeURIComponent(document.getElementById("UserInputArea").value);
+        document.getElementById("UserInputArea").value = comments;
+        var data = new FormData($('form#commentAndFileForm')[0]);
+        $.ajax({
+            url: '/MyRequests/SubmitComments',
+            type: 'POST',
+            contentType: false,
+            processData: false,
+            data: data,
+            success: function (result) {
+                pageLoaderAction('hide');
+                if (result == "True") {
+                    showTossNotification("@Html.Raw(Resources.SelfServicePortalResources.RequestUpdateSuccess)", function () {
+                        $(location).attr('href', '/MyRequests?clickedFilter=' + clicked_filter + '&force=true');
+                    });
+                }
+                else if (result == "False") {
+                    showTossNotification("@Html.Raw(Resources.SelfServicePortalResources.RequestUpdateFail)", function () { });
+                }
+            },
+            error: function (result) {
+                showTossNotification("@Html.Raw(Resources.SelfServicePortalResources.RequestUpdateFail)", function () {
+                    pageLoaderAction('hide');
+                });
+            }
+        });
+    }
+
+    // Activate or Close requests
+    function updateStatus(clickedButton) {
+
+        var inputText = $('#requestAction').val();
+        if (inputText == "") {
+            $('.error-text').html("This is required");
+            return;
+        }
+        pageLoaderAction('show');
+        var guid = $(clickedButton).attr('data-id');
+        var currStatus = $('input.reqstatus').val();
+        var reqtype = $(clickedButton).attr('data-type');
+        var clicked_filter;
+        if ($('.filter .clicked').attr("id") == null) {
+            clicked_filter = "Active";
+        }
+        else {
+            clicked_filter = $('.filter .clicked').attr("id");
+        }
+        $.ajax({
+            url: '/MyRequests/UpdateStatus',
+            type: 'POST',
+            data: { inputText: inputText, guid: guid, currStatus: currStatus, reqtype: reqtype },
+            success: function (result) {
+                pageLoaderAction('hide');
+                if (result == "True") {
+                    showTossNotification("@Html.Raw(Resources.SelfServicePortalResources.RequestUpdateSuccess)",
+
+                         function () {
+                             $(location).attr('href', '/MyRequests?clickedFilter=' + clicked_filter + '&force=true');
+                         });
+                }
+                else {
+                    showTossNotification("@Html.Raw(Resources.SelfServicePortalResources.RequestUpdateFail)", function () { });
+                }
+            },
+            error: function (result) {
+                showTossNotification("@Html.Raw(Resources.SelfServicePortalResources.RequestUpdateFail)", function () {
+                    pageLoaderAction('hide');
+                });
+            }
+        });
+        $('#popup').hide("slow");
+    }
+
+
+</script>
+
+<body class="main_body gutters">
+    <div class="external">
+        @{
+            <div class="header">
+                <div class="row">
+                    <div class="col span_24 heading">
+                        <span>@requestEntry["Title"]</span>
+                        <span class="share_this">
+                            <span class="icon-Share icon" tabindex="500" data-toggle="tooltip" title="@Resources.SelfServicePortalResources.Share"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="sub_heading darkgrey-text">@Resources.SelfServicePortalResources.LastUpdated: <span class="utc-date">@DateTime.Parse(requestEntry["LastModifiedDate"].ToString()).ToString("yyyy,M,d,H,m,s")</span></div>
+                <div class="list_data_item_divider">
+                    <span>@requestEntry["Id"]</span>
+                    <span class="divider"></span>
+                    <span>@requestEntry["RequestStatus"]</span>
+                </div>
+            </div>
+            <div class="page_sub_heading">
+                @Resources.SelfServicePortalResources.Description
+            </div>
+            <div class="text" style="margin-bottom: 3em; white-space: pre-line">
+                @requestEntry["Description"]
+            </div>
+            // get the list of action logs
+            if (logList.Count != 0)
+            {
+                <div class="action_log_list landing_actionlog" role="treeitem" aria-expanded="false">
+                    <div class="row">
+                        <div class="page_sub_heading col span_3 actionlog" style="padding-bottom:.8em;">
+                            @Resources.SelfServicePortalResources.ActionLog
+                        </div>
+                        @if (logListExtend)
+                        {
+                            <div class="page_sub_heading col span_4 seemore" style="padding-left:.8em;">
+                                <a class="href_text" tabindex="501" style="font-size:small;" href="#">@Resources.SelfServicePortalResources.SeeMore</a>
+                            </div>
+                        }
+                    </div>
+                    @foreach (Dictionary<string, object> logEntry in logListPreview)
+                    {
+                        <div class="row action_log_row" tabindex="@tabindexCounter.ToString()" role="treeitem" aria-expanded="false">
+
+                            <span class="col icon-ChevronRight3Legacy span_3 chevron"></span>
+                            <span class="col" style="width:31.2em">@logEntry["Title"]   </span>
+
+                            <span class="time_stamp" style="font-style:italic">   @logEntry["EnteredDate"] @Resources.SelfServicePortalResources.Ago</span>
+                            <span class="span_12 col description" style="display:none;color:black" aria-expanded="true">@logEntry["Description"]</span>
+                        </div>
+                        tabindexCounter++;
+                    }
+                </div>
+                <div class="action_log_list inner_actionlog" style="display:none;">
+                    <div class="row">
+                        <div class="page_sub_heading col actionlog" style="padding-bottom:.8em;">
+                            @Resources.SelfServicePortalResources.ActionLog
+                        </div>
+                        <div class="page_sub_heading col seeless" style="padding-left:.6em;">
+                            <a class="href_text" tabindex="501" style="font-size:small;" href="#">@Resources.SelfServicePortalResources.SeeLess</a>
+                        </div>
+                    </div>
+                    @foreach (Dictionary<string, object> logEntry in logList)
+                    {
+                        <div class="row action_log_row" tabindex="@tabindexCounter.ToString()">
+
+                            <span class="col icon-ChevronRight3Legacy span_3 chevron"></span>
+                            <span class="col" style="width:31.2em">@logEntry["Title"]   </span>
+                            <span class="time_stamp" style="font-style:italic">   @logEntry["EnteredDate"] @Resources.SelfServicePortalResources.Ago</span>
+                            <span class="span_12 col description" style="display:none;color:black">@logEntry["Description"]</span>
+                        </div>
+                        tabindexCounter++;
+                    }
+                </div>
+
+            }
+            if (attachedFilesList.Count > 0)
+            {
+                <div class="page_sub_heading">
+                    @Resources.SelfServicePortalResources.AttachedFiles
+                </div>
+                <div class="attached_files_item">
+                    <div class="row attached_files_header">
+                        <span class="col" style="width:33em">@Resources.SelfServicePortalResources.FileName</span>
+                        <span>@Resources.SelfServicePortalResources.AttachedDate</span>
+                    </div>
+
+                    @foreach (Dictionary<string, object> file in attachedFilesList)
+                    {
+                        <div class="row attached_files_list href_text">
+                            <span class="col" style="width:33em">
+                                @Html.ActionLink(file["DisplayName"].ToString(), "/GetFile", new { id = requestEntry["Id"], type = reqType, fileId = file["BMEId"] })
+                            </span>
+                            <span class="utc-date">@DateTime.Parse(file["AddedDate"].ToString()).ToString("yyyy,M,d,H,m,s")</span>
+                        </div>
+                    }
+
+                </div>
+            }
+            if (relatedActivities.Count > 0)
+            {
+                <div class="page_sub_heading" style="padding-bottom:.8em;">
+                    @Resources.SelfServicePortalResources.Activities
+                </div>
+
+                foreach (Dictionary<string, object>
+                    relActivity in relatedActivities)
+                {
+                    <div class="row">
+
+                        <span class="col text" style="margin-bottom: .8em; width:33em">@relActivity["Id"] : @relActivity["Title"]</span>
+                        <span class="status text">
+                            @if (relActivity["Status"] != null)
+                            {
+                                @relActivity["Status"].ToString()
+                            }
+                        </span>
+                    </div>
+                }
+            }
+
+            if (changeStatusButtonText != string.Empty)  // EMpty means Closed Request
+            {
+                <form method="post" id="commentAndFileForm">
+                    <div class="user_input_div" style="margin-top:1em">
+                        <div class="page_sub_heading">
+                            @Resources.SelfServicePortalResources.UserInput
+                        </div>
+                        <div class="row">
+                            <textarea id="UserInputArea" name="comment" class="user_input" maxlength="4000" placeholder="@Resources.SelfServicePortalResources.AddComments"></textarea>
+                            <input type="hidden" name="guid" value="@guid" class="guid">
+                            <input type="hidden" name="reqType" value="@reqType" class="reqType" />
+                            <input type="hidden" name="reqstatus" value="@status" class="reqstatus" />
+                        </div>
+                        <div class="page_sub_heading">
+                            @Resources.SelfServicePortalResources.AttachFiles
+                        </div>
+                        <input type="file" id="fileElementId" name="fileElemId" multiple="multiple" aria-label="@Resources.SelfServicePortalResources.AttachFiles" />
+                        <div id="error_maxRequestLength"></div>
+                    </div>
+                </form>
+                <input type="submit" class="btn my_req_update" name="commentAndFileUpdate" style="margin-top:1em; margin-bottom: 1em;display:block;" value="@Resources.SelfServicePortalResources.Update" onclick="submitFileAndComment()" />
+                <hr>
+
+                <div class="footerDiv" style=" width: 100%; margin-bottom: 1em; padding-bottom:1em;">
+                    <button class="btn requestStat" name="requestStat">@changeStatusButtonText</button>
+                    <div id="popup" style="display:none">
+                        <div id="content" class="user_input_div">
+                            <div class="page_sub_heading">
+                                @Resources.SelfServicePortalResources.Comments
+                            </div>
+                            <textarea id="requestAction" class="user_input" maxlength="4000" placeholder="@changeStatusCommentPlaceholder"></textarea>
+                            <div class="error-text"></div>
+                        </div>
+                        <button class="btn my_req_update" id="submitcomment" data-id="@guid" onclick="updateStatus(this)" data-type="@reqType">@Resources.SelfServicePortalResources.SubmitForm</button>
+                        <button class="btn my_req_update" id="popupclose">@Resources.SelfServicePortalResources.Cancel</button>
+
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</body>

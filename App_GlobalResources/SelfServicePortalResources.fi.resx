@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActionLog" xml:space="preserve">
+    <value>Toimintaloki</value>
+  </data>
+  <data name="ActivateRequest" xml:space="preserve">
+    <value>Aktivoi pyyntö</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Aktiivinen</value>
+  </data>
+  <data name="Activities" xml:space="preserve">
+    <value>Tehtävät</value>
+  </data>
+  <data name="ActivityImplementor" xml:space="preserve">
+    <value>Tehtävätoteutus</value>
+  </data>
+  <data name="AddComments" xml:space="preserve">
+    <value>Lisää kommentit tähän..</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Kaikki</value>
+  </data>
+  <data name="Announcements" xml:space="preserve">
+    <value>Aktiiviset ilmoitukset</value>
+  </data>
+  <data name="ApprovalStatus" xml:space="preserve">
+    <value>Hyväksymisen tila</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Hyväksy</value>
+  </data>
+  <data name="AssociatedWI" xml:space="preserve">
+    <value>Liittyvä työkohde</value>
+  </data>
+  <data name="AttachFile" xml:space="preserve">
+    <value>Liitä tiedosto</value>
+  </data>
+  <data name="AttachFiles" xml:space="preserve">
+    <value>Liitä tiedostot</value>
+  </data>
+  <data name="AvailableRequests" xml:space="preserve">
+    <value>Käytettävissä olevat pyynnöt</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Peruuta</value>
+  </data>
+  <data name="CancelRequest" xml:space="preserve">
+    <value>Peruuta pyyntö</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Suljettu</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Ota meihin yhteyttä</value>
+  </data>
+  <data name="CostInformation" xml:space="preserve">
+    <value>Kustannustiedot</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>Luontipäivämäärä</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Kuvaus</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Lisätietoja</value>
+  </data>
+  <data name="ExpiryDate" xml:space="preserve">
+    <value>Vanhentumispäivämäärä</value>
+  </data>
+  <data name="ExternalContent" xml:space="preserve">
+    <value>Ulkoinen sisältö</value>
+  </data>
+  <data name="FavHelpArticles" xml:space="preserve">
+    <value>Suosikkiohjeartikkelisi</value>
+  </data>
+  <data name="Favorites" xml:space="preserve">
+    <value>Suosikit</value>
+  </data>
+  <data name="FavouriteThis" xml:space="preserve">
+    <value>Lisää tämä suosikkeihin</value>
+  </data>
+  <data name="FindByKeywords" xml:space="preserve">
+    <value>Etsi avainsanojen perusteella</value>
+  </data>
+  <data name="GenericRequest" xml:space="preserve">
+    <value>Etkö löydä ratkaisua luettelosta?</value>
+  </data>
+  <data name="HelpArticles" xml:space="preserve">
+    <value>Ohjeartikkelit</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Aloitussivu</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>Tunnus</value>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>Keskeneräinen</value>
+  </data>
+  <data name="Instructions" xml:space="preserve">
+    <value>Ohjeet</value>
+  </data>
+  <data name="InternalContent" xml:space="preserve">
+    <value>Sisäinen sisältö</value>
+  </data>
+  <data name="LastModified" xml:space="preserve">
+    <value>Viimeisin muokkaus</value>
+  </data>
+  <data name="LastUpdated" xml:space="preserve">
+    <value>Viimeisin päivitys</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Ole kärsivällinen...</value>
+  </data>
+  <data name="ManualActivity" xml:space="preserve">
+    <value>Manuaaliset toimet</value>
+  </data>
+  <data name="MarkCompleted" xml:space="preserve">
+    <value>Merkitse valmiiksi</value>
+  </data>
+  <data name="MarkFailed" xml:space="preserve">
+    <value>Merkitse epäonnistuneeksi</value>
+  </data>
+  <data name="MostPopular" xml:space="preserve">
+    <value>Suosituimmat</value>
+  </data>
+  <data name="MyActvities" xml:space="preserve">
+    <value>Omat toimet</value>
+  </data>
+  <data name="MyRequests" xml:space="preserve">
+    <value>Omat pyynnöt</value>
+  </data>
+  <data name="NavQuestion" xml:space="preserve">
+    <value>Etkö pysty ratkaisemaan ongelmaasi täällä?</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Palveluiden hallinnan 2019 itsepalveluportaali</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Prioriteetti</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>Ominaisuus</value>
+  </data>
+  <data name="QueryPickerMeta" xml:space="preserve">
+    <value>Tämä kenttä on riippuvainen seuraavasta: </value>
+  </data>
+  <data name="RateThis" xml:space="preserve">
+    <value>Arvioi tämä artikkeli</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Päivitä</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Hylkää</value>
+  </data>
+  <data name="RelatedHelpArticles" xml:space="preserve">
+    <value>Liittyvät ohjeartikkelit</value>
+  </data>
+  <data name="RequestOfferings" xml:space="preserve">
+    <value>Pyyntötarjoukset</value>
+  </data>
+  <data name="Resolved" xml:space="preserve">
+    <value>Ratkaistu</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>Tarkastele</value>
+  </data>
+  <data name="ReviewActivity" xml:space="preserve">
+    <value>Tarkastele toimia</value>
+  </data>
+  <data name="ReviewAs" xml:space="preserve">
+    <value>Tarkastele</value>
+  </data>
+  <data name="Reviewers" xml:space="preserve">
+    <value>Tarkastajat</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Hae</value>
+  </data>
+  <data name="SearchPlaceHolder" xml:space="preserve">
+    <value>Hae ohjeartikkeleissa ja palveluissa</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Hakutulokset kohteelle</value>
+  </data>
+  <data name="SeeAll" xml:space="preserve">
+    <value>Näytä kaikki</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Jaa</value>
+  </data>
+  <data name="SLAInformation" xml:space="preserve">
+    <value>Palvelutasosopimustiedot</value>
+  </data>
+  <data name="SubmitForm" xml:space="preserve">
+    <value>Lähetä</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Nimi</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Päivitä</value>
+  </data>
+  <data name="UserInput" xml:space="preserve">
+    <value>Käyttäjän syöte</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Arvo</value>
+  </data>
+  <data name="VotedBy" xml:space="preserve">
+    <value>Äänestänyt</value>
+  </data>
+  <data name="ActivityArea" xml:space="preserve">
+    <value>Tehtäväalue</value>
+  </data>
+  <data name="ScheduledEndDate" xml:space="preserve">
+    <value>Ajoitettu päättymispäivä</value>
+  </data>
+  <data name="ScheduledStartDate" xml:space="preserve">
+    <value>Ajoitettu alkamispäivä</value>
+  </data>
+  <data name="SortBy" xml:space="preserve">
+    <value>Lajitteluperuste</value>
+  </data>
+  <data name="Stage" xml:space="preserve">
+    <value>Vaihe</value>
+  </data>
+  <data name="ItemDetails" xml:space="preserve">
+    <value>Kohteen tiedot</value>
+  </data>
+  <data name="ChooseFile" xml:space="preserve">
+    <value>Valitse tiedosto</value>
+  </data>
+  <data name="CreateRequest" xml:space="preserve">
+    <value>Luo pyyntö</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Omistaja</value>
+  </data>
+  <data name="NoSearchRecords" xml:space="preserve">
+    <value>Tietueita ei löytynyt, tarkenna hakuasi</value>
+  </data>
+  <data name="Enteries" xml:space="preserve">
+    <value>Merkinnät</value>
+  </data>
+  <data name="Filtered" xml:space="preserve">
+    <value>Suodatettu</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>Ensimmäinen</value>
+  </data>
+  <data name="Last" xml:space="preserve">
+    <value>Viimeinen</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Seuraava</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Edellinen</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Näytä</value>
+  </data>
+  <data name="Showing" xml:space="preserve">
+    <value>Näytetään</value>
+  </data>
+  <data name="ActivityUpdateFail" xml:space="preserve">
+    <value>Toiminnon päivitys epäonnistui</value>
+  </data>
+  <data name="ActivityUpdateSuccess" xml:space="preserve">
+    <value>Toiminnon päivitys onnistui</value>
+  </data>
+  <data name="CantFindSolution" xml:space="preserve">
+    <value>Etkö löydä ratkaisua täältä?</value>
+  </data>
+  <data name="KARatingUpdateFailed" xml:space="preserve">
+    <value>Luokituksen päivitys epäonnistui</value>
+  </data>
+  <data name="KARatingUpdateSuccess" xml:space="preserve">
+    <value>Luokitus on lähetetty</value>
+  </data>
+  <data name="Launguage" xml:space="preserve">
+    <value>Kieli</value>
+  </data>
+  <data name="PoweredBy" xml:space="preserve">
+    <value>Palvelun tarjoaa</value>
+  </data>
+  <data name="RequestUpdateFail" xml:space="preserve">
+    <value>Pyynnön päivitys epäonnistui</value>
+  </data>
+  <data name="RequestUpdateSuccess" xml:space="preserve">
+    <value>Pyyntö on päivitetty</value>
+  </data>
+  <data name="ServiceCatalog" xml:space="preserve">
+    <value>Palveluluettelo</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Kommentti</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nimi</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Tila</value>
+  </data>
+  <data name="FavoritesDescription" xml:space="preserve">
+    <value>Näyttää listan suosikkeihin lisätyistä pyynnöistä pikakäyttöä varten</value>
+  </data>
+  <data name="Article" xml:space="preserve">
+    <value>Ohjeartikkeli</value>
+  </data>
+  <data name="ActivityStatusEnum_Active" xml:space="preserve">
+    <value>Keskeneräinen</value>
+  </data>
+  <data name="ActivityStatusEnum_Cancelled" xml:space="preserve">
+    <value>Peruutettu</value>
+  </data>
+  <data name="ActivityStatusEnum_Completed" xml:space="preserve">
+    <value>Valmis</value>
+  </data>
+  <data name="ActivityStatusEnum_Failed" xml:space="preserve">
+    <value>Epäonnistui</value>
+  </data>
+  <data name="ActivityStatusEnum_OnHold" xml:space="preserve">
+    <value>Pidossa</value>
+  </data>
+  <data name="ActivityStatusEnum_Ready" xml:space="preserve">
+    <value>Odottaa</value>
+  </data>
+  <data name="ActivityStatusEnum_Rerun" xml:space="preserve">
+    <value>Suoritettu uudelleen</value>
+  </data>
+  <data name="ActivityStatusEnum_Skipped" xml:space="preserve">
+    <value>Ohitettu</value>
+  </data>
+  <data name="Ago" xml:space="preserve">
+    <value>sitten</value>
+  </data>
+  <data name="SeeLess" xml:space="preserve">
+    <value>Näytä vähemmän</value>
+  </data>
+  <data name="SeeMore" xml:space="preserve">
+    <value>Näytä enemmän</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>päivää</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>tuntia</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>minuuttia</value>
+  </data>
+  <data name="AddedBy" xml:space="preserve">
+    <value>Lisännyt</value>
+  </data>
+  <data name="NothingToShowHere" xml:space="preserve">
+    <value>Täällä ei ole mitään näytettävää...</value>
+  </data>
+  <data name="NoActivitiesFound" xml:space="preserve">
+    <value>Toimia ei löytynyt</value>
+  </data>
+  <data name="NoHelpArticlesFound" xml:space="preserve">
+    <value>Ohjeartikkeleita ei löytynyt</value>
+  </data>
+  <data name="NoOfferingsFound" xml:space="preserve">
+    <value>Tarjouksia ei löytynyt</value>
+  </data>
+  <data name="NoRequestsFound" xml:space="preserve">
+    <value>Pyyntöjä ei löytynyt</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Huomautuksia</value>
+  </data>
+  <data name="AddCommentToActivate" xml:space="preserve">
+    <value>Lisää kommentti, joka selittää, miksi pyyntöä aktivoidaan.</value>
+  </data>
+  <data name="AddCommentToCancel" xml:space="preserve">
+    <value>Lisää kommentti, joka selittää, miksi pyyntöä peruutetaan.</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Kommentit</value>
+  </data>
+  <data name="EmptyQueryTable" xml:space="preserve">
+    <value>Lataa tiedot valitsemalla Päivitä</value>
+  </data>
+  <data name="AttachedBy" xml:space="preserve">
+    <value>Liittänyt</value>
+  </data>
+  <data name="AttachedDate" xml:space="preserve">
+    <value>Liittämispäivämäärä</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>Tiedoston nimi</value>
+  </data>
+  <data name="AttachedFiles" xml:space="preserve">
+    <value>Liitetyt tiedostot</value>
+  </data>
+  <data name="HasVeto" xml:space="preserve">
+    <value>Veto-oikeus</value>
+  </data>
+  <data name="MustVote" xml:space="preserve">
+    <value>Äänestyspakko</value>
+  </data>
+  <data name="FileAttachedBy" xml:space="preserve">
+    <value>Tiedoston liittäjä</value>
+  </data>
+  <data name="NewRequestCreated" xml:space="preserve">
+    <value>Uusi pyyntö luotu</value>
+  </data>
+  <data name="NewRequestCreationFailedWithParam" xml:space="preserve">
+    <value>Pyynnön luonti epäonnistui. {0}</value>
+  </data>
+  <data name="ValidationErrorDateBetween" xml:space="preserve">
+    <value>Syötepäivämäärän on oltava {0}–{1}</value>
+  </data>
+  <data name="ValidationErrorDateGreaterThan" xml:space="preserve">
+    <value>Syötepäivämäärän on oltava suurempi kuin {0}</value>
+  </data>
+  <data name="ValidationErrorDateLesserThan" xml:space="preserve">
+    <value>Syötepäivämäärän on oltava pienempi kuin {0}</value>
+  </data>
+  <data name="ValidationErrorDecimalBetween" xml:space="preserve">
+    <value>Syötedesimaaliluvun on oltava {0}–{1}</value>
+  </data>
+  <data name="ValidationErrorFieldRequired" xml:space="preserve">
+    <value>Tämä kenttä on pakollinen</value>
+  </data>
+  <data name="ValidationErrorFileSizeExceedsLimit" xml:space="preserve">
+    <value>Tiedoston koko ylittää määritetyn rajan, joka on {0} kt</value>
+  </data>
+  <data name="ValidationErrorIntegerBetween" xml:space="preserve">
+    <value>Syötekokonaisluvun on oltava {0}–{1}</value>
+  </data>
+  <data name="ValidationErrorInvalidInput" xml:space="preserve">
+    <value>Virheellinen syöte</value>
+  </data>
+  <data name="ValidationErrorListNoMultiple" xml:space="preserve">
+    <value>Monivalintaa ei sallita</value>
+  </data>
+  <data name="ValidationErrorShouldBeDecimal" xml:space="preserve">
+    <value>Syötteen on oltava desimaaliluku</value>
+  </data>
+  <data name="ValidationErrorShouldBeInteger" xml:space="preserve">
+    <value>Syötteen on oltava kokonaisluku</value>
+  </data>
+  <data name="ValidationErrorStringBetween" xml:space="preserve">
+    <value>Syötemerkkijonossa on oltava {0}–{1} merkkiä</value>
+  </data>
+  <data name="ValidationErrorStringInvalidEmail" xml:space="preserve">
+    <value>Syöte ei ole kelvollinen sähköpostiosoite</value>
+  </data>
+  <data name="ValidationErrorStringInvalidIntnlNumber" xml:space="preserve">
+    <value>Syöte ei ole kelvollinen kansainvälinen puhelinnumero</value>
+  </data>
+  <data name="ValidationErrorStringInvalidNumber" xml:space="preserve">
+    <value>Syöte ei ole kelvollinen puhelinnumero</value>
+  </data>
+  <data name="ValidationErrorStringInvalidPattern" xml:space="preserve">
+    <value>Syöte ei vastaa mallia</value>
+  </data>
+  <data name="ValidationErrorStringInvalidURL" xml:space="preserve">
+    <value>Syöte ei ole kelvollinen URL-osoite</value>
+  </data>
+  <data name="NewRequestCreationFailed" xml:space="preserve">
+    <value>Pyynnön luonti epäonnistui.</value>
+  </data>
+  <data name="FizeUploadSizeLimit" xml:space="preserve">
+    <value>Varmista, että tiedostosi koko on alle {0} kt</value>
+  </data>
+  <data name="ShowingEntries" xml:space="preserve">
+    <value>Näytetään {0}–{1} {2} merkinnästä</value>
+  </data>
+  <data name="FilteredFrom" xml:space="preserve">
+    <value>Suodatettu {0} merkinnästä</value>
+  </data>
+  <data name="ValidationErrorServerSideFileSizeExceedsLimit" xml:space="preserve">
+    <value>Tiedoston koko ylittää suurimman liitteen koon, joka on {0}: {1} kt</value>
+  </data>
+</root>

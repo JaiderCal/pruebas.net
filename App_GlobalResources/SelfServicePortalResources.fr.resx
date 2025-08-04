@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActionLog" xml:space="preserve">
+    <value>Journal des actions</value>
+  </data>
+  <data name="ActivateRequest" xml:space="preserve">
+    <value>Activer la demande</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Activities" xml:space="preserve">
+    <value>Activités</value>
+  </data>
+  <data name="ActivityImplementor" xml:space="preserve">
+    <value>Implémentation des activités</value>
+  </data>
+  <data name="AddComments" xml:space="preserve">
+    <value>Ajoutez des commentaires ici...</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Tous</value>
+  </data>
+  <data name="Announcements" xml:space="preserve">
+    <value>Annonces actives</value>
+  </data>
+  <data name="ApprovalStatus" xml:space="preserve">
+    <value>Statut d'approbation</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Approuver</value>
+  </data>
+  <data name="AssociatedWI" xml:space="preserve">
+    <value>Élément de travail associé</value>
+  </data>
+  <data name="AttachFile" xml:space="preserve">
+    <value>Joindre un fichier</value>
+  </data>
+  <data name="AttachFiles" xml:space="preserve">
+    <value>Joindre des fichiers</value>
+  </data>
+  <data name="AvailableRequests" xml:space="preserve">
+    <value>Demandes disponibles</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="CancelRequest" xml:space="preserve">
+    <value>Annuler la demande</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Fermé</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Nous contacter</value>
+  </data>
+  <data name="CostInformation" xml:space="preserve">
+    <value>Informations sur les prix</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>Date de création</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Détails</value>
+  </data>
+  <data name="ExpiryDate" xml:space="preserve">
+    <value>Date d'expiration</value>
+  </data>
+  <data name="ExternalContent" xml:space="preserve">
+    <value>Contenu externe</value>
+  </data>
+  <data name="FavHelpArticles" xml:space="preserve">
+    <value>Vos articles d'aide favoris</value>
+  </data>
+  <data name="Favorites" xml:space="preserve">
+    <value>Favoris</value>
+  </data>
+  <data name="FavouriteThis" xml:space="preserve">
+    <value>Ajouter aux Favoris</value>
+  </data>
+  <data name="FindByKeywords" xml:space="preserve">
+    <value>Rechercher par mot clé</value>
+  </data>
+  <data name="GenericRequest" xml:space="preserve">
+    <value>Vous ne trouvez pas de solution dans le catalogue ?</value>
+  </data>
+  <data name="HelpArticles" xml:space="preserve">
+    <value>Articles d'aide</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Accueil</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>En cours</value>
+  </data>
+  <data name="Instructions" xml:space="preserve">
+    <value>Instructions</value>
+  </data>
+  <data name="InternalContent" xml:space="preserve">
+    <value>Contenu interne</value>
+  </data>
+  <data name="LastModified" xml:space="preserve">
+    <value>Dernière modification</value>
+  </data>
+  <data name="LastUpdated" xml:space="preserve">
+    <value>Dernière mise à jour</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Patientez...</value>
+  </data>
+  <data name="ManualActivity" xml:space="preserve">
+    <value>Activité manuelle</value>
+  </data>
+  <data name="MarkCompleted" xml:space="preserve">
+    <value>Marquer comme terminé</value>
+  </data>
+  <data name="MarkFailed" xml:space="preserve">
+    <value>Marquer comme ayant échoué</value>
+  </data>
+  <data name="MostPopular" xml:space="preserve">
+    <value>Les plus populaires</value>
+  </data>
+  <data name="MyActvities" xml:space="preserve">
+    <value>Mes activités</value>
+  </data>
+  <data name="MyRequests" xml:space="preserve">
+    <value>Mes demandes</value>
+  </data>
+  <data name="NavQuestion" xml:space="preserve">
+    <value>Vous n'arrivez pas à résoudre votre problème ici ?</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Portail libre-service Service Manager 2019</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Priorité</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>Propriété</value>
+  </data>
+  <data name="QueryPickerMeta" xml:space="preserve">
+    <value>Ce champ dépend de </value>
+  </data>
+  <data name="RateThis" xml:space="preserve">
+    <value>Évaluer cet article</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Actualiser</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Refuser</value>
+  </data>
+  <data name="RelatedHelpArticles" xml:space="preserve">
+    <value>Articles d'aide associés</value>
+  </data>
+  <data name="RequestOfferings" xml:space="preserve">
+    <value>Demander des produits</value>
+  </data>
+  <data name="Resolved" xml:space="preserve">
+    <value>Résolu</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>Évaluer</value>
+  </data>
+  <data name="ReviewActivity" xml:space="preserve">
+    <value>Évaluer l'activité</value>
+  </data>
+  <data name="ReviewAs" xml:space="preserve">
+    <value>Évaluer comme</value>
+  </data>
+  <data name="Reviewers" xml:space="preserve">
+    <value>Critiques</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="SearchPlaceHolder" xml:space="preserve">
+    <value>Rechercher dans les services et les articles d'aide</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Résultats de recherche pour</value>
+  </data>
+  <data name="SeeAll" xml:space="preserve">
+    <value>Afficher tout</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Partager</value>
+  </data>
+  <data name="SLAInformation" xml:space="preserve">
+    <value>Informations sur le contrat SLA</value>
+  </data>
+  <data name="SubmitForm" xml:space="preserve">
+    <value>Envoyer</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titre</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Mettre à jour</value>
+  </data>
+  <data name="UserInput" xml:space="preserve">
+    <value>Entrée utilisateur</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Valeur</value>
+  </data>
+  <data name="VotedBy" xml:space="preserve">
+    <value>Vote de</value>
+  </data>
+  <data name="ActivityArea" xml:space="preserve">
+    <value>Zone d'activité</value>
+  </data>
+  <data name="ScheduledEndDate" xml:space="preserve">
+    <value>Date de fin planifiée</value>
+  </data>
+  <data name="ScheduledStartDate" xml:space="preserve">
+    <value>Date de début planifiée</value>
+  </data>
+  <data name="SortBy" xml:space="preserve">
+    <value>Trier par</value>
+  </data>
+  <data name="Stage" xml:space="preserve">
+    <value>Phase</value>
+  </data>
+  <data name="ItemDetails" xml:space="preserve">
+    <value>Détails de l'élément</value>
+  </data>
+  <data name="ChooseFile" xml:space="preserve">
+    <value>Choisir un fichier</value>
+  </data>
+  <data name="CreateRequest" xml:space="preserve">
+    <value>Créer une demande</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Propriétaire</value>
+  </data>
+  <data name="NoSearchRecords" xml:space="preserve">
+    <value>Aucun résultat, veuillez affiner votre recherche</value>
+  </data>
+  <data name="Enteries" xml:space="preserve">
+    <value>Entrées</value>
+  </data>
+  <data name="Filtered" xml:space="preserve">
+    <value>Filtré</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>Premier</value>
+  </data>
+  <data name="Last" xml:space="preserve">
+    <value>Dernier</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Suivant</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Précédent</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Afficher</value>
+  </data>
+  <data name="Showing" xml:space="preserve">
+    <value>Affichage</value>
+  </data>
+  <data name="ActivityUpdateFail" xml:space="preserve">
+    <value>La mise à jour de votre activité a échoué</value>
+  </data>
+  <data name="ActivityUpdateSuccess" xml:space="preserve">
+    <value>Votre activité a été mise à jour</value>
+  </data>
+  <data name="CantFindSolution" xml:space="preserve">
+    <value>Vous ne trouvez pas de solution ici ?</value>
+  </data>
+  <data name="KARatingUpdateFailed" xml:space="preserve">
+    <value>La mise à jour de votre évaluation a échoué</value>
+  </data>
+  <data name="KARatingUpdateSuccess" xml:space="preserve">
+    <value>Votre évaluation a été envoyée</value>
+  </data>
+  <data name="Launguage" xml:space="preserve">
+    <value>Langue</value>
+  </data>
+  <data name="PoweredBy" xml:space="preserve">
+    <value>Fourni par</value>
+  </data>
+  <data name="RequestUpdateFail" xml:space="preserve">
+    <value>La mise à jour de votre demande a échoué</value>
+  </data>
+  <data name="RequestUpdateSuccess" xml:space="preserve">
+    <value>Votre demande a été mise à jour</value>
+  </data>
+  <data name="ServiceCatalog" xml:space="preserve">
+    <value>Catalogue de services</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Commentaires</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>État</value>
+  </data>
+  <data name="FavoritesDescription" xml:space="preserve">
+    <value>Affiche la liste des demandes que vous avez marquées comme favorites pour y accéder rapidement</value>
+  </data>
+  <data name="Article" xml:space="preserve">
+    <value>Article d'aide</value>
+  </data>
+  <data name="ActivityStatusEnum_Active" xml:space="preserve">
+    <value>En cours</value>
+  </data>
+  <data name="ActivityStatusEnum_Cancelled" xml:space="preserve">
+    <value>Annulé</value>
+  </data>
+  <data name="ActivityStatusEnum_Completed" xml:space="preserve">
+    <value>Terminé</value>
+  </data>
+  <data name="ActivityStatusEnum_Failed" xml:space="preserve">
+    <value>Échec</value>
+  </data>
+  <data name="ActivityStatusEnum_OnHold" xml:space="preserve">
+    <value>En attente</value>
+  </data>
+  <data name="ActivityStatusEnum_Ready" xml:space="preserve">
+    <value>En attente</value>
+  </data>
+  <data name="ActivityStatusEnum_Rerun" xml:space="preserve">
+    <value>Réexécuter</value>
+  </data>
+  <data name="ActivityStatusEnum_Skipped" xml:space="preserve">
+    <value>Ignoré</value>
+  </data>
+  <data name="Ago" xml:space="preserve">
+    <value>auparavant</value>
+  </data>
+  <data name="SeeLess" xml:space="preserve">
+    <value>Voir moins</value>
+  </data>
+  <data name="SeeMore" xml:space="preserve">
+    <value>Voir plus</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>jours</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>heures</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>minutes</value>
+  </data>
+  <data name="AddedBy" xml:space="preserve">
+    <value>Ajouté par</value>
+  </data>
+  <data name="NothingToShowHere" xml:space="preserve">
+    <value>Rien à afficher ici...</value>
+  </data>
+  <data name="NoActivitiesFound" xml:space="preserve">
+    <value>Aucune activité trouvée</value>
+  </data>
+  <data name="NoHelpArticlesFound" xml:space="preserve">
+    <value>Aucun article d'aide trouvé</value>
+  </data>
+  <data name="NoOfferingsFound" xml:space="preserve">
+    <value>Aucun produit trouvé</value>
+  </data>
+  <data name="NoRequestsFound" xml:space="preserve">
+    <value>Aucune demande trouvée</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="AddCommentToActivate" xml:space="preserve">
+    <value>Ajoutez un commentaire expliquant pourquoi la demande est en cours d'activation.</value>
+  </data>
+  <data name="AddCommentToCancel" xml:space="preserve">
+    <value>Ajoutez un commentaire expliquant pourquoi la demande est en cours d'annulation.</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Commentaires</value>
+  </data>
+  <data name="EmptyQueryTable" xml:space="preserve">
+    <value>Cliquez sur « Actualiser » pour charger les données</value>
+  </data>
+  <data name="AttachedBy" xml:space="preserve">
+    <value>Attaché par</value>
+  </data>
+  <data name="AttachedDate" xml:space="preserve">
+    <value>Date d'attachement</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>Nom du fichier</value>
+  </data>
+  <data name="AttachedFiles" xml:space="preserve">
+    <value>Fichiers attachés</value>
+  </data>
+  <data name="HasVeto" xml:space="preserve">
+    <value>A un véto</value>
+  </data>
+  <data name="MustVote" xml:space="preserve">
+    <value>Doit voter</value>
+  </data>
+  <data name="FileAttachedBy" xml:space="preserve">
+    <value>Fichier joint par</value>
+  </data>
+  <data name="NewRequestCreated" xml:space="preserve">
+    <value>Nouvelle demande créée</value>
+  </data>
+  <data name="NewRequestCreationFailedWithParam" xml:space="preserve">
+    <value>Échec de la création de la demande. {0}</value>
+  </data>
+  <data name="ValidationErrorDateBetween" xml:space="preserve">
+    <value>La date d'entrée doit être comprise entre {0} et {1}</value>
+  </data>
+  <data name="ValidationErrorDateGreaterThan" xml:space="preserve">
+    <value>La date d'entrée doit être postérieure à {0}</value>
+  </data>
+  <data name="ValidationErrorDateLesserThan" xml:space="preserve">
+    <value>La date d'entrée doit être antérieure à {0}</value>
+  </data>
+  <data name="ValidationErrorDecimalBetween" xml:space="preserve">
+    <value>La décimale d'entrée doit être comprise entre {0} et {1}</value>
+  </data>
+  <data name="ValidationErrorFieldRequired" xml:space="preserve">
+    <value>Ce champ est obligatoire</value>
+  </data>
+  <data name="ValidationErrorFileSizeExceedsLimit" xml:space="preserve">
+    <value>La taille du fichier dépasse la limite configurée de {0} Ko</value>
+  </data>
+  <data name="ValidationErrorIntegerBetween" xml:space="preserve">
+    <value>L'entier entré doit être compris entre {0} et {1}</value>
+  </data>
+  <data name="ValidationErrorInvalidInput" xml:space="preserve">
+    <value>Entrée non valide</value>
+  </data>
+  <data name="ValidationErrorListNoMultiple" xml:space="preserve">
+    <value>Une sélection multiple n'est pas autorisée</value>
+  </data>
+  <data name="ValidationErrorShouldBeDecimal" xml:space="preserve">
+    <value>L'entrée doit être un nombre décimal</value>
+  </data>
+  <data name="ValidationErrorShouldBeInteger" xml:space="preserve">
+    <value>L'entrée doit être un entier</value>
+  </data>
+  <data name="ValidationErrorStringBetween" xml:space="preserve">
+    <value>La chaîne d'entrée doit comprendre entre {0} et {1} caractères</value>
+  </data>
+  <data name="ValidationErrorStringInvalidEmail" xml:space="preserve">
+    <value>L'entrée n'est pas une adresse e-mail valide</value>
+  </data>
+  <data name="ValidationErrorStringInvalidIntnlNumber" xml:space="preserve">
+    <value>L'entrée n'est pas un numéro de téléphone international valide</value>
+  </data>
+  <data name="ValidationErrorStringInvalidNumber" xml:space="preserve">
+    <value>L'entrée n'est pas un numéro de téléphone valide</value>
+  </data>
+  <data name="ValidationErrorStringInvalidPattern" xml:space="preserve">
+    <value>L'entrée ne correspond pas au modèle</value>
+  </data>
+  <data name="ValidationErrorStringInvalidURL" xml:space="preserve">
+    <value>L'entrée n'est pas une URL valide</value>
+  </data>
+  <data name="NewRequestCreationFailed" xml:space="preserve">
+    <value>La demande de création a échoué.</value>
+  </data>
+  <data name="FizeUploadSizeLimit" xml:space="preserve">
+    <value>Vérifiez que votre fichier ne dépasse pas {0} Ko</value>
+  </data>
+  <data name="ShowingEntries" xml:space="preserve">
+    <value>Affichage de {0} à {1} entrées sur {2}</value>
+  </data>
+  <data name="FilteredFrom" xml:space="preserve">
+    <value>Filtré à partir de {0} entrées</value>
+  </data>
+  <data name="ValidationErrorServerSideFileSizeExceedsLimit" xml:space="preserve">
+    <value>La taille de fichier dépasse la taille maximale des pièces jointes de {0} : {1} Ko</value>
+  </data>
+</root>

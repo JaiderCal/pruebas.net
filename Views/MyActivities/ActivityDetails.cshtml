@@ -1,0 +1,426 @@
+﻿@using Microsoft.EnterpriseManagement.NewSMPortal.SDKTransformer.SMPortalHelper;
+@{
+    bool external = false;
+    if (ViewBag.URLSource == "External")
+    {
+        external = true;
+    }
+    else
+    {
+        Layout = null;
+    }
+
+    string idClicked = string.Empty;
+    string actType = ViewBag.Type;
+    Dictionary<string, object> activityEntry = ViewBag.ActivityDetails;
+    List<object> relatedRequests = ViewBag.RelatedRequest;
+    List<object> reviewersList = ViewBag.ReviewersList;
+    Dictionary<string, Tuple<string, string>> reviewerDetailsList = ViewBag.ReviewerDetailsList;
+
+    string status = activityEntry["ActivityStatus"].ToString();
+    string manualActvitiyImplementor = ViewBag.ManualActivityImplementor;
+
+    string acceptText = string.Empty;
+    string rejectText = string.Empty;
+
+    string acceptString = string.Empty;
+    string rejectString = string.Empty;
+
+    Dictionary<string, string> activityReviewers = new Dictionary<string, string>();
+}
+
+
+<!DOCTYPE html>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+
+        if ('@external' == 'True') {
+            $('.external').addClass('list_item_page');
+            $('.external').css({ 'padding-top': '4em' }).css({ 'padding-left': '6em' });
+        }
+
+        $('.related_work_item').on('click', function (event) {
+            $('.inner_page').show();
+            $('.landing_page').hide();
+        });
+
+        $('.back_activity_nav').on('click', function (event) {
+            $('.inner_page').hide();
+            $('.landing_page').show();
+        });
+
+        $('.selectreviewer').width($('.selectreviewer').width() + $('.my_activity_container .top_pad div.text.col').width() + 9);
+
+        try {
+            $('.share_this').on('click', function (event) {
+                window.location = 'mailto:?subject=@activityEntry["Title"]\(@activityEntry["Id"]\)&body=@activityEntry["Title"] : ' + window.location + '/ActivityDetails?id=@activityEntry["Id"],@actType';
+            });
+            $('.share_this').keydown(function (event) {
+                var keycode = event.keyCode || event.which;
+                if (keycode == '13') {
+                    window.location = 'mailto:?subject=@activityEntry["Title"]\(@activityEntry["Id"]\)&body=@activityEntry["Title"] : ' + window.location + '/ActivityDetails?id=@activityEntry["Id"],@actType';
+                }
+            });
+        }
+        catch (e) { }
+
+        convertToLocalTime();
+
+    });
+
+    function submitComment(action) {
+        var inputText = $('.user_input').val();
+        var guid = $('.my_req_btn_bar').attr('data-id');
+        var currStatus = $('.my_req_btn_bar').attr('data-status');
+        var reviewer = '';
+        if (action == "Approve" || action == "Reject") {
+            reviewer = $('select.selectreviewer').find(":selected").attr('id');
+        }
+
+
+        var clicked_filter;
+        if ($('.filter .clicked').attr("id") == null) {
+            clicked_filter = "Progress";
+        }
+        else {
+            clicked_filter = $('.filter .clicked').attr("id");
+        }
+
+
+        $.ajax({
+            url: '/MyActivities/UpdateActivity',
+            type: 'POST',
+            data: { inputText: inputText, guid: guid, currStatus: currStatus, action: action, reviewer: reviewer },
+            success: function (result) {
+                //$(location).attr("href", "MyActivities");
+                if (result == "True") {
+                    showTossNotification("@Html.Raw(Resources.SelfServicePortalResources.ActivityUpdateSuccess)", function () {
+
+                        $(location).attr('href', '/MyActivities?clickedFilter=' + clicked_filter + '&force=true');
+                    });
+                }
+                else {
+                    showTossNotification("@Html.Raw(Resources.SelfServicePortalResources.ActivityUpdateFail)", function () { });
+                }
+            },
+            error: function (result) {
+                showTossNotification("@Html.Raw(Resources.SelfServicePortalResources.ActivityUpdateFail)", function () { });
+            }
+        });
+    }
+</script>
+
+<body class="main_body gutters">
+
+    @{<div class="external">
+            <div class="landing_page" style="padding-bottom:2em;">
+
+                <div class="header">
+                    <div class="row">
+                        <div class="col span_24 heading">
+                            <span>@activityEntry["Title"]</span>
+                            <span class="share_this">
+                                <span class="icon-Share icon" tabindex="500" data-toggle="tooltip" title="@Resources.SelfServicePortalResources.Share"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="sub_heading darkgrey-text">@Resources.SelfServicePortalResources.LastUpdated : <span class="utc-date">@DateTime.Parse(activityEntry["LastModifiedDate"].ToString()).ToString("yyyy,M,d,H,m,s")</span></div>
+                    <div class="list_data_item_divider">
+                        <span>@activityEntry["Id"]</span>
+                        <span class="divider"></span>
+                        <span>@activityEntry["ActivityStatus"]</span>
+                    </div>
+                </div>
+
+                <div class="page_sub_heading">@Resources.SelfServicePortalResources.Description</div>
+                <div class="text" style="margin-bottom: 3em; white-space: pre-line">@activityEntry["Description"]</div>
+
+
+                @if (actType.Equals("ReviewActivity"))
+                {
+                    object approvalCond = null;
+                    acceptText = @Resources.SelfServicePortalResources.Approve;
+                    rejectText = @Resources.SelfServicePortalResources.Reject;
+
+                    acceptString = HelperConstants.Approve;
+                    rejectString = HelperConstants.Reject;
+
+                    <div class="row">
+
+                        <div class="page_sub_heading col span_13">
+                            @Resources.SelfServicePortalResources.ApprovalStatus
+                        </div>
+                        <div class="page_sub_heading col span_8">
+                            @Resources.SelfServicePortalResources.AssociatedWI
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="text col span_13">
+                            @if (activityEntry.TryGetValue("ApprovalCondition", out approvalCond) && (approvalCond != null))
+                            {
+                                approvalCond.ToString().Split('.').Last();
+                            }
+                        </div>
+                        <div class="text col span_8">
+                            @foreach (Dictionary<string, object>
+                                relRequest in relatedRequests)
+                            {
+                                <div class="row related_work_item">
+                                    <span id="@relRequest["BMEId"]"><a class="href_text" href="#">@relRequest["Id"]: @relRequest["Title"]</a></span>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    if (activityEntry["Notes"] != null)
+                    {
+                        <div class="page_sub_heading">@Resources.SelfServicePortalResources.Notes</div>
+                        <p style="white-space: pre-line">@activityEntry["Notes"]</p>
+                    }
+                    <div class="page_sub_heading">
+                        @Resources.SelfServicePortalResources.Reviewers
+                    </div>
+                    <div class="activity_reviewers_list text" style="margin-bottom: 1em;">
+                        <div class="row reviewer_item row" style="font-weight:600">
+                            <div class="name col span_5" style="padding:1px;">@Resources.SelfServicePortalResources.Name</div>
+                            <div class="hasveto col span_3" style="padding:1px;">@Resources.SelfServicePortalResources.HasVeto</div>
+                            <div class="mustvote col span_3 grey-text">@Resources.SelfServicePortalResources.MustVote</div>
+                            <div class="votedby col span_5 grey-text">@Resources.SelfServicePortalResources.VotedBy</div>
+                            <div class="status col span_3">@Resources.SelfServicePortalResources.Status</div>
+                            <div class="comment col span_5">@Resources.SelfServicePortalResources.Comment</div>
+                        </div>
+                        @foreach (Dictionary<string, object> reviewerDetails in reviewersList)
+                        {
+                            var reviewerItem = reviewerDetailsList[reviewerDetails["ReviewerId"].ToString()]; // smhelper.getReviewerDetails(reviewerDetails["ReviewerId"].ToString());
+                            activityReviewers[reviewerDetails["ReviewerId"].ToString()] = reviewerItem.Item1;
+                            var decision = reviewerDetails["Decision"].ToString().Substring(@reviewerDetails["Decision"].ToString().IndexOf('.') + 1);
+                            decision = decision.Equals("NotYetVoted") ? "Pending" : decision;
+                            var hasVote = reviewerDetails["Veto"].ToString().Equals("True") ? "&#160;&#160;&#160;&#160;&#160;&#10004;" : "&#160;&#160;&#160;&#160;&#160;&#10008";
+                            var mustVote = reviewerDetails["MustVote"].ToString().Equals("True") ? "&#160;&#160;&#160;&#160;&#160;&#160;&#10004;" : "&#160;&#160;&#160;&#160;&#160;&#160;&#10008";
+                            <div class="row reviewer_item row">
+                                <div class="name col span_5" style="padding:1px;">@reviewerItem.Item1</div>
+                                <div class="hasveto col span_3">@Html.Raw(hasVote)</div>
+                                <div class="mustvote col span_3">@Html.Raw(mustVote)</div>
+                                <div class="votedby col span_5" style="padding:1px;">@reviewerItem.Item2</div>
+                                <div class="status col span_3">@decision</div>
+                                <div class="comment col span_5" style="padding:1px;">@reviewerDetails["Comments"]</div>
+                            </div>
+
+                        }
+                    </div>
+
+                    if (status.Equals(@Resources.SelfServicePortalResources.InProgress))
+                    {
+                        <div class="top_pad" style="border-top: 1px solid #ccc;">
+
+                            <div class="page_sub_heading">
+                                @Resources.SelfServicePortalResources.Review
+                            </div>
+                            <div class="col text">
+                                @Resources.SelfServicePortalResources.ReviewAs
+                            </div>
+                            <select class="selectreviewer">
+                                @foreach (Dictionary<string, object> reviewerDetails in reviewersList)
+                                {
+                                    if (Session["UserName"].Equals(activityReviewers[reviewerDetails["ReviewerId"].ToString()]))
+                                    {
+                                        <option id="@reviewerDetails["BMEId"]" selected>@activityReviewers[reviewerDetails["ReviewerId"].ToString()]</option>
+                                    }
+                                    else
+                                    {
+                                        <option id="@reviewerDetails["BMEId"]">@activityReviewers[reviewerDetails["ReviewerId"].ToString()]</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+
+                    }
+                }
+                else if (actType.Equals("ManualActivity"))
+                {
+                    acceptText = @Resources.SelfServicePortalResources.MarkCompleted;
+                    rejectText = @Resources.SelfServicePortalResources.MarkFailed;
+
+                    acceptString = HelperConstants.MarkCompleted;
+                    rejectString = HelperConstants.MarkFailed;
+
+
+                    <div class="details clr" style=" border-bottom: 1px solid #ccc;">
+                        <div class="row">
+
+                            <div class="page_sub_heading col span_13">
+                                @Resources.SelfServicePortalResources.ActivityImplementor
+                            </div>
+                            <div class="page_sub_heading col span_8">
+                                @Resources.SelfServicePortalResources.AssociatedWI
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="text col span_13">
+                                @manualActvitiyImplementor
+                            </div>
+                            <div class="text col span_8">
+                                @foreach (Dictionary<string, object>
+                                relRequest in relatedRequests)
+                                {
+                                    <div class="row related_work_item">
+                                        <span id="@relRequest["BMEId"]"><a class="href_text" href="#">@relRequest["Id"]: @relRequest["Title"]</a></span>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="page_sub_heading col span_13">
+                                @Resources.SelfServicePortalResources.Priority
+                            </div>
+                            <div class="page_sub_heading col span_8">
+                                @Resources.SelfServicePortalResources.ActivityArea
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="text col span_13">
+                                @activityEntry["Priority"]
+                            </div>
+                            <div class="text col span_8">
+                                @activityEntry["Area"]
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="page_sub_heading col span_13">
+                                @Resources.SelfServicePortalResources.Stage
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="text col span_13">
+                                @activityEntry["Stage"]
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="page_sub_heading col span_13">
+                                @Resources.SelfServicePortalResources.ScheduledStartDate
+                            </div>
+                            <div class="page_sub_heading col span_8">
+                                @Resources.SelfServicePortalResources.ScheduledEndDate
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="text col span_13">
+                                @if (activityEntry["ScheduledStartDate"] != null)
+                                {
+                                    <span class="utc-date">@DateTime.Parse(activityEntry["ScheduledStartDate"].ToString()).ToString("yyyy,M,d,H,m,s")</span>
+                                }
+                            </div>
+                            <div class="text col span_8">
+                                @if (activityEntry["ScheduledEndDate"] != null)
+                                {
+                                    <span class="utc-date">@DateTime.Parse(activityEntry["ScheduledEndDate"].ToString()).ToString("yyyy,M,d,H,m,s")</span>
+                                }
+                            </div>
+                        </div>
+                        <div class="row">
+                            @if (activityEntry["Notes"] != null)
+                            {
+                                <div class="page_sub_heading">@Resources.SelfServicePortalResources.Notes</div>
+                                <p style="white-space: pre-line">@activityEntry["Notes"]</p>
+                            }
+                        </div>
+                    </div>
+
+                }
+                @if (status.Equals(@Resources.SelfServicePortalResources.InProgress))
+                {
+                    <div class="row top_pad">
+                        <textarea class="user_input" maxlength="256" placeholder="@Resources.SelfServicePortalResources.AddComments"></textarea>
+                    </div>
+                    <div class="my_req_btn_bar section" data-id="@activityEntry["BMEId"]" data-status="@status" style="padding-top:1em;padding-bottom:1em;">
+                        <input type="submit" class="btn my_activity_approve" name=@acceptText onclick="submitComment('@acceptString')" value="@acceptText" />
+                        <input type="submit" class="btn my_req_update" name=@rejectText onclick="submitComment('@rejectString')" value="@rejectText" />
+                    </div>
+
+                }
+            </div>
+            <div class="inner_page page" style="display: none; padding-bottom:1em;">
+                <div class="col span_1 back_activity_nav" style="padding-top:1.8em;"><span class="icon-BackLegacy icon-medium" /></div>
+                @if (relatedRequests.Count != 0)
+                {
+                    Dictionary<string, object> requestitem = relatedRequests.First() as Dictionary<string, object>;
+                    string item = requestitem["BMEId"].ToString();
+                    var idActivity = activityEntry["Id"];
+                    var acttype = activityEntry["Type"];
+
+                    var serviceRequest = relatedRequests.First() as Dictionary<string, object>;
+
+                    <div class="inner_page_heading section">
+                        <div class="header">
+                            <div class="heading">@serviceRequest["Title"]</div>
+                            <div class="list_data_item_divider">
+                                <span>@serviceRequest["Id"]</span>
+                                <span class="divider"></span>
+                                <span>@serviceRequest["RequestStatus"]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="row">
+                            <div class=" col span_13 page_sub_heading">
+                                @Resources.SelfServicePortalResources.CreatedDate
+                            </div>
+                            <div class="col span_8 page_sub_heading">
+                                @Resources.SelfServicePortalResources.LastModified
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col span_13 text"><span class="utc-date">@DateTime.Parse(serviceRequest["CreatedDate"].ToString()).ToString("yyyy,M,d,H,m,s")</span></div>
+                            <div class="col span_8 text"><span class="utc-date">@DateTime.Parse(serviceRequest["LastModifiedDate"].ToString()).ToString("yyyy,M,d,H,m,s")</span></div>
+                        </div>
+                        <div class="row page_sub_heading">
+                            @Resources.SelfServicePortalResources.Description
+                        </div>
+                        <div class="row text" style="margin-bottom: 3em; white-space: pre-line">
+                            @serviceRequest["Description"]
+                        </div>
+                        <div class="row page_sub_heading">
+                            @Resources.SelfServicePortalResources.Priority
+                        </div>
+                        <div class="row text">
+                            @serviceRequest["Priority"]
+                        </div>
+                        <div class="row page_sub_heading">
+                            @Resources.SelfServicePortalResources.UserInput
+                        </div>
+                        <div class="row text">
+                            @if (serviceRequest["UserInput"] != null)
+                            {
+                                List<KeyValuePair<string, string>> userInputs = serviceRequest["UserInput"] as List<KeyValuePair<string, string>>;
+
+                                if (userInputs.Count > 0)
+                                {
+                                    <table id="user_input_table" class="user_input_table">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:40%">@Resources.SelfServicePortalResources.Property</th>
+
+                                                <th style="width:60%">@Resources.SelfServicePortalResources.Value</th>
+                                            </tr>
+                                        </thead>
+                                        @foreach (var userinput in userInputs)
+                                        {
+                                            <tr>
+                                                <td>@userinput.Key</td>
+                                                <td>@userinput.Value</td>
+                                            </tr>
+                                        }
+                                    </table>
+                                }
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</body>

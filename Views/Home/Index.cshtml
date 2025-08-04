@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+          jQuery(document).ready(function ($) {
+            window.addEventListener("resize", onresize);
+            $(window).trigger('resize');
+        });
+
+        var onresize = function (event) {
+            // need to use window.innerHeight/window.innerWidth as fix for IE10 because body.height/body.width gives bad results
+            var bodyHeight = window.innerHeight;
+            var bodyWidth = window.innerWidth;
+
+            $('.home_list_item_page').width(bodyWidth - $('.list_data_items').outerWidth(true) - $('.side_nav_bar').outerWidth(true) - parseInt($('.home_list_item_page').css('padding-left')) - parseInt($('.home_list_item_page').css('padding-right')));
+            $('.list_data_items').height(bodyHeight - $('.top_bar').outerHeight(true) - $('.list_main_heading').outerHeight(true) - $('.list_footer').outerHeight(true));
+            $('.home_list_item_page').height(bodyHeight - $('.top_bar').outerHeight(true) - parseInt($('.home_list_item_page').css('padding-top')) - parseInt($('.home_list_item_page').css('padding-bottom')));
+        }
+        </script>
+        </head>
+<body class="main_body gutters" scroll="no" style="overflow: hidden;">
+    @Html.Partial("~/Views/Home/Offerings.cshtml")
+</body> 
+</html>

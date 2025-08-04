@@ -1,0 +1,53 @@
+﻿@{
+    List<Dictionary<string, object>> sortList = ViewBag.Announcements as List<Dictionary<string, object>>;
+}
+
+
+<div class="anouncement_section side_bar_margin top_bar_margin clr">
+    <div class="row primary_row">
+		<span class="span_1 accordion_icon"><span class="icon-ChevronRight3Legacy icon-medium"></span></span>
+        <span class="announcement_count">@sortList.Count</span>
+		<span class="summary span_7 sub_heading">@Resources.SelfServicePortalResources.Announcements</span>
+	</div>
+    <div class="sub_row_container" style="display:none;">
+        <div class="row sub_row heading">
+            <div class="col span_2" style="padding:1px;"></span></div>
+            <div class="col span_5">@Resources.SelfServicePortalResources.ExpiryDate</div>
+            <div class="col span_5">@Resources.SelfServicePortalResources.Title</div>
+            <div class="col span_13">@Resources.SelfServicePortalResources.Description</div>
+        </div>
+        @{
+            foreach (Dictionary<string, object> listEntry in sortList)
+            {
+                // System.Windows.Forms.RichTextBox rtBox = new System.Windows.Forms.RichTextBox();
+                // rtBox.Rtf = (string)listEntry["Body"];
+                string body = listEntry["Body"] as string;
+                string cssClass = "";
+                string altTxt = "";
+                if (listEntry["Priority"].ToString().Contains("Critical"))
+                {
+                    cssClass = "icon-red";
+                    altTxt = "Critical";
+                }
+                else if (listEntry["Priority"].ToString().Contains("Medium"))
+                {
+                    cssClass = "icon-orange";
+                    altTxt = "Medium";
+                }
+                else if (listEntry["Priority"].ToString().Contains("Low"))
+                {
+                    cssClass = "icon-yellow";
+                    altTxt = "Low";
+                }
+                        
+                <div class="row sub_row">
+					<div class="col span_2"><span class="icon-selfmade @cssClass"></span></div>
+					<div class="col span_5">[@listEntry["ExpirationDate"].ToString()]</div>	
+                    <div class="col span_5">@listEntry["Title"]</div>	
+                    <div class="col span_13">@body</div>
+				</div>
+                   
+                }
+        }
+    </div>
+</div>

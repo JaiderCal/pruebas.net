@@ -1,0 +1,205 @@
+﻿@{
+    var currentCulture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name;
+    List<Dictionary<string, object>> announcements = ViewBag.Announcements;
+    string telemtryEnabled = ViewBag.TelementryEnabled;
+
+    // If we are loading Layout page on search page then we will have Search String, display it instead of generic search placeholder text
+    string searchPlaceHolderString = ViewBag.SearchString == null ? Resources.SelfServicePortalResources.SearchPlaceHolder : ViewBag.SearchString;
+}
+
+<link href="@Url.Content("~/Content/css/main.css")" rel="stylesheet" type="text/css" media="all" />
+<link href="@Url.Content("~/Content/css/custom.css")" rel="stylesheet" type="text/css" media="all" />
+
+<div class="container gutters">
+    <div class="row">
+        <div class="clr side_nav_apps" tabindex="1" accesskey="M">
+            <span class="icon-GlobalNavButton icon-medium" style="position: absolute; top: 1em; left: 1em; " />
+            <div class="notification mobile_view"><span class="activities_count">@ViewBag.Notications</span></div>
+        </div>
+
+        <div class=" clr nav_back" style="display:none;">
+            <span class="icon-BackLegacy icon-medium" style="position: absolute; top: 1em; left: 1em;"></span>
+        </div>
+
+        <div class="top_bar">
+            <a href="@Url.Action("Index", "Home")" tabindex="2">
+                <div class="col span_2 company_logo">
+                    <img src="@System.Web.Configuration.WebConfigurationManager.AppSettings["CompanyLogoLocation"]" alt="@System.Web.Configuration.WebConfigurationManager.AppSettings["CompanyName"]" />
+                </div>
+            </a>
+            <div class="col span_15 logo">@System.Web.Configuration.WebConfigurationManager.AppSettings["CompanyName"]</div>
+
+                <div class="clr" style="float: right;">
+                    <div class="col global_search_div">
+                        <form method="post" action="~/Home/GenericSearch" id="global_search_form" style="background-color: white;">
+                            <input name="searchString" class="global_search" tabindex="3" accesskey="S" type="search" placeholder="@searchPlaceHolderString" data-toggle="tooltip" title="@Resources.SelfServicePortalResources.SearchPlaceHolder" />
+                            <span id="global-search-btn" class="icon-SearchboxLegacy"></span>
+                        </form>
+                    </div>
+                    <div class="col mobile_search">
+                        <span id="global-search-btn-mobile" class="icon-SearchboxLegacy" style="color: white; left: 1.25em; position: absolute; top: 0.67em;"></span>
+                    </div>
+
+                    <div class="col anouncements" aria-label="@Resources.SelfServicePortalResources.Announcements" role="button" tabindex ="4">
+                        <span class="icon-ActionCenterNotification anouncement-icon"></span>
+                        @if (announcements.Count > 0)
+                        {
+                            <span class="anouncement_count">@announcements.Count</span>
+                        }
+                    </div>
+                    <div class="col email" tabindex="5">
+                        <span class="icon-Contact email-icon"></span>
+                        <div class="username" style="display: none;">@Session["UserName"].ToString()</div>
+                    </div>
+                    <div class="col lang" tabindex="6" accesskey="L" role="treeitem" aria-expanded="false">
+                        <div class="lang_setting" style="display: none;">
+                            Language
+                            <span class="icon-ChevronDown3Legacy"></span>
+                        </div>
+                        <span class="icon-Settings settings-icon"></span>
+                        <form id="langForm" action="/SelfServicePortalBase/CultureChanged" method="post">
+                            <input id="currentUrl" type="hidden" name="currentUrl" value='' />
+                            <input id="selectLang" type="hidden" name="language" value='' />
+                        </form>
+                        <ul class="lang_menu hidden" aria-expanded="true" data-select-lang=@currentCulture>
+                            <li value="en-US" tabindex="10">English</li>
+                            <!-- <li value="fr-FR" tabindex="11">français</li>
+                            <li value="de-DE" tabindex="12">Deutsch</li>
+                            <li value="cs-CZ" tabindex="13">čeština</li>
+                            <li value="da-DK" tabindex="14">Dansk</li>
+                            <li value="el-GR" tabindex="15">Ελληνικά</li> -->
+                            <li value="es-ES" tabindex="16">español</li>
+                            <!-- <li value="fi-FI" tabindex="17">suomi</li>
+                            <li value="hu-HU" tabindex="18">magyar</li>
+                            <li value="it-IT" tabindex="19">italiano</li>
+                            <li value="ja-JP" tabindex="20">日本語</li>
+                            <li value="ko-KR" tabindex="21">한국어</li>
+                            <li value="nb-NO" tabindex="22">norsk</li>
+                            <li value="nl-NL" tabindex="23">Nederlands</li>
+                            <li value="pl-PL" tabindex="24">polski</li>
+                            <li value="pt-BR" tabindex="25">português (Brasil)</li>
+                            <li value="pt-PT" tabindex="26">português (Portugal)</li>
+                            <li value="ru-RU" tabindex="27">русский</li>
+                            <li value="sv-SE" tabindex="28">svenska</li>
+                            <li value="tr-TR" tabindex="29">Türkçe</li>
+                            <li value="zh-CHS" tabindex="30">中文（简体)</li>
+                            <li value="zh-CHT" tabindex="31">中文 (繁體)</li>
+                            <li value="zh-HK" tabindex="32">中文 (香港特別行政區)</li> -->
+                        </ul>
+                    </div>
+                </div>
+</div>
+           <div class="mobile_global_search" style="display:none;">
+            <form method="post" action="~/Home/GenericSearch" id="global_search_form">
+                <input name="searchString" class="global_search" type="search" placeholder="@Resources.SelfServicePortalResources.SearchPlaceHolder" style="width : 94%;" />
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<div class="anouncement_section clr" style="display: none;">
+                <div class="sub_row_container anouncement_desc">
+                    <div class="anouncement_content col">
+                        <div class=" col sub_row heading">
+                            <div class="col span_1" style="padding: 1px;"></div>
+                            <div class="col span_5">@Resources.SelfServicePortalResources.Title</div>
+                            <div class="col span_7">@Resources.SelfServicePortalResources.ExpiryDate</div>
+                            <div class="col span_13">@Resources.SelfServicePortalResources.Description</div>
+                        </div>
+                        @{
+                            foreach (Dictionary<string, object> listEntry in announcements)
+                            {
+                                // System.Windows.Forms.RichTextBox rtBox = new System.Windows.Forms.RichTextBox();
+                                // rtBox.Rtf = (string)listEntry["Body"];
+                                string body = listEntry["Body"] as string;
+                                string cssClass = "";
+                                string altTxt = "";
+                                if (listEntry["Priority"].ToString().Contains("Critical"))
+                                {
+                                    cssClass = "icon-red";
+                                    altTxt = "Critical";
+                                }
+                                else if (listEntry["Priority"].ToString().Contains("Medium"))
+                                {
+                                    cssClass = "icon-orange";
+                                    altTxt = "Medium";
+                                }
+                                else if (listEntry["Priority"].ToString().Contains("Low"))
+                                {
+                                    cssClass = "icon-yellow";
+                                    altTxt = "Low";
+                                }
+                        
+                            <div class="row sub_row">
+                                <div class="col span_1"><span class="icon-selfmade @cssClass"></span></div>
+                                <div class="col span_5">@listEntry["Title"]</div>
+                                <div class="col span_7"> <span class="utc-date">@DateTime.Parse(listEntry["ExpirationDate"].ToString()).ToString("yyyy,M,d,H,m,s")</span></div>
+                                <div class="col span_13">@body</div>
+                            </div>
+                    
+                   
+                        }
+                        }
+                    </div>
+
+                </div>
+
+            </div>
+
+<div class="toss_notification" style="display:none;">
+    <div class="toss_notification_content"></div>
+    <div class="toss_notification_close">
+        <span class="icon-ChromeClose"></span>
+    </div>
+</div>
+
+<div id="page_loader" style="display: none;">
+    <img src="~/Content/images/loading.gif" alt=@Resources.SelfServicePortalResources.Loading style="width: 5em; height: 5em;" />
+</div>
+
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="@currentCulture" >
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
+    <title>
+        @ViewBag.Title
+    </title>
+    <link href="@Url.Content("~/Content/css/starRating.css")" rel="stylesheet" type="text/css" media="all" />
+    <link href="@Url.Content("~/Content/css/jquery.dataTables.min.css")" rel="stylesheet" type="text/css" media="all" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @* <link rel='stylesheet' media='screen and (min-width: 786px)' href='./css/default-main.css' />
+        <link rel='stylesheet' media='screen and (max-width: 786px)' href='./css/default-mobile-main.css' />*@
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+    </script>
+    <script src="@Url.Content("~/Content/js/jquery.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/js/header.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/js/sidenavigator.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/js/index.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/js/makeform.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/js/toss-notifs.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/js/jquery.dataTables.min.js")"></script>
+
+    @if (telemtryEnabled.Equals("true"))
+    { 
+        <script type="text/javascript" src="@Url.Content("~/Content/js/telemetry.js")"></script>
+    }
+    <meta name="viewport" content="width=device-width" />
+
+    @Scripts.Render("~/Content/js")
+
+    @Html.Partial("~/Views/Shared/SideBar.cshtml")
+</head>
+<body class="main_body gutters">
+
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+

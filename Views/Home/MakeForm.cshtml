@@ -1,0 +1,629 @@
+﻿@using Microsoft.EnterpriseManagement.NewSMPortal.SDKTransformer.SMPortalHelper;
+
+@{
+    Dictionary<string, object> requestItem = ViewBag.RequestItem;
+    List<Dictionary<string, object>> formData = ViewBag.FormData;
+    List<Dictionary<string, object>> KAs = ViewBag.KAs;
+    List<ValidationResultWithArgs> ErrorResults = ViewBag.ErrorResults;
+    string relationshipId = ViewBag.RelID;
+    string message = ViewBag.Message;
+    string creationSuccessFlag = ViewBag.CreationSuccessFlag;
+    string BMEId = ViewBag.BMEID;
+    string DisplayName = ViewBag.DisplayName;
+    int maxRequestLengthinBytes = ViewBag.MaxRequestLength * 1024;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .control_label_required:after {
+            content: " *";
+            color: red;
+        }
+    </style>
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/jquery-ui.min.css")">
+    <script src="@Url.Content("~/Content/js/jquery-ui.min.js")"></script>
+    <script type="text/javascript">
+    // declare associative array to store query table handlers
+    var queryTableHandler = new Array();
+
+    $(document).ready(function () {
+
+        // Setting data picker UI for data picker input
+        $('input').each(function () {
+            if ($(this).attr('data-type') == "datepicker") {
+                $(this).datepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    dateFormat: 'mm/dd/yy'
+                });
+            }
+        });
+
+        // Setting required astrix from span, label and input fields
+        $('span').each(function () {
+            if ($(this).attr('data-required') == "required") {
+                $(this).addClass('control_label_required');
+            }
+        });
+        $('label').each(function () {
+            if ($(this).attr('data-required') == "required") {
+                $(this).addClass('control_label_required');
+            }
+        });
+        $('input').each(function () {
+            if ($(this).attr('data-required') == "required") {
+                $(this).addClass('control_label_required');
+            }
+        });
+
+        // Fill favorite relationship icon
+        if ('@relationshipId' != '') {
+            $('.fav_this').find('.icon').removeClass('icon-HeartLegacy').addClass('icon-HeartFillLegacy').addClass('icon-fill');
+        }
+
+        // On return from Makeform, show toss notification and hide page loader
+        if ('@Request.Form.AllKeys.Contains("submitButton")' == 'True') {
+            $('input[type=text]').each(function () {
+                $(this).val(decodeURIComponent($(this).val()));
+            });
+            if ('@creationSuccessFlag' == 'true') {
+                pageLoaderAction('hide');
+                showTossNotification("@Html.Raw(message)", function () {
+                    $(location).attr('href', '/Home');
+                });
+            }
+            else {
+                pageLoaderAction('hide');
+                // If Error Results is present, allow form to be rendered
+                // If Error Results in empty, it is a server side error
+                if ('@ErrorResults.Count' == '0') {
+                    showTossNotification("@Html.Raw(message)", function () {
+                    });
+                }
+            }
+        }
+
+        queryRowClick();
+        queryDailogClose();
+        stopCheckBoxClickEvent();
+        favIconAction();
+        shareMailAction();
+        removeHiddenRadio();
+        // Show empty query table
+        $('.fav_div_container .query_table').DataTable({
+            "paging": false,
+            searching: false,
+            ordering: false,
+            "language": {
+                "emptyTable": "@Resources.SelfServicePortalResources.EmptyQueryTable",
+            }
+        });
+
+        // If cancel button is clicked, go to Home page
+        $('.fav_cancel').on('click', function (event) {
+            event.preventDefault();
+            //event.stopPropagation();
+            $(location).attr('href', '/Home');
+        });
+
+        // If refresh query button is clicked
+        $('.queryPickButton').on('click', function (event) {
+            event.stopPropagation();
+            var table;
+            var clickedElement = $(this).attr("data-idSource");
+            var docHeight = $(document).height();
+
+            var overlayDiv = $("<div id='overlay'></div>").height(docHeight);
+            $("body").append(overlayDiv);
+            $('#page_loader').show();
+
+            $.ajax({
+                url: "/Home/Query",
+                type: 'POST',
+                data: $('form#formLink').serialize() + "&clickedElement=" + clickedElement + "&ROGuid=" + '@requestItem["BMEId"]',
+                success: function (data) {
+                    $('#page_loader').hide();
+                    $("body #overlay").remove();
+
+                    $('div#' + clickedElement).empty();
+                    $('div#' + clickedElement).html(data);
+
+                    // Clear the old values from hidden input
+                    $('input:hidden[name="' + clickedElement + '"]').attr("value", "");
+
+                    table = $('div#' + clickedElement).find('table').DataTable({
+                        "paging": true,
+                        "searching": true,
+                        "ordering": true,
+                        "scrollY": "35em",
+                        "scrollCollapse": true,
+                        "autoWidth": true,
+                        "language": {
+                            "emptyTable": "@Resources.SelfServicePortalResources.NoSearchRecords",
+                            "zeroRecords": "@Resources.SelfServicePortalResources.NoSearchRecords",
+                            "search": "@Resources.SelfServicePortalResources.Search:",
+                            "info": "@string.Format(Resources.SelfServicePortalResources.ShowingEntries,"_START_","_END_","_TOTAL_")",
+                            "infoEmpty": "@string.Format(Resources.SelfServicePortalResources.ShowingEntries,"0","0","0")",
+                            "infoFiltered": "@string.Format(Resources.SelfServicePortalResources.FilteredFrom,"_MAX_")",
+                            "lengthMenu": "@Resources.SelfServicePortalResources.Show _MENU_ @Resources.SelfServicePortalResources.Enteries",
+                            "paginate": {
+                                "first": "@Resources.SelfServicePortalResources.First",
+                                "last": "@Resources.SelfServicePortalResources.Last",   
+                                "next": "@Resources.SelfServicePortalResources.Next",
+                                "previous": "@Resources.SelfServicePortalResources.Previous"
+                            },
+                        }
+                    }); // end of datatable
+
+                    // Add the handler to associative array
+                    // Had to be within success block
+                    queryTableHandler[clickedElement] = table;
+
+                } // end of success
+            }); // end of ajax
+        });
+    });
+
+    //var validateOnSubmit = function () {
+    //    var ret;
+    //    $('#submitButton').on('click', function (event, ret) {
+    //        $('.queryResult').each(function (ret) {
+    //            var required = $(this).attr("data-required");
+    //            if (required == "required") {
+    //                if ($(this).find('input[type=checkbox]:checked').length == 0) {
+    //                    $(this).html = '<text>This field cannot be empty. Chose atleast one item';
+    //                    ret = false;
+    //                }
+    //            }
+    //        });
+    //    });
+    //    return ret;
+    //}
+
+    // When submit button is clicked
+    function pageLoaderActionOnSubmit() {
+        // get all hidden nodes for every query table
+
+        var ret = true;
+        $('.queryPickButton').each(function () {
+
+            var queryPickerId = $(this).attr('data-idSource');
+            $('div#error_' + queryPickerId).empty();
+            var table = queryTableHandler[queryPickerId];
+            var isRequired = $(this).attr('data-required');
+            if (table != null) {
+                var nodes = fnGetAllNodes(table);
+                var selectedValues = "";
+
+                // CASE - Checkbox
+                if ($(nodes).find("input[type=checkbox]").length != 0) {
+                    // Checkboxes will populate selectedValues - Format as it would be for checkbox input
+                    var selectedCheckboxes = $(nodes).find("input[type=checkbox]:checked").each(function () {
+                        selectedValues += $(this).val() + ",";
+                    });
+
+                    if (selectedValues == "") {
+                        if (isRequired == "required") {
+                            $('div#error_' + queryPickerId).html("This is a mandatory field. Please choose an item.");
+                            ret = false;
+                        }
+                    }
+                    else {
+                        selectedValues = selectedValues.slice(0, -1);
+                        // Assign selectedValues to hidden input with name sourceGuid
+                        $('input:hidden[name="' + $(this).attr("data-idSource") + '"]').attr("value", selectedValues);
+                    }
+                }
+                    // CASE - Radio
+                else {
+                    if ($('input:hidden[name="' + $(this).attr("data-idSource") + '"]').val() == "") {
+                        if (isRequired == "required") {
+                            $('div#error_' + queryPickerId).html("This is a mandatory field. Please choose an item.");
+                            ret = false;
+                        }
+                    }
+                }
+            } // end of if
+            else {
+                // "Refresh" has not been clicked - No data table handle
+                if (isRequired == "required") {
+                    $('div#error_' + queryPickerId).html("This is a mandatory field. Please click 'Refresh' and choose an item.");
+                    ret = false;
+                }
+            }
+        }); // end of function, this should repeat
+
+       
+
+        var totalSize = 0;
+        $('input[type=file]').each(function () {
+            $('div#error_' + this.name).empty();
+            if (typeof this.files[0] !== 'undefined') {
+                var size = this.files[0].size;
+                totalSize = totalSize + size;
+                if (size > '@maxRequestLengthinBytes') {
+                    $('div#error_' + this.name).html("Please choose a smaller file.");
+                }
+            }
+        });
+
+        if (totalSize > '@maxRequestLengthinBytes') {
+            $('div#error_maxRequestLength').html("Maximum request length exceeded. Make sure the page size is less than " + '@ViewBag.MaxRequestLength' + " KB.");
+            $('div#error_maxRequestLength').addClass('error-maxRequestLength');
+            ret = false;
+        } else {
+            $('div#error_maxRequestLength').empty();
+            $('div#error_maxRequestLength').removeClass('error-maxRequestLength');
+        }
+
+        if (ret == true) {
+            $('input[type=text]').each(function () {
+                $(this).val(encodeURIComponent($(this).val()));
+            });
+            pageLoaderAction('show');
+        }
+
+        return ret;
+    }
+
+    function popup(link, windowname) {
+        if (!window.focus)
+            return true;
+        var href = link;
+        if (typeof (link) == 'string')
+            href = link;
+        else href = link.href;
+        href = href + "?bmeId=" + link.id;
+        window.open(href, windowname, 'width=600,height=600,resizable=yes,dependent=yes,scrollbars=yes');
+        return false;
+    }
+
+    // Clicked checkbox should not show details pop up
+    var stopCheckBoxClickEvent = function () {
+        $('body').on('click', '#query_table input[type=checkbox]', function (event) {
+            event.stopPropagation();
+        });
+    }
+
+    // When a radio button is selected, remove the checked ones from hidden nodes
+    var removeHiddenRadio = function () {
+        $('body').on('click', '#query_table input[type=radio]', function () {
+
+            if ($(this).is(':checked')) {
+                var queryPickerId = $(this).attr('data-idSource');
+
+                var table = queryTableHandler[queryPickerId];
+
+                if (table != null) {
+                    var nodes = fnGetHiddenNodes(table);
+
+                    // All the hidden nodes that are checked is unchecked
+                    $(nodes).find("input[type=radio]:checked").each(function () {
+                        $(this).prop('checked', false);
+                    });
+
+                    // Assign clicked value to hidden input
+                    $('input:hidden[name="' + queryPickerId + '"]').attr("value", $(this).val());
+                }
+            }// end of if
+        });
+    }
+
+    // When details_link is clicked
+    var queryRowClick = function () {
+        $('body').on('click', '#query_table tr td.details_link', function (event) {
+            var link = "/Home/DetailsPopUp";
+            var docHeight = $(document).height();
+            var width = $(window).width();
+            var overlayDiv = $("<div id='overlay'></div>").height(docHeight);
+            $("body").append(overlayDiv);
+            var url = link + "?bmeId=" + $(this).closest('tr').attr('id');
+            $('.query_pop_up').find('.title_content').text($(this).closest('tr').attr('data-name'));
+            $('.query_pop_up').show().find('.content').load(url, function () {
+                if (width < 786) {
+                    $(function () {
+                        $('.query_pop_up').find('#item_details_table').DataTable({
+                            searching: false,
+                            ordering: false,
+                            "scrollY": "25em",
+                            "scrollCollapse": true,
+                            "pageLength": 12,
+                            "bLengthChange": false,
+                        });
+                    });
+                }
+                else {
+                    $(function () {
+                        $('.query_pop_up').find('#item_details_table').DataTable({
+                            searching: false,
+                            ordering: false,
+                            "scrollY": "40em",
+                            "scrollCollapse": true,
+                            "pageLength": 12,
+                            "bLengthChange": false,
+                        });
+                    });
+                }
+
+                $(window).scrollTop($('.query_pop_up .title').offset().top - 80);
+            });
+        });
+    }
+
+    var queryDailogClose = function () {
+        $('body').on('click', '.query_pop_up .close', function (event) {
+            $(this).closest('.query_pop_up').hide();
+            $('#overlay').remove();
+        });
+    }
+
+    var getDialogTitle = function () {
+        var title = $('.query_dialog_title').show();
+        return title;
+    }
+
+    // Set and Edit favourites
+    var favIconAction = function () {
+        $('.fav_this').on('click', function (event) {
+            favIconActionHelper($(this), event);
+        });
+        $('.fav_this').keydown(function (event) {
+            var keycode = event.keyCode || event.which;
+            if (keycode == '13') {
+                favIconActionHelper($(this), event);
+            }
+        });
+    }
+
+    var favIconActionHelper = function (that, event) {
+        pageLoaderAction('show');
+        var favDiv = that;
+
+        //If it is not already favourited
+        if (favDiv.find('.icon').hasClass('icon-HeartLegacy')) {
+            $.ajax({
+                url: "/SelfServicePortalBase/EditFavorites",
+                type: "POST",
+                data: { "guid": '@BMEId', "type": '@SMPortalHelper.FavoritesTarget.RequestOfferings', "action": "add" },
+                success: function (data) {
+                    //Fill the fav icon
+                    $('.fav_this').find('.icon').removeClass('icon-HeartLegacy').addClass('icon-HeartFillLegacy').addClass('icon-fill');
+                    pageLoaderAction('hide');
+                },
+                error: function (data) { }
+            });
+        }
+        else {
+            $.ajax({
+                url: "/SelfServicePortalBase/EditFavorites",
+                type: "POST",
+                data: { "relationshipId": '@relationshipId', "type": '@SMPortalHelper.FavoritesTarget.RequestOfferings', "action": "delete" },
+                success: function (data) {
+                    //Fill the fav icon
+                    $('.fav_this').find('.icon').addClass('icon-HeartLegacy').removeClass('icon-HeartFillLegacy').removeClass('icon-fill');
+                    pageLoaderAction('hide');
+                },
+                error: function (data) { }
+            });
+        }
+    }
+
+    // Share link
+    var shareMailAction = function () {
+        try {
+            $('.share_this').on('click', function (event) {
+                window.location = 'mailto:?subject=@requestItem["Title"]&body=@requestItem["Title"]: ' + window.location + '?BMEID=' + '@BMEId';
+            });
+            $('.share_this').keydown(function (event) {
+                var keycode = event.keyCode || event.which;
+                if (keycode == '13') {
+                    window.location = 'mailto:?subject=@requestItem["Title"]&body=@requestItem["Title"]: ' + window.location + '?BMEID=' + '@BMEId';
+                }
+            });
+        }
+        catch (e) { }
+    }
+
+    // Datatable extensions API
+    var fnGetAllNodes = function (settings) {
+        var nodes;
+        var display = jQuery('tbody tr', settings.nTable);
+
+        if (jQuery.fn.dataTable.versionCheck) {
+            // DataTables 1.10
+            var api = new jQuery.fn.dataTable.Api(settings);
+            nodes = api.rows().nodes().toArray();
+        }
+        else {
+            // 1.9-
+            nodes = this.oApi._fnGetTrNodes(settings);
+        }
+
+        ///* Remove nodes which are being displayed */
+        //for (var i = 0 ; i < display.length ; i++) {
+        //    var iIndex = jQuery.inArray(display[i], nodes);
+
+        //    if (iIndex != -1) {
+        //        nodes.splice(iIndex, 1);
+        //    }
+        //}
+
+        return nodes;
+    };
+    // Datatable extensions API
+    var fnGetHiddenNodes = function (settings) {
+        var nodes;
+        var display = jQuery('tbody tr', settings.nTable);
+
+        if (jQuery.fn.dataTable.versionCheck) {
+            // DataTables 1.10
+            var api = new jQuery.fn.dataTable.Api(settings);
+            nodes = api.rows().nodes().toArray();
+        }
+        else {
+            // 1.9-
+            nodes = this.oApi._fnGetTrNodes(settings);
+        }
+
+        /* Remove nodes which are being displayed */
+        for (var i = 0 ; i < display.length ; i++) {
+            var iIndex = jQuery.inArray(display[i], nodes);
+
+            if (iIndex != -1) {
+                nodes.splice(iIndex, 1);
+            }
+        }
+
+        return nodes;
+    };
+
+    </script>
+</head>
+<body class="main_body clr gutters">
+
+    <!--p id="message"></p-->
+    @*<p id="response" style="background: yellow;"></p>*@
+    <div class="fav_div_container col span_22 outer side_bar_margin top_bar_margin page">
+
+        <div class="fav_heading span_22 section" style="margin-bottom:2.5em;">
+            <div class="row">
+                <div class="col span_24 heading">
+                    <span>@requestItem["DisplayName"]</span>
+                    <span class=" fav_this">
+                        <span class="icon-HeartLegacy icon" tabindex="100" data-toggle="tooltip" title="@Resources.SelfServicePortalResources.FavouriteThis"></span>
+                    </span>
+                    <span class=" share_this">
+                        <span role="button" class="icon-Share icon" tabindex="101" data-toggle="tooltip" title="@Resources.SelfServicePortalResources.Share"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="fav_desc section">
+            <div class="row sub_heading">@Resources.SelfServicePortalResources.Description</div>
+            <p>@requestItem["BriefDescription"]</p>
+        </div>
+        @if (KAs.Count != 0)
+        {
+            <div class="fav_help_articles section">
+                <div class="row sub_heading">@Resources.SelfServicePortalResources.RelatedHelpArticles</div>
+                @foreach (Dictionary<string, object> item in KAs)
+                {
+                    <a class="href_text" href='~/KnowledgeBase/Article?id=@item["ArticleId"]'>@item["Title"]</a>
+                }
+            </div>
+        }
+        <hr>
+        <div class="fav_instructions section">
+            <div class="row sub_heading">@Resources.SelfServicePortalResources.Instructions</div>
+            <p>
+                @requestItem["Overview"]
+            </p>
+        </div>
+        <form method="post" action="/Home/makeform" id="formLink" enctype="multipart/form-data" onsubmit="return (pageLoaderActionOnSubmit())">
+            <div class="fav_name_email section">
+                @foreach (var item in formData)
+                {
+                    if (item["Type"].ToString().Equals("PortalControl"))
+                    {
+                        @*<input type="hidden" name="@item["PathSend"].ToString()" value="@item["PortalUserName"].ToString()" />*@
+                    }
+                    else if (item["Type"].ToString().Equals("select"))
+                    {
+                        <label for="@item["Prompt"].ToString()" data-required="@item["Optional"].ToString()">@item["Prompt"].ToString()</label>
+                        <select name="@item["PathSend"].ToString()" aria-label="@item["Prompt"].ToString()">
+
+                             <option value='' selected></option>
+                            @foreach (var element in item["listEntries"] as List<Tuple<string, string>>)
+                            {
+                                 <option value=@Uri.EscapeDataString(element.Item1) aria-label="@element.Item2" @(Request[item["PathSend"].ToString()] == element.Item1 ?   "selected=selected" : (item["DefaultEntry"].ToString() == element.Item1 ? "selected=selected" : string.Empty)) >@element.Item2</option>
+
+                            }
+                        </select>
+                        <div class="error-text">@ErrorResults.Find(m => m.MemberNames.ElementAt(0).Equals(item["PathSend"].ToString()))</div>
+                    }
+                    else if (item["BaseType"].ToString().Equals("Double"))
+                    {
+                        <label for="@item["Prompt"].ToString()" data-required="@item["Optional"].ToString()">@item["Prompt"].ToString()</label>
+                        <input type="@item["Type"].ToString()" name="@item["PathSend"].ToString()" id="@item["Prompt"].ToString()" step="any" @item["Optional"].ToString() value='@Request[item["PathSend"].ToString()]'>
+                        <div class="error-text">@ErrorResults.Find(m => m.MemberNames.ElementAt(0).Equals(item["PathSend"].ToString()))</div>
+                    }
+                    else if (item["Type"].ToString().Equals("InstancePicker"))
+                    {
+                        <div class="row query_picker_heading">
+                            <span class="title" data-required="@item["Optional"].ToString()">@item["Prompt"].ToString()</span>
+                            @if (item["Metadata"].ToString() != "")
+                            {
+                                <span class="depend_text">@Resources.SelfServicePortalResources.QueryPickerMeta @item["Metadata"].ToString()</span>
+                            }
+                        </div>
+
+                        <button type="button" class="queryPickButton btn" data-idsource="@item["PathSend"].ToString()" data-required="@item["Optional"].ToString()">@Resources.SelfServicePortalResources.Refresh</button>
+                        <input type="hidden" name="@item["PathSend"].ToString()">
+                        <div class="error-text" id="error_@item["PathSend"].ToString()">@ErrorResults.Find(m => m.MemberNames.ElementAt(0).Equals(item["PathSend"].ToString()))</div>
+                        <div class="queryResult" id="@item["PathSend"].ToString()">
+                            <table class="query_table cell-border">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        @foreach (string column in item["DisplayColumns"] as List<string>)
+                                        {
+                                            <th>@column</th>
+                                        }
+
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    }
+                    else if (item["Type"].ToString().Equals("checkbox"))
+                    {
+                        <span class="title" style="font-size:1.25em;" data-required="@item["Optional"].ToString()">
+                            <input style="margin-bottom:1.5em;margin-top:0.5em;" type="checkbox" @(Request[item["PathSend"].ToString()] != null ?   "checked='checked'" : string.Empty) name="@item["PathSend"].ToString()" id="@item["Prompt"].ToString()" @item["Optional"].ToString() value='@Request[item["PathSend"].ToString()]' />
+                            @item["Prompt"].ToString()
+                        </span>
+                    }
+                    else if (item["Type"].ToString().Equals("date"))
+                    {
+                        <label for="@item["Prompt"].ToString()" data-required="@item["Optional"].ToString()">@item["Prompt"].ToString()</label>
+                        <input type="text" name="@item["PathSend"].ToString()" data-type="datepicker" placeholder="mm/dd/yyyy" id="@item["Prompt"].ToString()" @item["Optional"].ToString() value='@Request[item["PathSend"].ToString()]'/>
+                        <div class="error-text">@ErrorResults.Find(m => m.MemberNames.ElementAt(0).Equals(item["PathSend"].ToString()))</div>
+                    }
+                    else
+                    {
+                        string regexToolTip = string.Empty;
+                        if (item.ContainsKey("ToolTip"))
+                        {
+                            regexToolTip = item["ToolTip"].ToString();
+                        }
+
+                        <label for="@item["Prompt"].ToString()" data-required="@item["Optional"].ToString()">@item["Prompt"].ToString()</label>
+                        <input type="@item["Type"].ToString()" name="@item["PathSend"].ToString()" id="@item["Prompt"].ToString()" @item["Optional"].ToString() value='@Request[item["PathSend"].ToString()]' data-toggle="tooltip" title="@regexToolTip" />
+                        <div class="error-text" id="error_@item["PathSend"].ToString()">@ErrorResults.Find(m => m.MemberNames.ElementAt(0).Equals(item["PathSend"].ToString()))</div>
+                    }
+                }
+                <div id="error_maxRequestLength"></div>
+            </div>
+            <div class="fav_action_btn_bar section">
+                <button class="btn fav_submit" id="submitButton" name="submitButton">@Resources.SelfServicePortalResources.SubmitForm</button>
+                <button class="btn fav_cancel" name="cancel">@Resources.SelfServicePortalResources.Cancel</button>
+            </div>
+            <input type="hidden" class="BMEId" name="BMEId" value="@BMEId" hidden>
+            <input type="hidden" name="DisplayName" value="@DisplayName" hidden>
+        </form>
+
+    </div>
+    <div class="query_pop_up pop_up" style="display:none;">
+        <div class="title">
+            <span class="title_content"></span>
+            <span class="close icon-ChromeClose icon"></span>
+        </div>
+        <div class="content"></div>
+    </div>
+    <div id="page_loader" style="display:none;">
+        <img src="/Content/images/loading.gif" alt=@Resources.SelfServicePortalResources.Loading style="width: 5em; height: 5em;" />
+    </div>
+</body>
+</html>

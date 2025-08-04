@@ -1,0 +1,302 @@
+﻿@using Microsoft.EnterpriseManagement.NewSMPortal.SDKTransformer.SMPortalHelper;
+@{
+    List<Dictionary<string, object>> sortedList = ViewBag.ActvitiesList;
+
+    // Result dependent computation
+    string idClicked = string.Empty;
+    string actText = string.Empty;
+    var actType = string.Empty;
+
+    var criteria = ViewBag.Criteria;
+    string clicked_filter = ViewBag.ClickedFilter;
+
+    int tabindexCounter = 110;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script type="text/javascript">
+
+        function loadRequestList(status) {
+            $.each($('.list_data_item'), function (i, div) {
+                $(this).show();
+                var reqStatus = $(this).find('.list_data_item_tags .status').first().text();
+                if ((status != "@Html.Raw(Resources.SelfServicePortalResources.All)") && (reqStatus != status)) {
+                    $(this).hide();
+                }
+            });
+            if ($(window).width() > 1024) {
+                $('.list_data_item:visible').first().trigger('click');
+            }
+        }
+
+        jQuery(document).ready(function ($) {
+            $('#sortByOptions').val('@criteria');
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 900);
+            });
+
+            $('#sortByOptions').change(function () {
+                var clicked_filter = $('.filter .clicked').attr("id");
+                var criteria = $(this).find(":selected").val();
+                $(location).attr('href', '/MyActivities?criteria=' + criteria + '&clickedFilter=' + clicked_filter);
+            });
+
+            $('.list_data_item').on('click', function (event) {
+                loadActivityDetails($(this), event);
+            });
+
+            $('.list_data_item').keydown(function (event) {
+                var keycode = event.keyCode || event.which;
+                if (keycode == '13') {
+                    loadActivityDetails($(this), event);
+                }
+            });
+           
+            var loadActivityDetails = function (that, event) {
+                var idClick = that.attr('data-id');
+                var acttype = that.attr('data-type');
+                $('.list_data_item').removeClass('clicked');
+                that.addClass('clicked');
+
+                pageLoaderAction('show');
+                $.ajax({
+                    url: '/MyActivities/ActivityDetails',
+                    type: 'POST',
+                    data: { id: idClick, Type: acttype },
+                    success: function (result) {
+                        $(".list_item_page").html(result);
+                        if ($(window).width() < 786) {
+                            $("div.list_item_page").show();
+                            $('div.vertical_list').hide();
+                            $('.nav_back').show();
+                            adjustWidthsAndHeights();
+                        }
+                        pageLoaderAction('hide');
+                    }
+                });
+            }
+            //$('form#searchForm').submit(function (event) {
+            //    event.preventDefault();
+
+            //    var searchText = $('input#searchActivity').val().split(" ").join(".*|.*");
+            //    searchText = ".*" + searchText + ".*";
+            //    var divs = $('.service-section-grid');
+            //    var regex = new RegExp(searchText, 'i');
+
+            //    $.each($('.service-section-grid'), function (i, div) {
+            //        if (!(regex.test($(this).find('h5').text())) && !(regex.test($(this).find('p').text()))) {
+            //            $(this).hide();
+            //        }
+            //    });
+            //    $('img#cancelImage').show();
+            //});
+
+            //$('img#cancelImage').hide();
+            //$('img#cancelImage').click(function () {
+            //    $('input#searchActivity').val('');
+            //    loadRequestList(filterStatus);
+            //    $('img#cancelImage').hide();
+            //});
+
+            $('div.top-menu').find('a[href="~/MyActivities"]').attr({ "class": "active hvr-shutter-out-horizontal" });
+
+            filterActions();
+            filterUIActions();
+            sideMenuAction();
+            filterActvitiesSearchShow();
+            mobileActions();
+
+            //vertical_list list_header list_filter_sort filter
+            $('#@clicked_filter').trigger('click');
+
+            //$('.vertical_list .list_data_items').height($(window).height() - 193);
+            window.addEventListener("resize", onresize);
+            $(window).trigger('resize');
+        });
+
+        var onresize = function (event) {
+            // need to use window.innerHeight/window.innerWidth as fix for IE10 because body.height/body.width gives bad results
+            var bodyHeight = window.innerHeight;
+            var bodyWidth = window.innerWidth;
+
+            $('.list_item_page').width(bodyWidth - $('.list_data_items').outerWidth(true) - $('.side_nav_bar').outerWidth(true) - parseInt($('.list_item_page').css('padding-left')) - parseInt($('.list_item_page').css('padding-right')))
+            $('.list_item_page').height(bodyHeight - $('.top_bar').outerHeight(true) - parseInt($('.list_item_page').css('padding-top')) - parseInt($('.list_item_page').css('padding-bottom')));
+            $('.list_data_items').height(bodyHeight - $('.top_bar').outerHeight(true) - ($('.list_footer').outerHeight(true) || 0) - $('.list_header').outerHeight(true));
+        }
+
+        mobileActions = function () {
+            if ($(window).width() < 1024) {
+                $('.list_item_page').hide();
+                $('.vertical_list').css('width', '100%');
+                $('.list_item_page').css({ 'width': '85%' });
+                backNavigation();
+            } else {
+                //$('.list_item_page').css({ 'width': '' });
+            }
+        }
+
+        var adjustWidthsAndHeights = function () {
+            $('.list_item_page .review_as div').css({ 'width': '100%' });
+            $('.list_item_page .activity_reviewers_list div').css({ 'width': '100%', 'margin-bottom': '0.25em' });
+            $('.list_item_page .details .row div').css({ 'width': '100%' });
+        }
+
+        var backNavigation = function () {
+            $('body').on('click', '.nav_back', function (event) {
+                $("div.list_item_page").hide();
+                $('div.vertical_list').show();
+                $('.nav_back').hide();
+            });
+        }
+
+        sideMenuAction = function () {
+            $('.side_menu').find('.side_nav_activities').css('background-color', 'rgb(37, 95, 133)');
+        }
+
+        filterActions = function () {
+            $('.vertical_list').on('click', '.filter span', function (event) {
+                var filter = $(this).text().trim();
+                OnSearchOrFilter(filter);
+            });
+            $('.vertical_list .filter span').keydown(function (event) {
+                var keycode = event.keyCode || event.which;
+                if (keycode == '13') {
+                    var filter = $(this).text().trim();
+                    OnSearchOrFilter(filter);
+                }
+            });
+        }
+
+        filterUIActions = function () {
+            $('.vertical_list').on('click', '.filter span', function (event) {
+                //Clear all the styles
+                $('.vertical_list .filter span').each(function () {
+                    $(this).removeClass('clicked');
+                });
+
+                $(this).addClass('clicked');
+
+            });
+            $('.vertical_list .filter span').keydown(function (event) {
+                var keycode = event.keyCode || event.which;
+                if (keycode == '13') {
+                    //Clear all the styles
+                    $('.vertical_list .filter span').each(function () {
+                        $(this).removeClass('clicked');
+                    });
+
+                    $(this).addClass('clicked');
+                }
+            });
+        }
+
+        filterActvitiesSearchShow = function () {
+            $('.my_activity_container .vertical_list .filter_search').on('click', function (event) {
+                $('#searchRequest').toggle();
+            });
+        }
+
+        function OnSearchOrFilter(clicked_filter) {
+            searchText = $('#searchRequest').val();
+            if (clicked_filter == null) {
+                clicked_filter = $('.filter .clicked').text().trim();
+            }
+            $.each($('.list_data_item'), function (i, div) {
+                $(this).show();
+                var title = $(this).find('.list_data_item_desc').first().text();
+                var id = $(this).find('.list_data_item_tags .id').first().text();
+                var reqStatus = $(this).find('.list_data_item_tags .status').first().text().trim();
+                if ((clicked_filter != "@Html.Raw(Resources.SelfServicePortalResources.All)") && (reqStatus != clicked_filter)) {
+                    $(this).hide();
+                }
+                if ((title.search(new RegExp(searchText, "i")) == -1) && (id.search(new RegExp(searchText, "i")) == -1)) {
+                    $(this).hide();
+                }
+            });
+            if ($(window).width() > 1023) {
+                $('.list_data_item:visible').first().trigger('click');
+            }
+        }
+
+
+    </script>
+    <!---- start-smoth-scrolling---->
+
+</head>
+<body class="main_body gutters" scroll="no" style="overflow: hidden;">
+    <div class="my_activity_container col side_bar_margin top_bar_margin span_24" style="display:block;">
+        <div class="my_activity_list clr vertical_list" aria-label="@Resources.SelfServicePortalResources.MyActvities" tabindex="100">
+            <div class="list_header">
+                <div class="list_main_heading list_heading clr">
+                    <div class="col span_10">@Resources.SelfServicePortalResources.MyActvities</div>
+                    <span class="icon-Filter filter_search" style="position:absolute; right:1.25em; color:#fff; font-size:0.75em; top:1.25em; cursor:pointer;" tabindex="101"></span>
+                    <div class="clr">
+                        <input type="search" placeholder="@Resources.SelfServicePortalResources.FindByKeywords" name="searchRequest" id="searchRequest" style="display:none;" oninput="OnSearchOrFilter()" tabindex="102">
+                    </div>
+                </div>
+                <div class="list_filter_sort">
+                    <div class="sort_by row">
+                        <div class="col span_8">@Resources.SelfServicePortalResources.SortBy</div>
+                        <div class="col span_7">
+                            <select aria-label="@Resources.SelfServicePortalResources.SortBy" id="sortByOptions" tabindex="103">
+                                <option value="ID" aria-label="@Resources.SelfServicePortalResources.ID">@Resources.SelfServicePortalResources.ID</option>
+                                <option value="Title" aria-label="@Resources.SelfServicePortalResources.Title">@Resources.SelfServicePortalResources.Title</option>
+                                <option value="LastModifiedDate" aria-label="@Resources.SelfServicePortalResources.LastUpdated" selected="selected">@Resources.SelfServicePortalResources.LastUpdated</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="filter">
+                        <span class="progress" id="Progress" tabindex="104"> @Resources.SelfServicePortalResources.InProgress</span>
+                        <span class="clicked" id="All" tabindex="105"> @Resources.SelfServicePortalResources.All</span>
+                    </div>
+                </div>
+            </div>
+            <div class="list_data_items">
+                @{
+                    if (sortedList.Count == 0)
+                    {
+                        <div class="list_data_item_desc">
+                            @Resources.SelfServicePortalResources.NoActivitiesFound
+                        </div>
+                    }
+                    foreach (Dictionary<string, object> actlistEntry in sortedList)
+                    {
+                        string type = actlistEntry["Type"].ToString();
+                        if (type.Equals("ReviewActivity"))
+                        {
+                            actText = @Resources.SelfServicePortalResources.ReviewActivity;
+                        }
+                        else if (type.Equals("ManualActivity"))
+                        {
+                            actText = @Resources.SelfServicePortalResources.ManualActivity;
+                        }
+
+                        <div class="list_data_item" data-type=@actlistEntry["Type"] data-id="@actlistEntry["Id"]" tabindex="@tabindexCounter.ToString()">
+                            <div class="list_data_item_desc">
+                                @actlistEntry["Title"]
+                            </div>
+                            <div class="list_data_item_tags">
+                                <div class="id">@actText: @actlistEntry["Id"]</div>
+                                <div class="status">@actlistEntry[HelperConstants.ActivityStatus]</div>
+                            </div>
+                        </div>
+                        tabindexCounter++;
+                    }
+                }
+            </div>
+        </div>
+        <div class="col span_2 back_help_nav" style="padding-top: 1em; padding-left: 0.5em; display:none;">
+            <span class="icon-BackLegacy icon-medium"></span>
+        </div>
+
+        <div class="my_req_item list_item_page col span_17">
+        </div>
+
+    </div>
+</body>
+</html>

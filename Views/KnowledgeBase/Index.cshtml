@@ -1,0 +1,228 @@
+﻿@{
+    List<Dictionary<string, object>> knowledgeList = ViewBag.KnowledgeArticlesList;
+    List<Dictionary<string, object>> favoritesList = ViewBag.FavoriteArticlesList;
+    int tabIndex = 110;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 900);
+        });
+
+        $('div.top-menu').find('a[href="~/KnowledgeBase"]').attr({ "class": "active hvr-shutter-out-horizontal" });
+        @*$('.filterClass').find('a[id="@filter"]').attr({ "class": "active filterItem" });*@
+
+        articleNavigation();
+        submitFormAction();
+        sendFormwithData();
+        sideMenuAction();
+
+        window.addEventListener("resize", onresize);
+        $(window).trigger('resize');
+
+    });
+
+    var onresize = function (event) {
+        // need to use window.innerHeight/window.innerWidth as fix for IE10 because body.height/body.width gives bad results
+        var bodyHeight = window.innerHeight;
+        var bodyWidth = window.innerWidth;
+
+        $('.help_div_container').width(bodyWidth - $('.side_nav_bar').outerWidth(true) - parseInt($('.help_div_container').css('padding-left')) - parseInt($('.help_div_container').css('padding-right')));
+        $('.help_div_container').height(bodyHeight - $('.top_bar').outerHeight(true) - parseInt($('.help_div_container').css('padding-top')) - parseInt($('.help_div_container').css('padding-bottom')));
+    }
+
+    sideMenuAction = function () {
+        $('.side_menu').find('.side_nav_help').css('background-color', '#255F85');
+    }
+
+    articleNavigation = function () {
+        $('.help_div_container').on('click', '.sub_row, .tile', function (event) {
+            var link = $(this).attr('data-link');
+            $(location).attr('href', link);
+        });
+
+        $('.help_div_container .sub_row .tile').keydown(function (event) {
+            var keycode = event.keyCode || event.which;
+            if (keycode == '13') {
+                var link = $(this).attr('data-link');
+                $(location).attr('href', link);
+            }
+        });
+    }
+
+    function sendFormwithData() {
+        var form = document.getElementById("langForm");
+        var node = document.createElement("input");
+
+        @{
+            foreach (var item in Request.Form)
+            {
+                @:node.name = '@item';
+                @:node.value = '@Request[item.ToString()].ToString()';
+                @:node.type = 'hidden';
+                @:form.appendChild(node.cloneNode());
+            }
+        }
+
+    }
+
+    //function OnSearchOrFilter() {
+    //    searchText = $('#searchHelp').val();
+    //    $.each($('.tile'), function (i, div) {
+    //        $(this).show();
+    //        var content = $(this).find('.text').first().text();
+    //        if (content.search(new RegExp(searchText, "i")) == -1) {
+    //            $(this).hide();
+    //        }
+    //    });
+    //}
+</script>
+<body class="main_body gutters" scroll="no" style="overflow: hidden;">
+
+    <div class="help_div_container side_bar_margin top_bar_margin outer col span_23 dark_background" style="padding-left:2em;">
+        <div class="row section" style="margin-bottom:1em;">
+            <div class="col span_12 heading">@Resources.SelfServicePortalResources.HelpArticles</div>
+        </div>
+        <div class="row search_section section">
+            <form method="post" action="~/Home/GenericSearch" id="global_search_form">
+                <input type="search" placeholder="@Resources.SelfServicePortalResources.FindByKeywords" name="searchString" id="searchHelp" tabindex="100" class="global_search">
+                <input type="hidden" name="OnlySearchKA" id="OnlySearchKA" hidden value="true">
+            </form>
+        </div>
+
+        @if ((favoritesList.Count == 0) && (knowledgeList.Count == 0))
+        {
+            <div class="list_data_item_desc">
+                @Resources.SelfServicePortalResources.NoHelpArticlesFound
+            </div>
+        }
+        @if (favoritesList.Count != 0)
+        {
+            <div class="favourites_section section" style="margin-bottom: 2em;">
+                <div class="row primary_row">
+                    @*<div class="col span_2 accordion_icon"><span class="icon-ChevronDown3Legacy icon-large" /></div>*@
+                    <div class="col summary span_15 sub_heading" style="font-size:1.5em;">@Resources.SelfServicePortalResources.FavHelpArticles</div>
+                </div>
+                <div class="sub_row_container clr">
+                    @{
+                        foreach (var item in favoritesList)
+                        {
+                            string articlePage = "KnowledgeBase/article/" + item["ArticleId"];
+                            @*<div class="row sub_row" data-link="@articlePage">
+                                    <div class="col span_2"><span class="icon-HeartFillLegacy icon-fill"></span></div>
+                                    <div class="col span_5">@item["Title"]</div>
+                                    <div class="col span_16">@item["Abstract"]</div>
+                                </div>*@
+                                    <div class="tile border" role="button" data-link="@articlePage" tabindex=@tabIndex.ToString() data-toggle="tooltip" title="@item["Abstract"]">
+                                        <div class="row title">
+                                            <div class="text row">@item["Title"]</div>
+                                        </div>
+                                        <div class="row description">
+                                            <div class="text">@item["Abstract"]</div>
+                                        </div>
+                                        <span class="icon-HeartFillLegacy icon-fill icon"></span>
+                                    </div>
+
+                            tabIndex++;
+                        }
+                    }
+                </div>
+            </div>
+        }
+
+        @if (knowledgeList.Count != 0)
+        {
+            <div class="most_popular_section section" style="margin-bottom: 3em;">
+                <div class="row primary_row">
+                    <div class="col summary span_15 sub_heading" style="font-size:1.5em;">@Resources.SelfServicePortalResources.MostPopular</div>
+                </div>
+                <div class="'sub_row_container">
+                    @{
+                        foreach (var item in knowledgeList)
+                        {
+                            string articlePage = "KnowledgeBase/article/" + item["ArticleId"];
+                            object ratingHelp = ((List<object>)item["Rating"])[0];
+                            Dictionary<string, object> ratingItem = (Dictionary<string, object>)ratingHelp;
+                            string rating = ratingItem["TotalRatingStars"].ToString().Equals("0") ? "NA" : ratingItem["TotalRatingStars"].ToString();
+
+                            bool isFav = false;
+
+                            foreach (var fav in favoritesList)
+                            {
+                                if (fav["BMEId"].Equals(item["BMEId"]))
+                                {
+                                    isFav = true;
+                                    break;
+                                }
+                            }
+                            @*<div class="row sub_row" data-link ="@articlePage">
+                                    <div class="col span_3">
+                                    @{
+                                            int rating_result;
+
+                                            if (Int32.TryParse(rating, out rating_result))
+                                            {
+                                                for (int i = 0; i < rating_result; i++)
+                                        {
+                                            <span class="icon-SolidStarLegacy icon-fill"></span>
+                                        }
+                                    }
+                                        }
+                                    </div>
+                                    <div class="col span_5">@item["Title"]</div>
+                                    <div class="col span_16">@item["Abstract"]</div>
+                                </div>*@
+
+                            tabIndex++;
+
+                            <div class="tile border" role="button" data-link="@articlePage" tabindex=@tabIndex.ToString() data-toggle="tooltip" title="@item["Abstract"]">
+                                <div class="row title">
+                                    <div class="text row">@item["Title"]</div>
+                                </div>
+                                <div class="row description">
+                                    <div class="text">@item["Abstract"]</div>
+                                </div>
+                                <div class="rating">
+                                    @{
+                                        int rating_result = 0;
+                                        if (Int32.TryParse(rating, out rating_result))
+                                        {
+                                            for (int i = 0; i < rating_result; i++)
+                                            {
+                                                <span class="icon-SolidStarLegacy icon-orange-fill"></span>
+                                            }
+                                        }
+                                        for (int i = rating_result; i < 5; i++)
+                                        {
+                                            <span class="icon-OutlineStarLegacy"></span>
+                                        }
+                                    }
+
+                                </div>
+                                @if (isFav)
+                                {
+                                    <span class="icon-HeartFillLegacy icon-fill icon"></span>
+                                }
+                                else
+                                {
+                                    <span class="icon-HeartLegacy icon-fill icon"></span>
+                                }
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        }
+
+    </div>
+
+
+</body>
+
+</html>

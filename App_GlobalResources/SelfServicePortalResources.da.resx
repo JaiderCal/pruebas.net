@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActionLog" xml:space="preserve">
+    <value>Handlingslog</value>
+  </data>
+  <data name="ActivateRequest" xml:space="preserve">
+    <value>Aktivér anmodning</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Aktiv</value>
+  </data>
+  <data name="Activities" xml:space="preserve">
+    <value>Aktiviteter</value>
+  </data>
+  <data name="ActivityImplementor" xml:space="preserve">
+    <value>Aktivitetsimplementator</value>
+  </data>
+  <data name="AddComments" xml:space="preserve">
+    <value>Tilføj kommentarer her ...</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Alle</value>
+  </data>
+  <data name="Announcements" xml:space="preserve">
+    <value>Aktive meddelelser</value>
+  </data>
+  <data name="ApprovalStatus" xml:space="preserve">
+    <value>Godkendelsesstatus</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Godkend</value>
+  </data>
+  <data name="AssociatedWI" xml:space="preserve">
+    <value>Tilknyttet arbejdsopgave</value>
+  </data>
+  <data name="AttachFile" xml:space="preserve">
+    <value>Vedhæft fil</value>
+  </data>
+  <data name="AttachFiles" xml:space="preserve">
+    <value>Vedhæft filer</value>
+  </data>
+  <data name="AvailableRequests" xml:space="preserve">
+    <value>Tilgængelige anmodninger</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuller</value>
+  </data>
+  <data name="CancelRequest" xml:space="preserve">
+    <value>Annuller anmodning</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Lukket</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Kontakt os</value>
+  </data>
+  <data name="CostInformation" xml:space="preserve">
+    <value>Oplysninger om omkostninger</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>Oprettelsesdato</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Beskrivelse</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Oplysninger</value>
+  </data>
+  <data name="ExpiryDate" xml:space="preserve">
+    <value>Udløbsdato</value>
+  </data>
+  <data name="ExternalContent" xml:space="preserve">
+    <value>Eksternt indhold</value>
+  </data>
+  <data name="FavHelpArticles" xml:space="preserve">
+    <value>Dine favorithjælpartikler</value>
+  </data>
+  <data name="Favorites" xml:space="preserve">
+    <value>Favoritter</value>
+  </data>
+  <data name="FavouriteThis" xml:space="preserve">
+    <value>Markér som favorit</value>
+  </data>
+  <data name="FindByKeywords" xml:space="preserve">
+    <value>Find efter søgeord</value>
+  </data>
+  <data name="GenericRequest" xml:space="preserve">
+    <value>Kan du ikke finde en løsning i kataloget?</value>
+  </data>
+  <data name="HelpArticles" xml:space="preserve">
+    <value>Hjælpartikler</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Startside</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>Igangværende</value>
+  </data>
+  <data name="Instructions" xml:space="preserve">
+    <value>Instruktioner</value>
+  </data>
+  <data name="InternalContent" xml:space="preserve">
+    <value>Internt indhold</value>
+  </data>
+  <data name="LastModified" xml:space="preserve">
+    <value>Senest ændret</value>
+  </data>
+  <data name="LastUpdated" xml:space="preserve">
+    <value>Senest opdateret</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Hav tålmodighed...</value>
+  </data>
+  <data name="ManualActivity" xml:space="preserve">
+    <value>Manuel aktivitet</value>
+  </data>
+  <data name="MarkCompleted" xml:space="preserve">
+    <value>Markér som fuldført</value>
+  </data>
+  <data name="MarkFailed" xml:space="preserve">
+    <value>Markér som mislykket</value>
+  </data>
+  <data name="MostPopular" xml:space="preserve">
+    <value>Mest populære</value>
+  </data>
+  <data name="MyActvities" xml:space="preserve">
+    <value>Mine aktiviteter</value>
+  </data>
+  <data name="MyRequests" xml:space="preserve">
+    <value>Mine anmodninger</value>
+  </data>
+  <data name="NavQuestion" xml:space="preserve">
+    <value>Kan du ikke løse problemet her?</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Selvbetjeningsportal til Service Manager 2019</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Prioritet</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>Egenskab</value>
+  </data>
+  <data name="QueryPickerMeta" xml:space="preserve">
+    <value>Dette felt afhænger af </value>
+  </data>
+  <data name="RateThis" xml:space="preserve">
+    <value>Bedøm denne artikel</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Opdater</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Afvis</value>
+  </data>
+  <data name="RelatedHelpArticles" xml:space="preserve">
+    <value>Relaterede hjælpartikler</value>
+  </data>
+  <data name="RequestOfferings" xml:space="preserve">
+    <value>Anmod om tilbud</value>
+  </data>
+  <data name="Resolved" xml:space="preserve">
+    <value>Løst</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>Gennemsyn</value>
+  </data>
+  <data name="ReviewActivity" xml:space="preserve">
+    <value>Gennemsynsaktivitet</value>
+  </data>
+  <data name="ReviewAs" xml:space="preserve">
+    <value>Anmeld som</value>
+  </data>
+  <data name="Reviewers" xml:space="preserve">
+    <value>Validatorer</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Søg</value>
+  </data>
+  <data name="SearchPlaceHolder" xml:space="preserve">
+    <value>Søg i hjælpartikler og tjenester</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Søgeresultater for</value>
+  </data>
+  <data name="SeeAll" xml:space="preserve">
+    <value>Se alle</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Del</value>
+  </data>
+  <data name="SLAInformation" xml:space="preserve">
+    <value>Oplysninger om SLA</value>
+  </data>
+  <data name="SubmitForm" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Opdatering</value>
+  </data>
+  <data name="UserInput" xml:space="preserve">
+    <value>Brugerinput</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Værdi</value>
+  </data>
+  <data name="VotedBy" xml:space="preserve">
+    <value>Stemt af</value>
+  </data>
+  <data name="ActivityArea" xml:space="preserve">
+    <value>Aktivitetsområde</value>
+  </data>
+  <data name="ScheduledEndDate" xml:space="preserve">
+    <value>Planlagt slutdato</value>
+  </data>
+  <data name="ScheduledStartDate" xml:space="preserve">
+    <value>Planlagt startdato</value>
+  </data>
+  <data name="SortBy" xml:space="preserve">
+    <value>Sortér efter</value>
+  </data>
+  <data name="Stage" xml:space="preserve">
+    <value>Fase</value>
+  </data>
+  <data name="ItemDetails" xml:space="preserve">
+    <value>Elementoplysninger</value>
+  </data>
+  <data name="ChooseFile" xml:space="preserve">
+    <value>Vælg fil</value>
+  </data>
+  <data name="CreateRequest" xml:space="preserve">
+    <value>Opret anmodning</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Ejer</value>
+  </data>
+  <data name="NoSearchRecords" xml:space="preserve">
+    <value>Der blev ikke fundet nogen poster. Afgræns søgningen.</value>
+  </data>
+  <data name="Enteries" xml:space="preserve">
+    <value>Poster</value>
+  </data>
+  <data name="Filtered" xml:space="preserve">
+    <value>Filtreret</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>Første</value>
+  </data>
+  <data name="Last" xml:space="preserve">
+    <value>Sidste</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Næste</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Forrige</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Vis</value>
+  </data>
+  <data name="Showing" xml:space="preserve">
+    <value>Viser</value>
+  </data>
+  <data name="ActivityUpdateFail" xml:space="preserve">
+    <value>Aktivitetsopdateringen mislykkedes</value>
+  </data>
+  <data name="ActivityUpdateSuccess" xml:space="preserve">
+    <value>Aktiviteten blev opdateret</value>
+  </data>
+  <data name="CantFindSolution" xml:space="preserve">
+    <value>Fandt du ikke din løsning her?</value>
+  </data>
+  <data name="KARatingUpdateFailed" xml:space="preserve">
+    <value>Klassificeringsopdateringen mislykkedes</value>
+  </data>
+  <data name="KARatingUpdateSuccess" xml:space="preserve">
+    <value>Klassificeringen er sendt</value>
+  </data>
+  <data name="Launguage" xml:space="preserve">
+    <value>Sprog</value>
+  </data>
+  <data name="PoweredBy" xml:space="preserve">
+    <value>Drevet af</value>
+  </data>
+  <data name="RequestUpdateFail" xml:space="preserve">
+    <value>Opdateringen af anmodningen mislykkedes</value>
+  </data>
+  <data name="RequestUpdateSuccess" xml:space="preserve">
+    <value>Anmodningen blev opdateret</value>
+  </data>
+  <data name="ServiceCatalog" xml:space="preserve">
+    <value>Tjenestekatalog</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Kommentar</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Navn</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="FavoritesDescription" xml:space="preserve">
+    <value>Viser en liste over anmodninger, som du har markeret som favoritter, så du hurtigt har adgang til dem</value>
+  </data>
+  <data name="Article" xml:space="preserve">
+    <value>Hjælpartikel</value>
+  </data>
+  <data name="ActivityStatusEnum_Active" xml:space="preserve">
+    <value>Igangværende</value>
+  </data>
+  <data name="ActivityStatusEnum_Cancelled" xml:space="preserve">
+    <value>Annulleret</value>
+  </data>
+  <data name="ActivityStatusEnum_Completed" xml:space="preserve">
+    <value>Fuldført</value>
+  </data>
+  <data name="ActivityStatusEnum_Failed" xml:space="preserve">
+    <value>Mislykkedes</value>
+  </data>
+  <data name="ActivityStatusEnum_OnHold" xml:space="preserve">
+    <value>I venteposition</value>
+  </data>
+  <data name="ActivityStatusEnum_Ready" xml:space="preserve">
+    <value>Afventer</value>
+  </data>
+  <data name="ActivityStatusEnum_Rerun" xml:space="preserve">
+    <value>Kør igen</value>
+  </data>
+  <data name="ActivityStatusEnum_Skipped" xml:space="preserve">
+    <value>Sprunget over</value>
+  </data>
+  <data name="Ago" xml:space="preserve">
+    <value>siden</value>
+  </data>
+  <data name="SeeLess" xml:space="preserve">
+    <value>Vis mindre</value>
+  </data>
+  <data name="SeeMore" xml:space="preserve">
+    <value>Vis mere</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>dage</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>timer</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>minutter</value>
+  </data>
+  <data name="AddedBy" xml:space="preserve">
+    <value>Tilføjet af</value>
+  </data>
+  <data name="NothingToShowHere" xml:space="preserve">
+    <value>Intet at vise her ...</value>
+  </data>
+  <data name="NoActivitiesFound" xml:space="preserve">
+    <value>Ingen aktiviteter fundet</value>
+  </data>
+  <data name="NoHelpArticlesFound" xml:space="preserve">
+    <value>Ingen Hjælp-artikler fundet</value>
+  </data>
+  <data name="NoOfferingsFound" xml:space="preserve">
+    <value>Ingen tilbud fundet</value>
+  </data>
+  <data name="NoRequestsFound" xml:space="preserve">
+    <value>Ingen anmodninger fundet</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Noter</value>
+  </data>
+  <data name="AddCommentToActivate" xml:space="preserve">
+    <value>Tilføj en kommentar, der forklarer, hvorfor anmodningen bliver aktiveret.</value>
+  </data>
+  <data name="AddCommentToCancel" xml:space="preserve">
+    <value>Tilføj en kommentar, der forklarer, hvorfor anmodningen bliver annulleret.</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Kommentarer</value>
+  </data>
+  <data name="EmptyQueryTable" xml:space="preserve">
+    <value>Klik på "Opdater" for at indlæse data</value>
+  </data>
+  <data name="AttachedBy" xml:space="preserve">
+    <value>Vedhæftet af</value>
+  </data>
+  <data name="AttachedDate" xml:space="preserve">
+    <value>Vedhæftet d.</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>Filnavn</value>
+  </data>
+  <data name="AttachedFiles" xml:space="preserve">
+    <value>Vedhæftede filer</value>
+  </data>
+  <data name="HasVeto" xml:space="preserve">
+    <value>Har veto</value>
+  </data>
+  <data name="MustVote" xml:space="preserve">
+    <value>Skal stemme</value>
+  </data>
+  <data name="FileAttachedBy" xml:space="preserve">
+    <value>Filen er vedhæftet via</value>
+  </data>
+  <data name="NewRequestCreated" xml:space="preserve">
+    <value>Den nye anmodning er oprettet</value>
+  </data>
+  <data name="NewRequestCreationFailedWithParam" xml:space="preserve">
+    <value>Anmodningen om oprettelse mislykkedes. {0}</value>
+  </data>
+  <data name="ValidationErrorDateBetween" xml:space="preserve">
+    <value>Inputdatoen skal være mellem {0} og {1}</value>
+  </data>
+  <data name="ValidationErrorDateGreaterThan" xml:space="preserve">
+    <value>Inputdatoen skal være større end {0}</value>
+  </data>
+  <data name="ValidationErrorDateLesserThan" xml:space="preserve">
+    <value>Inputdatoen skal være mindre end {0}</value>
+  </data>
+  <data name="ValidationErrorDecimalBetween" xml:space="preserve">
+    <value>Inputdecimalen skal være mellem {0} og {1}</value>
+  </data>
+  <data name="ValidationErrorFieldRequired" xml:space="preserve">
+    <value>Dette felt er obligatorisk</value>
+  </data>
+  <data name="ValidationErrorFileSizeExceedsLimit" xml:space="preserve">
+    <value>Filstørrelsen overstiger den konfigurerede grænse på {0} KB</value>
+  </data>
+  <data name="ValidationErrorIntegerBetween" xml:space="preserve">
+    <value>Inputheltallet skal være mellem {0} og {1}</value>
+  </data>
+  <data name="ValidationErrorInvalidInput" xml:space="preserve">
+    <value>Ugyldigt input</value>
+  </data>
+  <data name="ValidationErrorListNoMultiple" xml:space="preserve">
+    <value>Markering af flere elementer er ikke tilladt</value>
+  </data>
+  <data name="ValidationErrorShouldBeDecimal" xml:space="preserve">
+    <value>Inputtet skal være et decimaltal</value>
+  </data>
+  <data name="ValidationErrorShouldBeInteger" xml:space="preserve">
+    <value>Inputtet skal være et heltal</value>
+  </data>
+  <data name="ValidationErrorStringBetween" xml:space="preserve">
+    <value>Inputstrengen skal være mellem {0} til {1} tegn</value>
+  </data>
+  <data name="ValidationErrorStringInvalidEmail" xml:space="preserve">
+    <value>Inputtet er ikke en gyldig mailadresse</value>
+  </data>
+  <data name="ValidationErrorStringInvalidIntnlNumber" xml:space="preserve">
+    <value>Inputtet er ikke et gyldigt internationalt telefonnummer</value>
+  </data>
+  <data name="ValidationErrorStringInvalidNumber" xml:space="preserve">
+    <value>Inputtet er ikke et gyldigt telefonnummer</value>
+  </data>
+  <data name="ValidationErrorStringInvalidPattern" xml:space="preserve">
+    <value>Inputtet stemmer ikke overens med mønsteret</value>
+  </data>
+  <data name="ValidationErrorStringInvalidURL" xml:space="preserve">
+    <value>Inputtet er ikke en gyldig URL-adresse</value>
+  </data>
+  <data name="NewRequestCreationFailed" xml:space="preserve">
+    <value>Anmodningen blev ikke oprettet.</value>
+  </data>
+  <data name="FizeUploadSizeLimit" xml:space="preserve">
+    <value>Sørg for, at din fil er mindre end {0} KB</value>
+  </data>
+  <data name="ShowingEntries" xml:space="preserve">
+    <value>Viser {0} til {1} af {2} opslag</value>
+  </data>
+  <data name="FilteredFrom" xml:space="preserve">
+    <value>Filtreret fra {0} opslag</value>
+  </data>
+  <data name="ValidationErrorServerSideFileSizeExceedsLimit" xml:space="preserve">
+    <value>Filstørrelsen overskrider den maksimale størrelse på vedhæftede filer, som er {0} : {1} KB</value>
+  </data>
+</root>

@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActionLog" xml:space="preserve">
+    <value>Műveleti napló</value>
+  </data>
+  <data name="ActivateRequest" xml:space="preserve">
+    <value>Kérés aktiválása</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Aktív</value>
+  </data>
+  <data name="Activities" xml:space="preserve">
+    <value>Tevékenységek</value>
+  </data>
+  <data name="ActivityImplementor" xml:space="preserve">
+    <value>Tevékenység-végrehajtó</value>
+  </data>
+  <data name="AddComments" xml:space="preserve">
+    <value>Ide írhatja a megjegyzéseit...</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Mind</value>
+  </data>
+  <data name="Announcements" xml:space="preserve">
+    <value>Aktív közlemények</value>
+  </data>
+  <data name="ApprovalStatus" xml:space="preserve">
+    <value>Jóváhagyás állapota</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Jóváhagyás</value>
+  </data>
+  <data name="AssociatedWI" xml:space="preserve">
+    <value>Hozzárendelt munkaelem</value>
+  </data>
+  <data name="AttachFile" xml:space="preserve">
+    <value>Fájl csatolása</value>
+  </data>
+  <data name="AttachFiles" xml:space="preserve">
+    <value>Fájlok csatolása</value>
+  </data>
+  <data name="AvailableRequests" xml:space="preserve">
+    <value>Választható kérések</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Visszavonás</value>
+  </data>
+  <data name="CancelRequest" xml:space="preserve">
+    <value>Kérés visszavonása</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Lezárva</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Kapcsolatfelvétel</value>
+  </data>
+  <data name="CostInformation" xml:space="preserve">
+    <value>Költséginformációk</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>Létrehozás dátuma</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Leírás</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Részletek</value>
+  </data>
+  <data name="ExpiryDate" xml:space="preserve">
+    <value>Érvényesség</value>
+  </data>
+  <data name="ExternalContent" xml:space="preserve">
+    <value>Külső tartalom</value>
+  </data>
+  <data name="FavHelpArticles" xml:space="preserve">
+    <value>Kedvenc súgótémakörök</value>
+  </data>
+  <data name="Favorites" xml:space="preserve">
+    <value>Kedvencek</value>
+  </data>
+  <data name="FavouriteThis" xml:space="preserve">
+    <value>Kedvencek közé</value>
+  </data>
+  <data name="FindByKeywords" xml:space="preserve">
+    <value>Keresés kulcsszavak szerint</value>
+  </data>
+  <data name="GenericRequest" xml:space="preserve">
+    <value>Nem talál megoldást a katalógusban?</value>
+  </data>
+  <data name="HelpArticles" xml:space="preserve">
+    <value>Súgótémakörök</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Kezdőlap</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>Azonosító</value>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>Folyamatban</value>
+  </data>
+  <data name="Instructions" xml:space="preserve">
+    <value>Útmutatás</value>
+  </data>
+  <data name="InternalContent" xml:space="preserve">
+    <value>Belső tartalom</value>
+  </data>
+  <data name="LastModified" xml:space="preserve">
+    <value>Legutóbb módosítva</value>
+  </data>
+  <data name="LastUpdated" xml:space="preserve">
+    <value>Legutóbb frissítve</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Kis türelmet...</value>
+  </data>
+  <data name="ManualActivity" xml:space="preserve">
+    <value>Manuális tevékenység</value>
+  </data>
+  <data name="MarkCompleted" xml:space="preserve">
+    <value>Elvégezve</value>
+  </data>
+  <data name="MarkFailed" xml:space="preserve">
+    <value>Sikertelen</value>
+  </data>
+  <data name="MostPopular" xml:space="preserve">
+    <value>Legnépszerűbbek</value>
+  </data>
+  <data name="MyActvities" xml:space="preserve">
+    <value>Saját tevékenységek</value>
+  </data>
+  <data name="MyRequests" xml:space="preserve">
+    <value>Saját kérések</value>
+  </data>
+  <data name="NavQuestion" xml:space="preserve">
+    <value>Nem találja itt a megoldást?</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Önkiszolgáló Service Manager 2019-portál</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Prioritás</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>Tulajdonság</value>
+  </data>
+  <data name="QueryPickerMeta" xml:space="preserve">
+    <value>Ez a mező ettől függ: </value>
+  </data>
+  <data name="RateThis" xml:space="preserve">
+    <value>Témakör értékelése</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Frissítés</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Elutasítás</value>
+  </data>
+  <data name="RelatedHelpArticles" xml:space="preserve">
+    <value>Kapcsolódó súgótémakörök</value>
+  </data>
+  <data name="RequestOfferings" xml:space="preserve">
+    <value>Kérésajánlatok</value>
+  </data>
+  <data name="Resolved" xml:space="preserve">
+    <value>Megoldva</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>Felülvizsgálat</value>
+  </data>
+  <data name="ReviewActivity" xml:space="preserve">
+    <value>Tevékenység felülvizsgálata</value>
+  </data>
+  <data name="ReviewAs" xml:space="preserve">
+    <value>Véleményezés mint:</value>
+  </data>
+  <data name="Reviewers" xml:space="preserve">
+    <value>Felülvizsgálók</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Keresés</value>
+  </data>
+  <data name="SearchPlaceHolder" xml:space="preserve">
+    <value>Keresés a súgótémakörökben és a szolgáltatásokban</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Találatok a következőhöz:</value>
+  </data>
+  <data name="SeeAll" xml:space="preserve">
+    <value>Az összes megjelenítése</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Megosztás</value>
+  </data>
+  <data name="SLAInformation" xml:space="preserve">
+    <value>SLA-információk</value>
+  </data>
+  <data name="SubmitForm" xml:space="preserve">
+    <value>Küldés</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Cím</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Frissítés</value>
+  </data>
+  <data name="UserInput" xml:space="preserve">
+    <value>Felhasználói bevitel</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Érték</value>
+  </data>
+  <data name="VotedBy" xml:space="preserve">
+    <value>Szavazó</value>
+  </data>
+  <data name="ActivityArea" xml:space="preserve">
+    <value>Tevékenységi terület</value>
+  </data>
+  <data name="ScheduledEndDate" xml:space="preserve">
+    <value>Ütemezett befejezési dátum</value>
+  </data>
+  <data name="ScheduledStartDate" xml:space="preserve">
+    <value>Ütemezett kezdési dátum</value>
+  </data>
+  <data name="SortBy" xml:space="preserve">
+    <value>Rendezés:</value>
+  </data>
+  <data name="Stage" xml:space="preserve">
+    <value>Szakasz</value>
+  </data>
+  <data name="ItemDetails" xml:space="preserve">
+    <value>Elem részletei</value>
+  </data>
+  <data name="ChooseFile" xml:space="preserve">
+    <value>Fájl kiválasztása</value>
+  </data>
+  <data name="CreateRequest" xml:space="preserve">
+    <value>Kérés létrehozása</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Tulajdonos</value>
+  </data>
+  <data name="NoSearchRecords" xml:space="preserve">
+    <value>Nem találhatók rekordok, pontosítsa a keresést</value>
+  </data>
+  <data name="Enteries" xml:space="preserve">
+    <value>Bejegyzések</value>
+  </data>
+  <data name="Filtered" xml:space="preserve">
+    <value>Szűrt</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>Első</value>
+  </data>
+  <data name="Last" xml:space="preserve">
+    <value>Utolsó</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Következő</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Előző</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Megjelenítés</value>
+  </data>
+  <data name="Showing" xml:space="preserve">
+    <value>Megjelenítve:</value>
+  </data>
+  <data name="ActivityUpdateFail" xml:space="preserve">
+    <value>A tevékenység frissítése sikertelen volt</value>
+  </data>
+  <data name="ActivityUpdateSuccess" xml:space="preserve">
+    <value>A tevékenység frissítése sikerült</value>
+  </data>
+  <data name="CantFindSolution" xml:space="preserve">
+    <value>Nem találta meg a keresett megoldást?</value>
+  </data>
+  <data name="KARatingUpdateFailed" xml:space="preserve">
+    <value>Értékelésének frissítése sikertelen volt</value>
+  </data>
+  <data name="KARatingUpdateSuccess" xml:space="preserve">
+    <value>Értékelése sikeresen elküldve</value>
+  </data>
+  <data name="Launguage" xml:space="preserve">
+    <value>Nyelv</value>
+  </data>
+  <data name="PoweredBy" xml:space="preserve">
+    <value>Szolgáltató</value>
+  </data>
+  <data name="RequestUpdateFail" xml:space="preserve">
+    <value>A kérelem frissítése sikertelen</value>
+  </data>
+  <data name="RequestUpdateSuccess" xml:space="preserve">
+    <value>A kérelem frissítése sikerült</value>
+  </data>
+  <data name="ServiceCatalog" xml:space="preserve">
+    <value>Szolgáltatáskatalógus</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Megjegyzés</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Név</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Állapot</value>
+  </data>
+  <data name="FavoritesDescription" xml:space="preserve">
+    <value>A gyors hozzáférés céljából kedvencekként megjelölt kérelmek listáját jeleníti meg</value>
+  </data>
+  <data name="Article" xml:space="preserve">
+    <value>Súgótémakör</value>
+  </data>
+  <data name="ActivityStatusEnum_Active" xml:space="preserve">
+    <value>Folyamatban</value>
+  </data>
+  <data name="ActivityStatusEnum_Cancelled" xml:space="preserve">
+    <value>Megszakítva</value>
+  </data>
+  <data name="ActivityStatusEnum_Completed" xml:space="preserve">
+    <value>Befejezve</value>
+  </data>
+  <data name="ActivityStatusEnum_Failed" xml:space="preserve">
+    <value>Sikertelen</value>
+  </data>
+  <data name="ActivityStatusEnum_OnHold" xml:space="preserve">
+    <value>Tartva</value>
+  </data>
+  <data name="ActivityStatusEnum_Ready" xml:space="preserve">
+    <value>Függőben</value>
+  </data>
+  <data name="ActivityStatusEnum_Rerun" xml:space="preserve">
+    <value>Újrafuttatás</value>
+  </data>
+  <data name="ActivityStatusEnum_Skipped" xml:space="preserve">
+    <value>Kihagyva</value>
+  </data>
+  <data name="Ago" xml:space="preserve">
+    <value>visszamenőleg</value>
+  </data>
+  <data name="SeeLess" xml:space="preserve">
+    <value>Mutasson kevesebbet</value>
+  </data>
+  <data name="SeeMore" xml:space="preserve">
+    <value>Mutasson többet</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>nap</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>óra</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>perc</value>
+  </data>
+  <data name="AddedBy" xml:space="preserve">
+    <value>Hozzáadta</value>
+  </data>
+  <data name="NothingToShowHere" xml:space="preserve">
+    <value>Nincs találat...</value>
+  </data>
+  <data name="NoActivitiesFound" xml:space="preserve">
+    <value>Nem találhatók tevékenységek</value>
+  </data>
+  <data name="NoHelpArticlesFound" xml:space="preserve">
+    <value>Nem találhatók súgócikkek</value>
+  </data>
+  <data name="NoOfferingsFound" xml:space="preserve">
+    <value>Nem találhatók ajánlatok</value>
+  </data>
+  <data name="NoRequestsFound" xml:space="preserve">
+    <value>Nem találhatók kérések</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Jegyzetek</value>
+  </data>
+  <data name="AddCommentToActivate" xml:space="preserve">
+    <value>A megjegyzésben foglalja össze a kérés aktiválásának okát.</value>
+  </data>
+  <data name="AddCommentToCancel" xml:space="preserve">
+    <value>A megjegyzésben foglalja össze a kérés visszavonásának okát.</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Megjegyzések</value>
+  </data>
+  <data name="EmptyQueryTable" xml:space="preserve">
+    <value>Az adatok betöltéséhez kattintson a Frissítés gombra</value>
+  </data>
+  <data name="AttachedBy" xml:space="preserve">
+    <value>Csatolta</value>
+  </data>
+  <data name="AttachedDate" xml:space="preserve">
+    <value>Csatolás dátuma</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>Fájlnév</value>
+  </data>
+  <data name="AttachedFiles" xml:space="preserve">
+    <value>Csatolt fájlok</value>
+  </data>
+  <data name="HasVeto" xml:space="preserve">
+    <value>Vétójoga van</value>
+  </data>
+  <data name="MustVote" xml:space="preserve">
+    <value>Köteles szavazni</value>
+  </data>
+  <data name="FileAttachedBy" xml:space="preserve">
+    <value>A fájlt csatolta:</value>
+  </data>
+  <data name="NewRequestCreated" xml:space="preserve">
+    <value>Az új kérelem sikeresen létrehozva</value>
+  </data>
+  <data name="NewRequestCreationFailedWithParam" xml:space="preserve">
+    <value>Nem sikerült létrehozni a kérelmet. {0}</value>
+  </data>
+  <data name="ValidationErrorDateBetween" xml:space="preserve">
+    <value>A bemeneti dátumnak {0} és {1} közöttinek kell lennie</value>
+  </data>
+  <data name="ValidationErrorDateGreaterThan" xml:space="preserve">
+    <value>A bemeneti dátumnak későbbinek kell lennie, mint {0}</value>
+  </data>
+  <data name="ValidationErrorDateLesserThan" xml:space="preserve">
+    <value>A bemeneti dátumnak korábbinak kell lennie, mint {0}</value>
+  </data>
+  <data name="ValidationErrorDecimalBetween" xml:space="preserve">
+    <value>A bemeneti decimális számnak {0} és {1} közöttinek kell lennie</value>
+  </data>
+  <data name="ValidationErrorFieldRequired" xml:space="preserve">
+    <value>Ezt a mezőt kötelező kitölteni</value>
+  </data>
+  <data name="ValidationErrorFileSizeExceedsLimit" xml:space="preserve">
+    <value>A fájlméret meghaladja a megadott korlátot ({0} KB)</value>
+  </data>
+  <data name="ValidationErrorIntegerBetween" xml:space="preserve">
+    <value>A bemeneti egész számnak {0} és {1} közöttinek kell lennie</value>
+  </data>
+  <data name="ValidationErrorInvalidInput" xml:space="preserve">
+    <value>A bevitt adat érvénytelen</value>
+  </data>
+  <data name="ValidationErrorListNoMultiple" xml:space="preserve">
+    <value>A többszörös kijelölés nem engedélyezett</value>
+  </data>
+  <data name="ValidationErrorShouldBeDecimal" xml:space="preserve">
+    <value>A bemenetnek decimális számnak kell lennie</value>
+  </data>
+  <data name="ValidationErrorShouldBeInteger" xml:space="preserve">
+    <value>A bemenetnek egész számnak kell lennie</value>
+  </data>
+  <data name="ValidationErrorStringBetween" xml:space="preserve">
+    <value>A bemeneti karakterlánc hosszának {0} és {1} karakter közöttinek kell lennie</value>
+  </data>
+  <data name="ValidationErrorStringInvalidEmail" xml:space="preserve">
+    <value>A bemenet nem érvényes e-mail-cím</value>
+  </data>
+  <data name="ValidationErrorStringInvalidIntnlNumber" xml:space="preserve">
+    <value>A bemenet nem érvényes nemzetközi telefonszám</value>
+  </data>
+  <data name="ValidationErrorStringInvalidNumber" xml:space="preserve">
+    <value>A bemenet nem érvényes telefonszám</value>
+  </data>
+  <data name="ValidationErrorStringInvalidPattern" xml:space="preserve">
+    <value>A bemenet nem felel meg a mintának</value>
+  </data>
+  <data name="ValidationErrorStringInvalidURL" xml:space="preserve">
+    <value>A bemenet nem érvényes URL-cím</value>
+  </data>
+  <data name="NewRequestCreationFailed" xml:space="preserve">
+    <value>A kérelem létrehozása sikertelen volt.</value>
+  </data>
+  <data name="FizeUploadSizeLimit" xml:space="preserve">
+    <value>Ügyeljen arra, hogy a fájl {0} KB-nál kisebb legyen</value>
+  </data>
+  <data name="ShowingEntries" xml:space="preserve">
+    <value>{0}–{1}. megjelenítése a(z) {2} bejegyzés közül</value>
+  </data>
+  <data name="FilteredFrom" xml:space="preserve">
+    <value>{0} bejegyzésből kiszűrve</value>
+  </data>
+  <data name="ValidationErrorServerSideFileSizeExceedsLimit" xml:space="preserve">
+    <value>A fájl mérete meghaladja a mellékletekre vonatkozó méretkorlátot ({0}: {1} KB)</value>
+  </data>
+</root>
